@@ -17,14 +17,15 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 
-/* High Visibility Clean Background Video (Exact 60% Visiblity) */
+.gpu-smooth{transform:translateZ(0);will-change:transform}
+
+/* Crystal Clear Background Video Layer (Exact 70% Visibility) */
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
-#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0.6;filter:saturate(1.15) contrast(1.05) brightness(1.05);transform:translateZ(0)}
-#ambient:after{content:"";position:absolute;inset:0;background:rgba(8,7,6,0.35)}
+#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0.7;filter:saturate(1.2) contrast(1.1) brightness(1.08);transform:translateZ(0)}
+#ambient:after{content:"";position:absolute;inset:0;background:rgba(8,7,6,0.28)}
 
 .wrap{width:min(1100px,94%);margin:auto}
 
-/* Fixed Header: Full Name, No Ellipsis */
 header{position:sticky;top:0;z-index:50;background:rgba(8,7,6,.96);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.85)}
 .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .brand{display:flex;align-items:center;gap:10px;user-select:none;cursor:pointer;flex:1;min-width:0}
@@ -55,7 +56,6 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .filter{border:1px solid var(--line);background:rgba(15,12,9,.85);color:#e8dcc8;border-radius:30px;padding:7px 12px;font-size:10.5px;font-weight:700;transition:all .15s ease}
 .filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 12px rgba(216,173,85,.35)}
 
-/* 60fps Mobile Grid */
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;max-width:980px;margin:0 auto}
 @media(max-width:640px){
   .menu-grid{grid-template-columns:repeat(2,1fr);gap:8px}
@@ -67,9 +67,9 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .food-card-thumb{position:relative;width:100%;aspect-ratio:4/3;background:#15110d;overflow:hidden;cursor:zoom-in}
 .food-card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .25s ease}
 .food-card-thumb:hover img{transform:scale(1.06)}
-.diet-pill{position:absolute;bottom:5px;left:5px;font-size:7.5px;font-weight:900;padding:2px 4px;border-radius:3px;background:rgba(0,0,0,.85)}
+.diet-pill{position:absolute;bottom:5px;left:5px;font-size:7.5px;font-weight:900;padding:2px 5px;border-radius:3px;background:rgba(0,0,0,.85);letter-spacing:.04em}
 .diet-pill.veg{color:#4fd682;border:1px solid #4fd682}
-.diet-pill.nonveg{color:#ff7b6b;border:1px solid #ff7b6b}
+.diet-pill.nonveg{color:#ff6b6b;border:1px solid #ff6b6b}
 .premium-pill{position:absolute;top:5px;right:5px;background:rgba(184,131,50,.85);color:#fff;font-size:7.5px;font-weight:800;padding:2px 5px;border-radius:3px}
 .combo-badge{position:absolute;top:5px;left:5px;background:#e23744;color:#fff;font-size:7.5px;font-weight:900;padding:2px 5px;border-radius:3px}
 
@@ -81,8 +81,8 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .add-btn{width:28px;height:28px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:17px;display:grid;place-items:center}
 .unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:3px;padding:2px 5px;font-size:8.5px;font-weight:800}
 
-/* STRICT SCREEN-CENTERED PHOTO ZOOM MODAL (Fix for downward displacement) */
-#imageModal{position:fixed !important;top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;z-index:9999999 !important;background:rgba(0,0,0,.88) !important;display:none;align-items:center !important;justify-content:center !important;padding:16px !important;margin:0 !important}
+/* Screen-Centered Photo Zoom Modal */
+#imageModal{position:fixed !important;top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;z-index:9999999 !important;background:rgba(0,0,0,.88) !important;display:none;align-items:center !important;justify-content:center !important;padding:16px !important}
 #imageModal.open{display:flex !important}
 .image-zoom-box{width:min(380px,94vw);background:#130f0b;border:1.5px solid var(--gold);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.95);position:relative;animation:popCenter .22s cubic-bezier(0.175,0.885,0.32,1.275)}
 @keyframes popCenter{from{opacity:0;transform:scale(0.88)}to{opacity:1;transform:scale(1)}}
@@ -142,7 +142,11 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .order-type-btn{flex:1;padding:8px;border:1px solid var(--line);background:#16120d;color:var(--muted);border-radius:5px;font-size:10.5px;font-weight:700}
 .order-type-btn.active{background:var(--gold);color:#080706;border-color:var(--gold)}
 
-.policy-card{background:rgba(20,15,10,.85);border:1px solid rgba(216,173,85,.3);border-radius:7px;padding:12px;margin:20px auto 12px;max-width:840px;font-size:11px;color:#c0b49e;line-height:1.55}
+/* Founder Profile & Legal Policies */
+.founder-card{background:linear-gradient(180deg,rgba(26,20,13,.92) 0%,rgba(14,11,8,.95) 100%);border:1.5px solid var(--gold);border-radius:10px;padding:16px;margin:18px auto 10px;max-width:840px;box-shadow:0 6px 20px rgba(0,0,0,.7)}
+.founder-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.founder-avatar{width:50px;height:50px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold)}
+.policy-card{background:rgba(20,15,10,.85);border:1px solid rgba(216,173,85,.3);border-radius:7px;padding:12px;margin:12px auto;max-width:840px;font-size:11px;color:#c0b49e;line-height:1.55}
 .policy-card b{color:var(--gold2)}
 
 footer{border-top:1px solid var(--line);padding:26px 0 34px;text-align:center;background:rgba(7,6,5,.95)}
@@ -153,7 +157,7 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 #alarmBanner{position:fixed;top:0;left:0;right:0;z-index:9999999;background:#e23744;color:#fff;padding:10px;text-align:center;font-weight:900;font-size:12px;display:none}
 </style>
 </head>
-<body>
+<body class="gpu-smooth">
 <div id="ambient"><video id="ambientVideo" autoplay muted playsinline preload="auto"></video></div>
 
 <div id="alarmBanner">
@@ -200,7 +204,6 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 
  <section class="section" id="menu" style="padding:12px 0 38px">
   <div class="wrap">
-   <!-- Clean Heading without (38 DISHES) -->
    <div style="text-align:center;margin-bottom:14px">
     <div class="eyebrow">THE CRAVING COLLECTION</div>
     <h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(19px,4vw,30px);margin:4px 0">OUR DELICIOUS MENU</h2>
@@ -231,6 +234,20 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
     <div class="notice" style="margin:0"><b>100% PURE VEG CARE</b><p style="margin:3px 0 0;font-size:11px;color:var(--muted)">Strict hygiene and separate cookware ensure pristine vegetarian food preparation.</p></div>
     <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:3px 0 0;font-size:11px;color:var(--muted)">Every order cooked fresh with premium ingredients and verified quality standards.</p></div>
     <div class="notice" style="margin:0"><b>LIVE KITCHEN TRACKING</b><p style="margin:3px 0 0;font-size:11px;color:var(--muted)">Follow every preparation stage directly on your phone until pickup or delivery.</p></div>
+   </div>
+
+   <!-- Founder Story & Kitchen Details Card -->
+   <div class="founder-card" id="founderSection">
+    <div class="founder-header">
+     <img src="craving-foodies-logo-hd.jpg" alt="Founder Logo" class="founder-avatar">
+     <div>
+      <h3 style="margin:0;font-family:'Cinzel',serif;font-size:15px;color:var(--gold2)" id="founderTitle">MEET THE FOUNDER &amp; OUR JOURNEY</h3>
+      <small style="color:var(--muted);font-size:9.5px;letter-spacing:.1em">CRAVING FOODIES KITCHEN</small>
+     </div>
+    </div>
+    <p style="font-size:11.5px;color:#ded6c7;line-height:1.6;margin:0" id="founderBio">
+     Welcome to Craving Foodies! Founded with a deep passion for street flavors, premium hygiene, and authentic crunch, our cloud kitchen is dedicated to delivering fresh, piping-hot delicacies straight from our tawa to your doorstep. Every dish is seasoned with love, strict quality checks, and uncompromised ingredients.
+    </p>
    </div>
 
    <div class="policy-card">
@@ -406,12 +423,26 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
    <h4 style="color:var(--gold2);font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:5px;margin:16px 0 8px">🔥 LIVE KITCHEN ORDERS</h4>
    <div id="liveOrdersContainer"><p style="font-size:11px;color:var(--muted)">No pending orders right now.</p></div>
 
-   <button class="gold-btn" id="btnOpenAddCombo" style="width:100%;margin:14px 0 6px;font-size:11.5px">➕ CREATE NEW COMBO / SPECIAL OFFER</button>
+   <!-- Edit Founder Story Button -->
+   <button class="outline-btn" id="btnEditFounder" style="width:100%;margin:10px 0 6px;font-size:11.5px">✏️ EDIT FOUNDER &amp; KITCHEN STORY</button>
+   <button class="gold-btn" id="btnOpenAddCombo" style="width:100%;margin:4px 0 6px;font-size:11.5px">➕ CREATE NEW COMBO / SPECIAL OFFER</button>
 
    <h4 style="color:var(--gold2);font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:5px;margin:14px 0 8px">🍔 MENU &amp; OFFERS MANAGEMENT</h4>
    <div id="availabilityControls"></div>
    <button class="outline-btn" id="adminSignOut" style="margin-top:14px;width:100%">LOGOUT</button>
   </div>
+ </div>
+</div>
+
+<!-- Modal: Edit Founder Story -->
+<div class="modal-overlay" id="founderModal">
+ <div class="box-modal" style="width:min(440px,100%)">
+  <div class="cart-head"><h3>EDIT FOUNDER STORY</h3><button class="close" id="closeFounder">×</button></div>
+  <label style="font-size:10.5px;color:var(--gold2);margin-top:8px;display:block">Founder Heading</label>
+  <input type="text" id="founderTitleInput" class="form-input">
+  <label style="font-size:10.5px;color:var(--gold2);display:block">Founder / Kitchen Story Details</label>
+  <textarea id="founderBioInput" rows="5" class="form-input" style="resize:vertical"></textarea>
+  <button class="gold-btn" id="saveFounderDetails" style="width:100%;margin-top:6px">SAVE STORY LIVE</button>
  </div>
 </div>
 
@@ -431,8 +462,19 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
   <label style="font-size:10.5px;color:var(--gold2)">Item / Combo Name</label>
   <input type="text" id="editDishName" class="form-input">
 
-  <label style="font-size:10.5px;color:var(--gold2)">Price (₹)</label>
-  <input type="number" id="editDishPrice" class="form-input">
+  <div style="display:flex;gap:8px">
+    <div style="flex:1">
+      <label style="font-size:10.5px;color:var(--gold2)">Price (₹)</label>
+      <input type="number" id="editDishPrice" class="form-input">
+    </div>
+    <div style="flex:1">
+      <label style="font-size:10.5px;color:var(--gold2)">Diet Sticker (Veg / Non-Veg)</label>
+      <select id="editDishDiet" class="form-input" style="padding:9px">
+        <option value="veg">🟢 VEG</option>
+        <option value="nonveg">🔴 NON-VEG</option>
+      </select>
+    </div>
+  </div>
 
   <label style="font-size:10.5px;color:var(--gold2)">Category</label>
   <select id="editDishCategory" class="form-input" style="padding:9px">
@@ -471,6 +513,15 @@ let currentOrderType = "Delivery";
 let currentPaymentMode = "UPI";
 let userDistanceKM = 0;
 let userDeliveryCharge = 0;
+
+// Smart Auto Non-Veg Keyword Detection Engine
+function detectNonVegTag(name, currentTag){
+  if(!name) return currentTag || 'veg';
+  const lower = name.toLowerCase();
+  const nonVegKeywords = ['chicken', 'egg', 'eggs', 'mutton', 'fish', 'keema', 'meat', 'bhurji'];
+  const hasKeyword = nonVegKeywords.some(kw => lower.includes(kw));
+  return hasKeyword ? 'nonveg' : (currentTag || 'veg');
+}
 
 const defaultPlaceholder = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314100b'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23d8ad55' stroke-width='1.5' stroke-dasharray='4,3' opacity='0.4'/%3E%3Cpath d='M50 26 C43 26 37 32 37 39 C37 45 42 50 48 51 L48 74 L52 74 L52 51 C58 50 63 45 63 39 C63 32 57 26 50 26 Z M47 31 L49 31 L49 46 L47 46 Z M51 31 L53 31 L53 46 L51 46 Z' fill='%23d8ad55' opacity='0.85'/%3E%3C/svg%3E";
 
@@ -522,8 +573,15 @@ let liveAvailability={},liveItemOverrides={},shopIsOpen=true,activeOrdersMap={};
 function getActiveMenu(){
  return defaultMenu.map(x=>{
    const o = liveItemOverrides[x[0]];
-   if(!o) return x;
-   return [x[0], o.name||x[1], o.category||x[2], o.veg||x[3], o.price!==undefined?+o.price:x[4], o.desc||x[5], o.img||x[6]];
+   const name = o ? (o.name || x[1]) : x[1];
+   const cat = o ? (o.category || x[2]) : x[2];
+   const baseDiet = o ? (o.veg || x[3]) : x[3];
+   // Run auto non-veg keyword detector
+   const finalDiet = detectNonVegTag(name, baseDiet);
+   const price = o && o.price !== undefined ? +o.price : x[4];
+   const desc = o ? (o.desc || x[5]) : x[5];
+   const img = o ? (o.img || x[6]) : x[6];
+   return [x[0], name, cat, finalDiet, price, desc, img];
  });
 }
 
@@ -542,7 +600,7 @@ function render(filter="all"){
    return `<article class="food-card">
      <div class="food-card-thumb" onclick="openPhotoZoom('${x[1]}','${x[6]}','${x[5]}')">
        <img src="${x[6]}" alt="${x[1]}" loading="lazy">
-       ${isCombo ? '<span class="combo-badge">🔥 SPECIAL COMBO</span>' : `<span class="diet-pill ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>`}
+       ${isCombo ? '<span class="combo-badge">🔥 SPECIAL COMBO</span>' : `<span class="diet-pill ${x[3]}">${x[3]==='veg'?'🟢 VEG':'🔴 NON-VEG'}</span>`}
        ${premium?'<span class="premium-pill">★ SIGNATURE</span>':''}
      </div>
      <div class="food-card-body">
@@ -565,14 +623,13 @@ function render(filter="all"){
  });
 }
 
-// Center-Aligned Instant Photo Zoom View Engine
 function openPhotoZoom(name,url,desc){
  document.getElementById('modalTitle').textContent=name;
  document.getElementById('modalImg').src=url;
  document.getElementById('modalDesc').textContent=desc;
  const m = document.getElementById('imageModal');
  m.classList.add('open');
- document.body.style.overflow = "hidden"; // Prevent page scrolling under modal
+ document.body.style.overflow = "hidden";
 }
 
 function closePhotoZoom(){
@@ -1048,7 +1105,10 @@ function drawOwnerDishes(){
   const holder = document.getElementById('availabilityControls');
   holder.innerHTML = activeMenu.map(x=>`
     <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:11.5px">
-      <div style="flex:1"><b>${x[1]}</b> · ₹${x[4]}</div>
+      <div style="flex:1">
+        <b>${x[1]}</b> · ₹${x[4]} 
+        <span style="font-size:9.5px;color:${x[3]==='veg'?'#4fd682':'#ff6b6b'};font-weight:800">(${x[3].toUpperCase()})</span>
+      </div>
       <div style="display:flex;align-items:center;gap:8px">
         <button type="button" class="outline-btn" style="padding:3px 7px;font-size:9.5px" data-edit="${x[0]}">✏️ Edit</button>
         <input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}>
@@ -1063,6 +1123,7 @@ function drawOwnerDishes(){
     document.getElementById('editDishId').value = id;
     document.getElementById('editDishName').value = x[1];
     document.getElementById('editDishPrice').value = x[4];
+    document.getElementById('editDishDiet').value = x[3] || 'veg';
     document.getElementById('editDishCategory').value = x[2] || 'starters';
     document.getElementById('editDishDesc').value = x[5];
     currentBase64Img = x[6];
@@ -1076,6 +1137,7 @@ document.getElementById('btnOpenAddCombo').onclick=()=>{
   document.getElementById('editDishId').value = newId;
   document.getElementById('editDishName').value = "Special Craving Combo";
   document.getElementById('editDishPrice').value = 149;
+  document.getElementById('editDishDiet').value = "veg";
   document.getElementById('editDishCategory').value = "combos";
   document.getElementById('editDishDesc').value = "Best combo offer.";
   currentBase64Img = defaultPlaceholder;
@@ -1089,17 +1151,40 @@ document.getElementById('saveDishDetails').onclick=async()=>{
   const id = document.getElementById('editDishId').value;
   const name = document.getElementById('editDishName').value.trim();
   const price = +document.getElementById('editDishPrice').value;
+  const rawDiet = document.getElementById('editDishDiet').value;
+  // Automatically identify nonveg by keyword if not explicitly chosen
+  const veg = detectNonVegTag(name, rawDiet);
   const category = document.getElementById('editDishCategory').value;
   const desc = document.getElementById('editDishDesc').value.trim();
   
   if(!name || !price) return;
   
   try{
-    await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { name, price, category, veg: "veg", img: currentBase64Img || defaultPlaceholder, desc });
+    await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { name, price, category, veg, img: currentBase64Img || defaultPlaceholder, desc });
     document.getElementById('editDishModal').classList.remove('open');
   }catch(e){}
 };
 
+// Edit Founder Details
+document.getElementById('btnEditFounder').onclick=()=>{
+  document.getElementById('founderTitleInput').value = document.getElementById('founderTitle').textContent;
+  document.getElementById('founderBioInput').value = document.getElementById('founderBio').textContent.trim();
+  document.getElementById('founderModal').classList.add('open');
+};
+
+document.getElementById('closeFounder').onclick=()=>document.getElementById('founderModal').classList.remove('open');
+
+document.getElementById('saveFounderDetails').onclick=async()=>{
+  const title = document.getElementById('founderTitleInput').value.trim();
+  const bio = document.getElementById('founderBioInput').value.trim();
+  if(!title || !bio) return;
+  try{
+    await set(ref(db, 'cravingFoodies/founderStory'), { title, bio });
+    document.getElementById('founderModal').classList.remove('open');
+  }catch(e){}
+};
+
+// Realtime Listeners
 onValue(ref(db,'cravingFoodies/shopOpen'),s=>{
   shopIsOpen=s.val()!==false;
   const el=document.getElementById('shopStatus');
@@ -1107,6 +1192,14 @@ onValue(ref(db,'cravingFoodies/shopOpen'),s=>{
   el.style.borderColor=shopIsOpen?'#4fd682':'#ff6b6b';
   el.style.color=shopIsOpen?'#bff5d0':'#ffb5a9';
   render(document.querySelector('.filter.active')?.dataset.filter||'all');
+});
+
+onValue(ref(db,'cravingFoodies/founderStory'),s=>{
+  const story = s.val();
+  if(story){
+    if(story.title) document.getElementById('founderTitle').textContent = story.title;
+    if(story.bio) document.getElementById('founderBio').textContent = story.bio;
+  }
 });
 
 onValue(ref(db,'cravingFoodies/availability'),s=>{
