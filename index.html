@@ -15,10 +15,6 @@
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
 #ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.88;filter:saturate(.95) contrast(1.08) brightness(1.02);transition:opacity 1.2s ease}
 #ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,3,.25),rgba(5,4,3,.45) 45%,rgba(5,4,3,.75)),radial-gradient(ellipse at 50% 15%,transparent,rgba(0,0,0,.3))}
-#intro{position:fixed;inset:0;z-index:1000;background:#050403;display:grid;place-items:center;transition:opacity .7s ease,visibility .7s ease}
-#intro img{display:block;width:100%;height:100%;max-width:1500px;max-height:100%;object-fit:contain;object-position:center;padding:3vh 2vw;margin:auto}
-#intro.hide{opacity:0;visibility:hidden;pointer-events:none}
-#intro button{position:absolute;bottom:24px;right:24px;background:#080706cc;color:#f8e5bc;border:1px solid var(--gold);border-radius:30px;padding:9px 18px;font-size:12px;font-weight:700}
 .wrap{width:min(1200px,92%);margin:auto}
 header{position:sticky;top:0;z-index:30;background:rgba(8,7,6,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
 .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
@@ -92,10 +88,6 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
 </style>
 </head>
 <body>
-<div id="intro">
-  <img src="brand-intro.jpg" alt="Craving Foodies brand logo">
-  <button type="button" onclick="dismissIntro()">Skip intro</button>
-</div>
 <div id="ambient"><video id="ambientVideo" autoplay muted playsinline preload="auto"></video></div>
 <header>
  <div class="wrap nav">
@@ -159,7 +151,7 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
 
 <button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
 
-<!-- Secret Admin Overlay (Hidden From Customers) -->
+<!-- Secret Owner Overlay (Hidden From Customers) -->
 <div id="adminOverlay" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)">
  <div style="width:min(540px,100%);max-height:88vh;overflow:auto;background:#110e0b;border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)">
   <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div>
@@ -218,133 +210,138 @@ const menu=[
 [16,"Veg Cheese Roll","rolls","veg",79,"Fresh veggie wrap drizzled with melted cheese and zesty mint dip.","https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=80"],
 [17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
 [21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha coated with two farm fresh eggs, onions and lime.","https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80"],
-[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated wrap packed with spicy marinated chicken chunks.","https://images.unsplash.com/photo-1626777prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}#intro{display:none}}
-</style>
-</head>
-<body>
-<div id="intro" aria-label="Craving Foodies logo intro">
-  <img src="brand-intro.jpg" alt="Craving Foodies brand logo">
-  <button type="button" onclick="dismissIntro()">Skip intro</button>
-</div>
-<div id="ambient"><video id="ambientVideo" autoplay muted playsinline preload="auto"></video></div>
-<header>
- <div class="wrap nav">
-  <a class="brand" href="#home" aria-label="Craving Foodies home">
-   <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies emblem">
-   <span><strong>CRAVING FOODIES</strong><small>CRISPY AND CRUNCHY</small></span>
-  </a>
-  <nav class="navlinks"><a href="#menu">Menu</a><a href="#about">Our Promise</a><a class="order-top" href="#menu">ORDER NOW</a></nav>
- </div>
-</header>
-<main id="home">
- <section class="hero">
-  <div class="wrap">
-   <div class="eyebrow">ESTD. 2024 · MADE FOR YOUR CRAVINGS</div>
-   <h1>CRAVING FOODIES</h1>
-   <div class="eyebrow">CRISPY · CRUNCHY · SATISFYING</div>
-   <p>Big flavours, satisfying bites and a menu made for every craving. Explore our menu, choose your favourites and place your order directly with us.</p>
-   <div class="hero-actions"><a class="gold-btn" href="#menu">EXPLORE THE MENU</a><a class="outline-btn" href="#about">OUR PROMISE</a></div>
-   <div class="hero-rule"></div>
-  </div>
- </section>
- <section class="wrap" style="padding:0 0 16px">
-  <div id="shopStatus" class="notice" style="border-color:#55c783;color:#bff5d0;font-weight:900">● WE ARE OPEN — ORDER YOUR FAVOURITES</div>
-  <div class="notice promo-strip"><span>CRAVING FOODIES</span> <b class="blink">AVAILABLE ON SWIGGY &amp; ZOMATO</b></div>
-  <div class="notice quote">“Good food is not just a meal — it is a little moment of happiness.”</div>
-  <div class="notice quote">“Follow your cravings. We’ll take care of the flavour.”</div>
- </section>
- <section class="section" id="menu">
-  <div class="wrap">
-   <div class="section-head"><div class="eyebrow">THE FOOD COLLECTION</div><h2>OUR MENU</h2><p>Choose your favourites. Every dish is clearly marked Veg or Non-Veg.</p></div>
-   <div class="notice"><b style="color:#f5d68d">A clear promise:</b> No dish photos are used in the menu. Veg and Non-Veg items are identified with separate labels, so customers can choose with confidence.</div>
-   <div class="filters">
-    <button class="filter active" data-filter="all">ALL ITEMS</button>
-    <button class="filter" data-filter="veg">🟢 VEG</button>
-    <button class="filter" data-filter="nonveg">🔴 NON-VEG</button>
-    <button class="filter" data-filter="starters">STARTERS</button>
-    <button class="filter" data-filter="maggi">MAGGI</button>
-    <button class="filter" data-filter="burgers">BURGERS</button>
-    <button class="filter" data-filter="rolls">ROLLS</button>
-    <button class="filter" data-filter="sandwiches">SANDWICHES</button>
-    <button class="filter" data-filter="patties">PATTIES</button>
-    <button class="filter" data-filter="pasta">PASTA</button>
-    <button class="filter" data-filter="addons">ADD-ONS</button>
-   </div>
-   <div class="menu-grid" id="menuGrid"></div>
-  </div>
- </section>
- <section class="section" id="about">
-  <div class="wrap">
-   <div class="section-head"><div class="eyebrow">THE CRAVING FOODIES STANDARD</div><h2>OUR PROMISE</h2><p>Good food deserves clear choices and a confident brand experience.</p></div>
-   <div class="info-grid">
-    <div class="info"><b>HONEST MENU</b><p>No misleading dish images. Every menu item is shown by its name, description, price and clear Veg/Non-Veg label.</p></div>
-    <div class="info"><b>YOUR BRAND</b><p>Your supplied Craving Foodies emblem leads the experience, with a consistent black, antique-gold and warm-cream identity.</p></div>
-    <div class="info"><b>DIRECT ORDERING</b><p>Add items to your cart and send your order request directly through WhatsApp for confirmation.</p></div>
-   </div>
-  </div>
- </section>
-</main>
-<footer>
- <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies logo">
- <h3>CRAVING FOODIES</h3>
- <p>CRISPY AND CRUNCHY<br>ESTD. 2024</p>
- <p>Order directly through WhatsApp: <a href="https://wa.me/918887052718" style="color:#f5d68d">+91 88870 52718</a></p>
- <p>© <span id="year"></span> Craving Foodies. All rights reserved.</p>
-</footer>
-<button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
-<button id="adminFab" style="position:fixed;left:16px;bottom:18px;z-index:50;background:#17120b;color:#e8c77e;border:1px solid #8f6b2d;border-radius:30px;padding:10px 14px;font-size:11px">OWNER LOGIN</button>
-<div id="adminOverlay" style="position:fixed;inset:0;z-index:90;background:#000d;display:none;align-items:center;justify-content:center;padding:16px"><div style="width:min(560px,100%);max-height:90vh;overflow:auto;background:#100e0b;border:1px solid var(--gold);border-radius:9px;padding:20px"><div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div><div id="adminLogin"><p style="color:#c4b9a6;font-size:12px">Sign in with your private Firebase owner account.</p><input id="adminEmail" type="email" placeholder="Owner email" style="width:100%;padding:12px;margin:7px 0;background:#080706;color:white;border:1px solid var(--line)"><input id="adminPassword" type="password" placeholder="Password" style="width:100%;padding:12px;margin:7px 0;background:#080706;color:white;border:1px solid var(--line)"><button class="gold-btn" id="adminSignIn" style="width:100%">SIGN IN</button><p id="adminMessage" class="smallprint"></p></div><div id="adminControls" style="display:none"><div style="display:flex;gap:8px;flex-wrap:wrap;margin:16px 0"><button class="gold-btn" id="shopOpen">OPEN SHOP</button><button class="outline-btn" id="shopClosed">MARK SHOP CLOSED</button></div><p style="color:#c4b9a6;font-size:12px">Switch a dish off/on for all website visitors.</p><div id="availabilityControls"></div><button class="outline-btn" id="adminSignOut" style="margin-top:16px">SIGN OUT</button></div></div></div>
-<div id="cartOverlay">
- <div class="cart-panel">
-  <div class="cart-head"><h3>YOUR ORDER</h3><button class="close" id="closeCart" aria-label="Close cart">×</button></div>
-  <div id="cartItems"></div>
-  <div class="cart-total"><span>SUBTOTAL</span><span id="cartTotalPanel">₹0</span></div>
-  <input id="customerNote" type="text" placeholder="Add a note (optional)">
-  <button class="gold-btn" id="sendOrder">SEND ORDER ON WHATSAPP</button>
-  <p class="smallprint">Order request only. Availability, delivery charges and final payable amount will be confirmed by Craving Foodies.</p>
- </div>
-</div>
-<script>
-const WHATSAPP="918887052718";
-const menu=[
-[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crunchy rolls filled with seasoned vegetables."],[3,"Peri Peri Fries","starters","veg",59,"Crispy fries tossed in peri peri seasoning."],[4,"Classic Masala Maggi","maggi","veg",49,"Classic masala noodles, warm and comforting."],[6,"Veg Loaded Maggi","maggi","veg",69,"Masala Maggi tossed with vegetables."],[7,"Schezwan Maggi","maggi","veg",69,"A spicy Schezwan-style noodle treat."],[8,"Cheese Masala Maggi","maggi","veg",79,"Masala Maggi finished with cheese."],[9,"Double Masala Cheese Maggi","maggi","veg",89,"Extra masala flavour with a cheesy finish."],
-[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Classic potato tikki burger with desi seasoning."],[11,"Spicy Masala Veg Burger","burgers","veg",69,"A flavour-packed vegetarian burger."],[12,"Cheesy Veg Burger","burgers","veg",89,"A veg burger with a cheesy bite."],[13,"Paneer Tikka Burger","burgers","veg",109,"Paneer tikka filling with bold tandoori flavour."],[35,"Veg Double Decker Burger","burgers","veg",99,"Two-layer vegetarian burger stacked for a fuller bite."],
-[14,"Veg Roll","rolls","veg",59,"Simple, tasty vegetarian roll."],[16,"Veg Cheese Roll","rolls","veg",79,"A savoury veg roll with cheese."],[17,"Paneer Tikka Roll","rolls","veg",99,"Paneer tikka wrapped with desi spices."],[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Paneer tikka filling in toasted sandwich bread."],[37,"Double Decker Sandwich","sandwiches","veg",99,"A double-layer sandwich packed with flavour."],[38,"Aloo Sandwich","sandwiches","veg",49,"Comforting spiced potato sandwich."],[39,"Veggies Sandwich","sandwiches","veg",69,"A colourful mix of vegetables in a sandwich."],[40,"Aloo Patties","patties","veg",25,"Flaky pastry with a savoury potato filling."],[41,"Veg Cheese Patties","patties","veg",40,"Flaky patty with a cheesy vegetarian filling."],[42,"Special Overload CF Patties","patties","veg",79,"Our signature premium-loaded patty — a Craving Foodies special."],[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy white sauce pasta with vegetables."],
-[21,"Double Egg Roll","rolls","nonveg",79,"Double egg roll with bold desi flavour."],[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Chicken, egg and punchy masala wrapped together."],[23,"Desi Double Egg Burger","burgers","nonveg",69,"A desi-style double egg burger."],[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Egg burger with a comforting cheesy bite."],[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Tawa-spiced chicken with a bold savoury kick."],[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs tossed in desi tawa masala."],[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Dhaba-style egg bhurji served with two parathas."],[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Spiced chicken keema bhurji with two parathas."],[44,"Desi Egg Curry","curry","nonveg",99,"Desi-style egg curry, served without rice."],[45,"Chicken Maggi","maggi","nonveg",99,"Hot Maggi tossed with savoury chicken pieces."],[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Creamy white sauce pasta with chicken."],[32,"Extra Cheese","addons","veg",20,"Add an extra cheese portion to your order."],[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Add one extra egg to your order."],[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled 250 ml soft drink."]
+[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated wrap packed with spicy marinated chicken chunks.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80"],
+[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80"],
+[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
+[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled to perfection.","https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=700&q=80"],
+[37,"Double Decker Sandwich","sandwiches","veg",99,"Three bread layers loaded with cheese, spiced aloo and garden vegetables.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"],
+[40,"Aloo Patties","patties","veg",25,"Crisp flaky baked puff pastry with delicious potato masala inside.","https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"],
+[41,"Veg Cheese Patties","patties","veg",40,"Golden puff pastry loaded with melting cheese and potato stuffing.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
+[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed, cheese melted and house dressing.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
+[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.","https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=700&q=80"],
+[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.","https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80"],
+[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs pan-fried with spicy tawa onions and green chillies.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80"],
+[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street egg scramble served piping hot with 2 crispy parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
+[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
+[44,"Desi Egg Curry","curry","nonveg",99,"Two fried boiled eggs cooked in rich, slow-simmered onion-tomato gravy.","https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=700&q=80"],
+[32,"Extra Cheese","addons","veg",20,"Extra slice or portion of melted gourmet cheese.","https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=700&q=80"],
+[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80"],
+[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.","https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"]
 ];
+
 const grid=document.getElementById("menuGrid"),cart=new Map(),money=n=>"₹"+n;
 let liveAvailability={},shopIsOpen=true;
 function isAvailable(x){return liveAvailability[x[0]]!==false;}
+
 function render(filter="all"){
  const items=menu.filter(x=>filter==="all"||x[2]===filter||x[3]===filter);
- grid.innerHTML=items.map(x=>{const ok=isAvailable(x),premium=x[0]===42;return `<article class="food-card ${premium?'premium':''} ${ok?'':'unavailable'}"><div>${premium?'<span class="premium-tag">★ PREMIUM SIGNATURE · CF SPECIAL</span>':''}<div class="food-top"><h3>${x[1]}</h3><span class="diet ${x[3]}">${x[3]==="veg"?"VEG":"NON-VEG"}</span></div><p>${x[5]}</p></div><div class="food-bottom"><span class="price">${money(x[4])}</span>${ok&&shopIsOpen?`<button class="add" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavailable-tag">'+(shopIsOpen?'UNAVAILABLE':'SHOP CLOSED')+'</span>'}</div></article>`}).join("")||'<div class="empty">No items in this category.</div>';
- grid.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{const id=+b.dataset.add;cart.set(id,(cart.get(id)||0)+1);updateCart()});
+ grid.innerHTML=items.map(x=>{
+   const ok=isAvailable(x),premium=x[0]===42;
+   return `<article class="food-card ${ok?'':'unavailable'}">
+     <div class="food-img-wrap">
+       <img class="food-img" src="${x[6]}" alt="${x[1]}" loading="lazy">
+       <span class="food-badge ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>
+       ${premium?'<span class="signature-tag">★ CF SIGNATURE</span>':''}
+     </div>
+     <div class="food-body">
+       <div>
+         <h3>${x[1]}</h3>
+         <p>${x[5]}</p>
+       </div>
+       <div class="food-bottom">
+         <span class="price">${money(x[4])}</span>
+         ${ok&&shopIsOpen?`<button class="add" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavailable-tag">'+(shopIsOpen?'UNAVAILABLE':'CLOSED')+'</span>'}
+       </div>
+     </div>
+   </article>`;
+ }).join("")||'<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--muted)">No items found in this section.</div>';
+ 
+ grid.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
+   const id=+b.dataset.add;
+   cart.set(id,(cart.get(id)||0)+1);
+   updateCart();
+ });
 }
-function applyShopStatus(){const el=document.getElementById('shopStatus');el.textContent=shopIsOpen?'● WE ARE OPEN — ORDER YOUR FAVOURITES':'● WE ARE CURRENTLY CLOSED — PLEASE VISIT AGAIN SOON';el.style.borderColor=shopIsOpen?'#55c783':'#d16a5c';el.style.color=shopIsOpen?'#bff5d0':'#ffb5a9';render(document.querySelector('.filter.active')?.dataset.filter||'all');}
+
+function applyShopStatus(){
+ const el=document.getElementById('shopStatus');
+ el.textContent=shopIsOpen?'● WE ARE OPEN — ORDER YOUR FAVOURITES':'● WE ARE CURRENTLY CLOSED — PLEASE VISIT AGAIN SOON';
+ el.style.borderColor=shopIsOpen?'#55c783':'#d16a5c';
+ el.style.color=shopIsOpen?'#bff5d0':'#ffb5a9';
+ render(document.querySelector('.filter.active')?.dataset.filter||'all');
+}
+
 function updateCart(){
- let count=0,total=0;cart.forEach((q,id)=>{count+=q;total+=q*menu.find(x=>x[0]===id)[4]});
- document.getElementById("cartCount").textContent=count;document.getElementById("cartFab").classList.toggle("show",count>0);
- document.getElementById("cartTotal").textContent=money(total);document.getElementById("cartTotalPanel").textContent=money(total);
+ let count=0,total=0;
+ cart.forEach((q,id)=>{count+=q;total+=q*menu.find(x=>x[0]===id)[4]});
+ document.getElementById("cartCount").textContent=count;
+ document.getElementById("cartFab").classList.toggle("show",count>0);
+ document.getElementById("cartTotal").textContent=money(total);
+ document.getElementById("cartTotalPanel").textContent=money(total);
  const holder=document.getElementById("cartItems");
- holder.innerHTML=count?[...cart.entries()].map(([id,q])=>{const x=menu.find(i=>i[0]===id);return `<div class="cart-row"><div><strong>${x[1]}</strong><small>${x[3]==="veg"?"VEG":"NON-VEG"} · ${money(x[4])} each</small></div><div class="qty"><button data-dec="${id}">−</button><b>${q}</b><button data-inc="${id}">+</button></div></div>`}).join(""):'<p style="color:#b8ad99;font-size:13px">Your cart is empty. Add something tasty from the menu.</p>';
+ holder.innerHTML=count?[...cart.entries()].map(([id,q])=>{
+   const x=menu.find(i=>i[0]===id);
+   return `<div class="cart-row">
+     <div><strong>${x[1]}</strong><small>${x[3]==='veg'?'VEG':'NON-VEG'} · ${money(x[4])} each</small></div>
+     <div class="qty"><button data-dec="${id}">−</button><b>${q}</b><button data-inc="${id}">+</button></div>
+   </div>`;
+ }).join(""):'<p style="color:#b8ad99;font-size:13px">Your cart is empty.</p>';
  holder.querySelectorAll("[data-dec]").forEach(b=>b.onclick=()=>{const id=+b.dataset.dec,q=(cart.get(id)||0)-1;if(q<=0)cart.delete(id);else cart.set(id,q);updateCart()});
  holder.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{const id=+b.dataset.inc;cart.set(id,(cart.get(id)||0)+1);updateCart()});
 }
-document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");render(b.dataset.filter)}));
-const overlay=document.getElementById("cartOverlay");
-document.getElementById("cartFab").onclick=()=>overlay.classList.add("open");
-document.getElementById("closeCart").onclick=()=>overlay.classList.remove("open");
-overlay.addEventListener("click",e=>{if(e.target===overlay)overlay.classList.remove("open")});
-document.getElementById("sendOrder").onclick=()=>{if(!cart.size){alert("Please add an item first.");return}let lines=["Hi Craving Foodies! I would like to place an order:",""];let total=0;cart.forEach((q,id)=>{const x=menu.find(i=>i[0]===id);lines.push(`${q} x ${x[1]} — ${money(q*x[4])} (${x[3]==="veg"?"VEG":"NON-VEG"})`);total+=q*x[4]});lines.push("",`Subtotal: ${money(total)}`);const note=document.getElementById("customerNote").value.trim();if(note)lines.push("Note: "+note);lines.push("Please confirm availability, delivery charges and final total.");window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(lines.join("\n")),"_blank")};
-document.getElementById("year").textContent=new Date().getFullYear();render();updateCart();
-function dismissIntro(){const el=document.getElementById("intro");el.classList.add("hide");setTimeout(()=>el.remove(),800)}
-window.addEventListener("load",()=>setTimeout(dismissIntro,2000));
+
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+ document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
+ b.classList.add("active");
+ render(b.dataset.filter);
+}));
+
+const cartOver=document.getElementById("cartOverlay");
+document.getElementById("cartFab").onclick=()=>cartOver.classList.add("open");
+document.getElementById("closeCart").onclick=()=>cartOver.classList.remove("open");
+cartOver.onclick=e=>{if(e.target===cartOver)cartOver.classList.remove("open")};
+
+document.getElementById("sendOrder").onclick=()=>{
+ if(!cart.size){alert("Please add an item to order.");return}
+ let lines=["Hi Craving Foodies! I would like to place an order:",""];
+ let total=0;
+ cart.forEach((q,id)=>{
+   const x=menu.find(i=>i[0]===id);
+   lines.push(`${q} x ${x[1]} — ${money(q*x[4])} (${x[3].toUpperCase()})`);
+   total+=q*x[4];
+ });
+ lines.push("",`Subtotal: ${money(total)}`);
+ const note=document.getElementById("customerNote").value.trim();
+ if(note)lines.push("Note: "+note);
+ lines.push("Please confirm availability, delivery charges and final total.");
+ window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+};
+
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+updateCart();
+
+// Background Videos Continuous Play
 const clips=["food-background-1.mp4","food-background-2.mp4"];
 const bg=document.getElementById("ambientVideo");let clipIndex=0;
 function playClip(){bg.src=clips[clipIndex];bg.load();const p=bg.play();if(p&&p.catch)p.catch(()=>{});}
 bg.addEventListener("ended",()=>{clipIndex=(clipIndex+1)%clips.length;playClip()});
 playClip();
+
+// SECRET OWNER TRIGGER (Triple click top logo or Ctrl+Shift+O)
+let tapCount=0,tapTimer;
+const adminOver=document.getElementById('adminOverlay');
+function openSecretAdmin(){adminOver.style.display='flex';}
+document.getElementById('secretOwnerTrigger').addEventListener('click',()=>{
+ tapCount++;
+ clearTimeout(tapTimer);
+ if(tapCount>=3){tapCount=0;openSecretAdmin();}
+ tapTimer=setTimeout(()=>{tapCount=0;},600);
+});
+window.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&(e.key==='O'||e.key==='o'))openSecretAdmin();});
+document.getElementById('closeAdmin').onclick=()=>adminOver.style.display='none';
 </script>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
@@ -360,19 +357,42 @@ const firebaseConfig = {
   appId: "1:860801174924:web:5a94b7c89335e6cdfd9aa9"
 };
 
-const overlay=document.getElementById('adminOverlay'),login=document.getElementById('adminLogin'),controls=document.getElementById('adminControls'),msg=document.getElementById('adminMessage');
-document.getElementById('adminFab').onclick=()=>overlay.style.display='flex';document.getElementById('closeAdmin').onclick=()=>overlay.style.display='none';
+const login=document.getElementById('adminLogin'),controls=document.getElementById('adminControls'),msg=document.getElementById('adminMessage');
 let db,auth,statusRef;
-function drawControls(){const holder=document.getElementById('availabilityControls');holder.innerHTML=menu.map(x=>`<label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-bottom:1px solid #ffffff16;font-size:12px"><span>${x[1]} <small style="color:#b8ad99">(${x[3].toUpperCase()})</small></span><input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}></label>`).join('');holder.querySelectorAll('[data-live]').forEach(c=>c.onchange=()=>set(ref(db,'cravingFoodies/availability/'+c.dataset.live),c.checked));}
+
+function drawControls(){
+ const holder=document.getElementById('availabilityControls');
+ holder.innerHTML=menu.map(x=>`<label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff14;font-size:12px"><span>${x[1]} <b style="color:${x[3]==='veg'?'#65d58f':'#ff8b78'}">(${x[3].toUpperCase()})</b></span><input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}></label>`).join('');
+ holder.querySelectorAll('[data-live]').forEach(c=>c.onchange=()=>set(ref(db,'cravingFoodies/availability/'+c.dataset.live),c.checked));
+}
 
 const app=initializeApp(firebaseConfig);
 db=getDatabase(app);
 auth=getAuth(app);
 statusRef=ref(db,'cravingFoodies/shopOpen');
+
 onValue(statusRef,s=>{shopIsOpen=s.val()!==false;applyShopStatus()});
-onValue(ref(db,'cravingFoodies/availability'),s=>{liveAvailability=s.val()||{};render(document.querySelector('.filter.active')?.dataset.filter||'all');if(auth.currentUser)drawControls()});
-onAuthStateChanged(auth,u=>{login.style.display=u?'none':'block';controls.style.display=u?'block':'none';if(u)drawControls()});
-document.getElementById('adminSignIn').onclick=async()=>{try{await signInWithEmailAndPassword(auth,document.getElementById('adminEmail').value,document.getElementById('adminPassword').value);msg.textContent='Signed in.'}catch(e){msg.textContent='Sign-in failed: '+e.message}};
+onValue(ref(db,'cravingFoodies/availability'),s=>{
+ liveAvailability=s.val()||{};
+ render(document.querySelector('.filter.active')?.dataset.filter||'all');
+ if(auth.currentUser)drawControls();
+});
+
+onAuthStateChanged(auth,u=>{
+ login.style.display=u?'none':'block';
+ controls.style.display=u?'block':'none';
+ if(u)drawControls();
+});
+
+document.getElementById('adminSignIn').onclick=async()=>{
+ try{
+   await signInWithEmailAndPassword(auth,document.getElementById('adminEmail').value,document.getElementById('adminPassword').value);
+   msg.textContent='Logged in successfully.';
+ }catch(e){
+   msg.textContent='Login Error: '+e.message;
+ }
+};
+
 document.getElementById('adminSignOut').onclick=()=>signOut(auth);
 document.getElementById('shopOpen').onclick=()=>set(statusRef,true);
 document.getElementById('shopClosed').onclick=()=>set(statusRef,false);
