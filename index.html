@@ -17,15 +17,14 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 
-.gpu-smooth{transform:translateZ(0);will-change:transform}
-
-/* Crystal Clear Background Video Layer (Exact 70% Visibility) */
+/* Crystal Clear 70% Ambient Video (No Dark Shading, No Blur) */
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
-#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0.7;filter:saturate(1.2) contrast(1.1) brightness(1.08);transform:translateZ(0)}
-#ambient:after{content:"";position:absolute;inset:0;background:rgba(8,7,6,0.28)}
+#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0.70;filter:saturate(1.25) contrast(1.1) brightness(1.1);transform:translateZ(0)}
+#ambient:after{content:"";position:absolute;inset:0;background:rgba(8,7,6,0.12)}
 
 .wrap{width:min(1100px,94%);margin:auto}
 
+/* Fixed Header: Clean & Sharp */
 header{position:sticky;top:0;z-index:50;background:rgba(8,7,6,.96);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.85)}
 .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .brand{display:flex;align-items:center;gap:10px;user-select:none;cursor:pointer;flex:1;min-width:0}
@@ -56,6 +55,7 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .filter{border:1px solid var(--line);background:rgba(15,12,9,.85);color:#e8dcc8;border-radius:30px;padding:7px 12px;font-size:10.5px;font-weight:700;transition:all .15s ease}
 .filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 12px rgba(216,173,85,.35)}
 
+/* 60fps Mobile Grid */
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;max-width:980px;margin:0 auto}
 @media(max-width:640px){
   .menu-grid{grid-template-columns:repeat(2,1fr);gap:8px}
@@ -81,11 +81,14 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .add-btn{width:28px;height:28px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:17px;display:grid;place-items:center}
 .unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:3px;padding:2px 5px;font-size:8.5px;font-weight:800}
 
-/* Screen-Centered Photo Zoom Modal */
-#imageModal{position:fixed !important;top:0 !important;left:0 !important;width:100vw !important;height:100vh !important;z-index:9999999 !important;background:rgba(0,0,0,.88) !important;display:none;align-items:center !important;justify-content:center !important;padding:16px !important}
-#imageModal.open{display:flex !important}
-.image-zoom-box{width:min(380px,94vw);background:#130f0b;border:1.5px solid var(--gold);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.95);position:relative;animation:popCenter .22s cubic-bezier(0.175,0.885,0.32,1.275)}
-@keyframes popCenter{from{opacity:0;transform:scale(0.88)}to{opacity:1;transform:scale(1)}}
+/* STRICT ZERO-DISPLACEMENT VIEWPORT MODALS */
+.modal-overlay{position:fixed !important;inset:0 !important;width:100vw !important;height:100vh !important;z-index:999999 !important;background:rgba(0,0,0,.88) !important;display:none;align-items:center !important;justify-content:center !important;padding:16px !important}
+.modal-overlay.open{display:flex !important}
+.box-modal{width:min(540px,94vw);background:#130f0b;border:1.5px solid var(--gold);border-radius:12px;padding:18px;max-height:85vh;overflow-y:auto;box-shadow:0 12px 45px rgba(0,0,0,.95);animation:modalCenter .2s ease-out}
+@keyframes modalCenter{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+
+/* Perfect Viewport-Centered Image Zoom Box */
+.image-zoom-box{width:min(380px,94vw);background:#130f0b;border:1.5px solid var(--gold);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.95);position:relative;animation:modalCenter .2s ease-out}
 .image-zoom-box img{width:100%;max-height:48vh;object-fit:cover;display:block}
 .image-zoom-content{padding:14px}
 .image-zoom-content h3{margin:0 0 4px;color:var(--gold2);font-family:'Cinzel',serif;font-size:16px}
@@ -93,7 +96,7 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .close-zoom-btn{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.85);color:#fff;border:1px solid var(--gold);border-radius:50%;width:32px;height:32px;display:grid;place-items:center;font-size:18px;cursor:pointer;z-index:10}
 
 /* Fullscreen Brand Emblem Overlay */
-#fullScreenLiveAlert{position:fixed;inset:0;z-index:999999;background:rgba(8,7,6,.96);display:none;align-items:center;justify-content:center;padding:20px;text-align:center}
+#fullScreenLiveAlert{position:fixed;inset:0;z-index:9999999;background:rgba(8,7,6,.96);display:none;align-items:center;justify-content:center;padding:20px;text-align:center}
 #fullScreenLiveAlert.open{display:flex}
 .alert-content-box{max-width:420px;width:100%;display:flex;flex-direction:column;align-items:center}
 .alert-logo-wrap{position:relative;width:120px;height:120px;border-radius:50%;margin-bottom:18px}
@@ -105,11 +108,6 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .badge-prep{background:rgba(216,173,85,.15);border:1px solid var(--gold);color:var(--gold2)}
 .badge-ready{background:rgba(79,214,130,.2);border:1.5px solid #4fd682;color:#4fd682}
 .alert-msg{font-size:12.5px;color:#c0b49e;line-height:1.55;margin:0 0 20px;max-width:320px}
-
-/* Modals */
-.modal-overlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:14px}
-.modal-overlay.open{display:flex}
-.box-modal{width:min(500px,100%);background:#110e0b;border:1.5px solid var(--gold);border-radius:10px;padding:18px;max-height:88vh;overflow-y:auto}
 
 /* Thermal POS Slip */
 .thermal-receipt{background:#fff;color:#000;font-family:'Space Mono',monospace;padding:16px 12px;border-radius:4px;margin:12px 0;font-size:11.5px;line-height:1.35}
@@ -142,7 +140,6 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .order-type-btn{flex:1;padding:8px;border:1px solid var(--line);background:#16120d;color:var(--muted);border-radius:5px;font-size:10.5px;font-weight:700}
 .order-type-btn.active{background:var(--gold);color:#080706;border-color:var(--gold)}
 
-/* Founder Profile & Legal Policies */
 .founder-card{background:linear-gradient(180deg,rgba(26,20,13,.92) 0%,rgba(14,11,8,.95) 100%);border:1.5px solid var(--gold);border-radius:10px;padding:16px;margin:18px auto 10px;max-width:840px;box-shadow:0 6px 20px rgba(0,0,0,.7)}
 .founder-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .founder-avatar{width:50px;height:50px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold)}
@@ -154,10 +151,10 @@ footer img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:1px 
 footer h3{font-family:"Cinzel",serif;letter-spacing:.15em;color:var(--gold2);font-size:15px;margin:8px 0 4px}
 footer p{font-size:11px;color:var(--muted);line-height:1.55}
 
-#alarmBanner{position:fixed;top:0;left:0;right:0;z-index:9999999;background:#e23744;color:#fff;padding:10px;text-align:center;font-weight:900;font-size:12px;display:none}
+#alarmBanner{position:fixed;top:0;left:0;right:0;z-index:99999999;background:#e23744;color:#fff;padding:10px;text-align:center;font-weight:900;font-size:12px;display:none}
 </style>
 </head>
-<body class="gpu-smooth">
+<body>
 <div id="ambient"><video id="ambientVideo" autoplay muted playsinline preload="auto"></video></div>
 
 <div id="alarmBanner">
@@ -236,7 +233,7 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
     <div class="notice" style="margin:0"><b>LIVE KITCHEN TRACKING</b><p style="margin:3px 0 0;font-size:11px;color:var(--muted)">Follow every preparation stage directly on your phone until pickup or delivery.</p></div>
    </div>
 
-   <!-- Founder Story & Kitchen Details Card -->
+   <!-- Founder Story Card -->
    <div class="founder-card" id="founderSection">
     <div class="founder-header">
      <img src="craving-foodies-logo-hd.jpg" alt="Founder Logo" class="founder-avatar">
@@ -327,7 +324,7 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 </div>
 
 <!-- Modal: EXACT CENTER-ALIGNED MOBILE PHOTO ZOOM -->
-<div id="imageModal" onclick="if(event.target===this)closePhotoZoom()">
+<div class="modal-overlay" id="imageModal" onclick="if(event.target===this)closePhotoZoom()">
  <div class="image-zoom-box">
   <button type="button" class="close-zoom-btn" onclick="closePhotoZoom()">×</button>
   <img id="modalImg" src="" alt="Dish">
@@ -402,10 +399,11 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
  </div>
 </div>
 
-<!-- Modal: Secret Owner Panel -->
-<div class="modal-overlay" id="adminOverlay">
- <div class="box-modal" style="width:min(580px,100%)">
-  <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div>
+<!-- Modal: EXACT CENTER-VIEWPORT OWNER PANEL -->
+<div class="modal-overlay" id="adminOverlay" onclick="if(event.target===this)closeAdminPanel()">
+ <div class="box-modal">
+  <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" onclick="closeAdminPanel()">×</button></div>
+  
   <div id="adminLogin">
    <p style="color:#c4b9a6;font-size:11.5px;margin:10px 0">Private Owner Authentication</p>
    <input id="adminEmail" type="email" placeholder="Owner Email" class="form-input">
@@ -436,7 +434,7 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 
 <!-- Modal: Edit Founder Story -->
 <div class="modal-overlay" id="founderModal">
- <div class="box-modal" style="width:min(440px,100%)">
+ <div class="box-modal" style="width:min(440px,94vw)">
   <div class="cart-head"><h3>EDIT FOUNDER STORY</h3><button class="close" id="closeFounder">×</button></div>
   <label style="font-size:10.5px;color:var(--gold2);margin-top:8px;display:block">Founder Heading</label>
   <input type="text" id="founderTitleInput" class="form-input">
@@ -448,7 +446,7 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 
 <!-- Modal: Owner Edit Dish & Gallery Image Picker -->
 <div class="modal-overlay" id="editDishModal">
- <div class="box-modal" style="width:min(440px,100%)">
+ <div class="box-modal" style="width:min(440px,94vw)">
   <div class="cart-head"><h3 id="editModalHeader">EDIT DISH / COMBO</h3><button class="close" id="closeEditDish">×</button></div>
   <input type="hidden" id="editDishId">
   
@@ -576,7 +574,6 @@ function getActiveMenu(){
    const name = o ? (o.name || x[1]) : x[1];
    const cat = o ? (o.category || x[2]) : x[2];
    const baseDiet = o ? (o.veg || x[3]) : x[3];
-   // Run auto non-veg keyword detector
    const finalDiet = detectNonVegTag(name, baseDiet);
    const price = o && o.price !== undefined ? +o.price : x[4];
    const desc = o ? (o.desc || x[5]) : x[5];
@@ -623,6 +620,7 @@ function render(filter="all"){
  });
 }
 
+// Modal Viewport Locking Controls
 function openPhotoZoom(name,url,desc){
  document.getElementById('modalTitle').textContent=name;
  document.getElementById('modalImg').src=url;
@@ -633,8 +631,17 @@ function openPhotoZoom(name,url,desc){
 }
 
 function closePhotoZoom(){
- const m = document.getElementById('imageModal');
- m.classList.remove('open');
+ document.getElementById('imageModal').classList.remove('open');
+ document.body.style.overflow = "auto";
+}
+
+function openAdminPanel(){
+ document.getElementById('adminOverlay').classList.add('open');
+ document.body.style.overflow = "hidden";
+}
+
+function closeAdminPanel(){
+ document.getElementById('adminOverlay').classList.remove('open');
  document.body.style.overflow = "auto";
 }
 
@@ -838,6 +845,7 @@ function showDigitalReceipt(order){
  document.getElementById('custUtrInput').value = order.utr || '';
  document.getElementById('utrSuccessNotice').style.display = (order.utr || order.paymentConfirmed) ? 'block' : 'none';
  document.getElementById('receiptModal').classList.add('open');
+ document.body.style.overflow = "hidden";
  
  document.getElementById('printReceiptBtn').onclick=()=>{
    const w = window.open('','_blank');
@@ -854,7 +862,10 @@ function showDigitalReceipt(order){
  };
 }
 
-document.getElementById('closeReceipt').onclick=()=>document.getElementById('receiptModal').classList.remove('open');
+document.getElementById('closeReceipt').onclick=()=>{
+ document.getElementById('receiptModal').classList.remove('open');
+ document.body.style.overflow = "auto";
+};
 document.getElementById('dismissAlertBtn').onclick=()=>document.getElementById('fullScreenLiveAlert').classList.remove('open');
 document.getElementById('viewSlipFromAlert').onclick=()=>{
   document.getElementById('fullScreenLiveAlert').classList.remove('open');
@@ -866,10 +877,10 @@ let tapCount=0,tapTimer;
 document.getElementById('secretOwnerTrigger').addEventListener('click',()=>{
  tapCount++;
  clearTimeout(tapTimer);
- if(tapCount>=3){tapCount=0;document.getElementById('adminOverlay').classList.add('open');}
+ if(tapCount>=3){tapCount=0;openAdminPanel();}
  tapTimer=setTimeout(()=>{tapCount=0;},600);
 });
-document.getElementById('closeAdmin').onclick=()=>document.getElementById('adminOverlay').classList.remove('open');
+
 document.getElementById('year').textContent=new Date().getFullYear();
 
 render();
@@ -1129,6 +1140,7 @@ function drawOwnerDishes(){
     currentBase64Img = x[6];
     previewImg.src = x[6];
     document.getElementById('editDishModal').classList.add('open');
+    document.body.style.overflow = "hidden";
   });
 }
 
@@ -1143,16 +1155,19 @@ document.getElementById('btnOpenAddCombo').onclick=()=>{
   currentBase64Img = defaultPlaceholder;
   previewImg.src = defaultPlaceholder;
   document.getElementById('editDishModal').classList.add('open');
+  document.body.style.overflow = "hidden";
 };
 
-document.getElementById('closeEditDish').onclick=()=>document.getElementById('editDishModal').classList.remove('open');
+document.getElementById('closeEditDish').onclick=()=>{
+  document.getElementById('editDishModal').classList.remove('open');
+  document.body.style.overflow = "auto";
+};
 
 document.getElementById('saveDishDetails').onclick=async()=>{
   const id = document.getElementById('editDishId').value;
   const name = document.getElementById('editDishName').value.trim();
   const price = +document.getElementById('editDishPrice').value;
   const rawDiet = document.getElementById('editDishDiet').value;
-  // Automatically identify nonveg by keyword if not explicitly chosen
   const veg = detectNonVegTag(name, rawDiet);
   const category = document.getElementById('editDishCategory').value;
   const desc = document.getElementById('editDishDesc').value.trim();
@@ -1162,6 +1177,7 @@ document.getElementById('saveDishDetails').onclick=async()=>{
   try{
     await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { name, price, category, veg, img: currentBase64Img || defaultPlaceholder, desc });
     document.getElementById('editDishModal').classList.remove('open');
+    document.body.style.overflow = "auto";
   }catch(e){}
 };
 
@@ -1170,9 +1186,13 @@ document.getElementById('btnEditFounder').onclick=()=>{
   document.getElementById('founderTitleInput').value = document.getElementById('founderTitle').textContent;
   document.getElementById('founderBioInput').value = document.getElementById('founderBio').textContent.trim();
   document.getElementById('founderModal').classList.add('open');
+  document.body.style.overflow = "hidden";
 };
 
-document.getElementById('closeFounder').onclick=()=>document.getElementById('founderModal').classList.remove('open');
+document.getElementById('closeFounder').onclick=()=>{
+  document.getElementById('founderModal').classList.remove('open');
+  document.body.style.overflow = "auto";
+};
 
 document.getElementById('saveFounderDetails').onclick=async()=>{
   const title = document.getElementById('founderTitleInput').value.trim();
@@ -1181,6 +1201,7 @@ document.getElementById('saveFounderDetails').onclick=async()=>{
   try{
     await set(ref(db, 'cravingFoodies/founderStory'), { title, bio });
     document.getElementById('founderModal').classList.remove('open');
+    document.body.style.overflow = "auto";
   }catch(e){}
 };
 
