@@ -2,134 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#080706">
-<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food. Authentic Vegetarian and Non-Vegetarian Midnight Specials.">
+<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food.">
 <title>CRAVING FOODIES | Crispy and Crunchy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#080706;--gold:#d8ad55;--gold2:#f7d78d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.3);--green:#4fd682;--red:#ff6b6b;--swiggy:#fc8019;--zomato:#e23744}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;min-height:100vh}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+
+/* 60fps GPU Hardware Acceleration */
+.hardware-accel,#ambient,.food-item,#cartFab,#statusTracker{transform:translate3d(0,0,0);will-change:transform,opacity}
 
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
 #ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.84;filter:saturate(.95) contrast(1.05) brightness(.92);transition:opacity 1s ease}
-#ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.45) 0%,rgba(8,7,6,.28) 40%,rgba(8,7,6,.65) 100%),radial-gradient(ellipse at 50% 20%,transparent 0%,rgba(0,0,0,.5) 100%)}
+#ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.5) 0%,rgba(8,7,6,.3) 40%,rgba(8,7,6,.75) 100%),radial-gradient(ellipse at 50% 20%,transparent 0%,rgba(0,0,0,.6) 100%)}
 
 .wrap{width:min(1100px,94%);margin:auto}
-header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
-.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 
 .brand{display:flex;align-items:center;gap:12px;user-select:none;cursor:pointer;flex:1;min-width:0}
-.brand img{width:52px;height:52px;min-width:52px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);box-shadow:0 0 16px rgba(216,173,85,.4);transition:transform .2s}
+.brand img{width:50px;height:50px;min-width:50px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);box-shadow:0 0 16px rgba(216,173,85,.35);transition:transform .2s cubic-bezier(.25,.8,.25,1)}
 .brand img:active{transform:scale(.92)}
 .brand-text{display:flex;flex-direction:column;min-width:0;overflow:hidden}
-.brand strong{font-family:"Cinzel",serif;font-size:clamp(16px,2.6vw,23px);font-weight:900;letter-spacing:.08em;color:var(--gold2);text-shadow:0 2px 10px rgba(0,0,0,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand strong{font-family:"Cinzel",serif;font-size:clamp(16px,2.6vw,22px);font-weight:900;letter-spacing:.08em;color:var(--gold2);text-shadow:0 2px 10px rgba(0,0,0,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .brand small{display:block;color:var(--muted);font-size:8.5px;font-weight:700;letter-spacing:.25em;margin-top:2px;white-space:nowrap}
 
-.navlinks{display:flex;align-items:center;gap:18px;font-size:13px;color:#e9ddc8}
-.navlinks a:hover{color:var(--gold2)}
+.navlinks{display:flex;align-items:center;gap:16px;font-size:13px;color:#e9ddc8}
+.order-top{background:linear-gradient(135deg,#f5d68d,#b88332);color:#120c04;border:0;border-radius:4px;padding:9px 15px;font-weight:900;letter-spacing:.05em;white-space:nowrap;animation:orderPulse 1.6s infinite ease-in-out;box-shadow:0 0 14px rgba(216,173,85,.35)}
+@keyframes orderPulse{0%,100%{opacity:1;transform:scale3d(1,1,1)}50%{opacity:.75;transform:scale3d(.96,.96,1)}}
 
-.order-top{background:linear-gradient(135deg,#f5d68d,#b88332);color:#120c04;border:0;border-radius:4px;padding:10px 16px;font-weight:900;letter-spacing:.05em;display:inline-block;white-space:nowrap;animation:orderPulse 1.6s infinite;box-shadow:0 0 15px rgba(216,173,85,.4)}
-@keyframes orderPulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 16px rgba(245,214,141,.6)}50%{opacity:.7;transform:scale(.97);box-shadow:0 0 6px rgba(216,173,85,.2)}}
-
-.hero{min-height:300px;display:grid;place-items:center;text-align:center;padding:46px 0 30px}
+.hero{min-height:280px;display:grid;place-items:center;text-align:center;padding:40px 0 24px}
 .eyebrow{color:var(--gold2);letter-spacing:.3em;text-transform:uppercase;font-size:11px;font-weight:700}
-h1{font-family:"Cinzel",serif;font-size:clamp(30px,5vw,52px);letter-spacing:.1em;line-height:1.15;margin:10px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
-.hero p{max-width:580px;color:#e8decb;line-height:1.75;margin:10px auto 18px;font-size:14px;text-shadow:0 2px 10px #000}
+h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,50px);letter-spacing:.1em;line-height:1.15;margin:10px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
+.hero p{max-width:580px;color:#e8decb;line-height:1.7;margin:8px auto 16px;font-size:13.5px;text-shadow:0 2px 10px #000}
 .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.gold-btn{background:linear-gradient(135deg,#f5d68d,#b88332);color:#160f06;border:0;border-radius:4px;padding:12px 20px;font-weight:800;letter-spacing:.04em}
-.outline-btn{border:1px solid var(--gold);border-radius:4px;padding:11px 18px;color:var(--gold2);font-weight:700;background:rgba(8,7,6,.65);backdrop-filter:blur(6px)}
-.hero-rule{width:min(380px,70%);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
+.gold-btn{background:linear-gradient(135deg,#f5d68d,#b88332);color:#160f06;border:0;border-radius:5px;padding:12px 20px;font-weight:800;letter-spacing:.04em;transition:transform .15s ease}
+.gold-btn:active{transform:scale(.96)}
+.outline-btn{border:1px solid var(--gold);border-radius:5px;padding:11px 18px;color:var(--gold2);font-weight:700;background:rgba(8,7,6,.65);backdrop-filter:blur(6px);transition:transform .15s ease}
+.outline-btn:active{transform:scale(.96)}
 
-.notice{max-width:760px;margin:0 auto 14px;padding:12px 16px;border:1px solid var(--line);background:rgba(12,10,8,.75);backdrop-filter:blur(10px);color:#e5d8c2;text-align:center;font-size:12px;line-height:1.6;border-radius:6px}
+.notice{max-width:760px;margin:0 auto 12px;padding:12px 16px;border:1px solid var(--line);background:rgba(12,10,8,.82);backdrop-filter:blur(8px);color:#e5d8c2;text-align:center;font-size:12px;line-height:1.5;border-radius:6px}
+.delivery-strip{max-width:760px;margin:0 auto 14px;padding:10px 16px;border:1px solid rgba(216,173,85,.35);background:rgba(15,12,9,.85);backdrop-filter:blur(8px);text-align:center;font-size:12.5px;font-weight:800;letter-spacing:.05em;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.swiggy-blink{color:var(--swiggy);font-weight:900;animation:blinkSwiggy 1.4s infinite alternate}
+.zomato-blink{color:var(--zomato);font-weight:900;animation:blinkZomato 1.4s infinite alternate}
+@keyframes blinkSwiggy{0%{opacity:1}100%{opacity:.4}}
+@keyframes blinkZomato{0%{opacity:.4}100%{opacity:1}}
 
-.delivery-strip{max-width:760px;margin:0 auto 14px;padding:10px 16px;border:1px solid rgba(216,173,85,.35);background:rgba(15,12,9,.82);backdrop-filter:blur(10px);text-align:center;font-size:13px;font-weight:800;letter-spacing:.05em;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
-.swiggy-blink{color:var(--swiggy);font-weight:900;text-shadow:0 0 10px rgba(252,128,25,.5);animation:blinkSwiggy 1.4s infinite alternate}
-.zomato-blink{color:var(--zomato);font-weight:900;text-shadow:0 0 10px rgba(226,55,68,.5);animation:blinkZomato 1.4s infinite alternate}
-@keyframes blinkSwiggy{0%{opacity:1;transform:scale(1)}100%{opacity:.45;transform:scale(.96)}}
-@keyframes blinkZomato{0%{opacity:.45;transform:scale(.96)}100%{opacity:1;transform:scale(1)}}
-
-.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 24px}
-.filter{border:1px solid var(--line);background:rgba(15,12,9,.82);backdrop-filter:blur(8px);color:#e8dcc8;border-radius:30px;padding:8px 15px;font-size:11px;font-weight:700;transition:.2s}
+.filters{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:14px 0 20px}
+.filter{border:1px solid var(--line);background:rgba(15,12,9,.82);backdrop-filter:blur(8px);color:#e8dcc8;border-radius:30px;padding:8px 14px;font-size:11px;font-weight:700;transition:all .18s ease}
 .filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 14px rgba(216,173,85,.35)}
 
 .menu-list{display:flex;flex-direction:column;gap:12px;max-width:840px;margin:0 auto}
-.food-item{display:flex;align-items:center;background:rgba(16,13,10,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:10px;padding:10px 14px;gap:14px;transition:transform .2s ease,border-color .2s ease,background .2s ease}
-.food-item:hover{transform:translateX(3px);border-color:rgba(216,173,85,.7);background:rgba(22,18,13,.88)}
+.food-item{display:flex;align-items:center;background:rgba(16,13,10,.82);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:10px;padding:10px 14px;gap:14px;transition:border-color .2s ease,background .2s ease}
 .food-item.unavailable{opacity:.5;border-color:#7a2c26}
 
-.food-thumb-wrap{position:relative;width:95px;height:95px;min-width:95px;border-radius:8px;overflow:hidden;border:1px solid rgba(216,173,85,.3);background:#1a1510;cursor:zoom-in}
-.food-thumb{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.food-thumb-wrap:hover .food-thumb{transform:scale(1.12)}
-.zoom-hint{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:2px 4px;border-radius:3px;pointer-events:none}
+.food-thumb-wrap{position:relative;width:90px;height:90px;min-width:90px;border-radius:8px;overflow:hidden;border:1px solid rgba(216,173,85,.3);background:#15110d;cursor:zoom-in;display:flex;align-items:center;justify-content:center}
+.food-thumb{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.food-thumb-wrap:hover .food-thumb{transform:scale(1.08)}
 .diet-pill{position:absolute;bottom:4px;left:4px;font-size:8px;font-weight:900;letter-spacing:.05em;padding:2px 5px;border-radius:3px;backdrop-filter:blur(4px);background:rgba(0,0,0,.85)}
 .diet-pill.veg{color:#4fd682;border:1px solid #4fd682}
 .diet-pill.nonveg{color:#ff7b6b;border:1px solid #ff7b6b}
 
 .food-details{flex:1;min-width:0}
-.food-title{font-size:15px;font-weight:700;color:#fff6e7;margin:0 0 3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.food-desc{font-size:11.5px;color:#c0b49e;line-height:1.45;margin:0}
-.premium-flag{background:rgba(184,131,50,.35);color:var(--gold2);border:1px solid var(--gold);font-size:8px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:.06em}
+.food-title{font-size:14.5px;font-weight:700;color:#fff6e7;margin:0 0 3px}
+.food-desc{font-size:11.5px;color:#c0b49e;line-height:1.4;margin:0}
+.premium-flag{background:rgba(184,131,50,.35);color:var(--gold2);border:1px solid var(--gold);font-size:8px;font-weight:800;padding:2px 5px;border-radius:3px;margin-left:4px}
 
-.food-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:70px}
-.food-price{font-family:"Cinzel",serif;font-weight:800;color:var(--gold2);font-size:17px;white-space:nowrap}
-.add-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:20px;line-height:1;display:grid;place-items:center;transition:.2s}
-.add-btn:hover{background:var(--gold);color:#120c04;transform:scale(1.08)}
+.food-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:65px}
+.food-price{font-family:"Cinzel",serif;font-weight:800;color:var(--gold2);font-size:16px;white-space:nowrap}
+.add-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:20px;line-height:1;display:grid;place-items:center;transition:transform .15s ease,background .15s ease}
+.add-btn:active{transform:scale(.9)}
 .unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:4px;padding:3px 6px;font-size:9px;font-weight:800;white-space:nowrap}
 
-/* Zoom Image Modal */
-#imageModal{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(10px)}
-#imageModal.open{display:flex}
-.modal-box{max-width:520px;width:100%;background:#110e0b;border:1px solid var(--gold);border-radius:12px;overflow:hidden;position:relative}
-.modal-img{width:100%;max-height:55vh;object-fit:cover;display:block}
-.modal-info{padding:16px}
-.modal-info h3{margin:0 0 6px;color:var(--gold2);font-family:"Cinzel",serif;font-size:18px}
-.modal-info p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6}
-.modal-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.75);border:1px solid var(--line);color:#fff;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+/* Floating Customer Live Status Tracker */
+#statusTracker{position:fixed;bottom:20px;left:20px;right:20px;max-width:440px;margin:auto;z-index:90;background:rgba(17,14,11,.96);backdrop-filter:blur(14px);border:1.5px solid var(--gold);border-radius:12px;padding:14px 16px;box-shadow:0 10px 35px rgba(0,0,0,.9);display:none}
+#statusTracker.open{display:block}
+.stepper{display:flex;justify-content:space-between;position:relative;margin:12px 0 6px}
+.stepper:before{content:"";position:absolute;top:12px;left:15px;right:15px;height:2px;background:#33291d;z-index:1}
+.step-dot{position:relative;z-index:2;width:26px;height:26px;border-radius:50%;background:#1b1510;border:2px solid #55442f;display:grid;place-items:center;font-size:10px;font-weight:800;color:var(--muted);transition:all .3s ease}
+.step-dot.active{background:var(--gold);border-color:var(--gold2);color:#120c04;box-shadow:0 0 12px rgba(216,173,85,.6)}
+.step-dot.done{background:#4fd682;border-color:#4fd682;color:#080706}
+.step-labels{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);font-weight:700}
 
-/* Thank You Modal */
-#thankYouModal{position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(12px)}
-#thankYouModal.open{display:flex}
-.thankyou-box{max-width:480px;width:100%;background:linear-gradient(150deg,#18130d,#0d0a07);border:1.5px solid var(--gold);border-radius:14px;padding:28px 24px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.95)}
-.thankyou-box img{width:70px;height:70px;border-radius:50%;border:1px solid var(--gold);margin:0 auto 14px;object-fit:cover;box-shadow:0 0 20px rgba(216,173,85,.4)}
-.thankyou-box h3{font-family:"Cinzel",serif;color:var(--gold2);font-size:22px;letter-spacing:.08em;margin:0 0 8px}
-.thankyou-box .quote-box{background:rgba(216,173,85,.08);border-left:3px solid var(--gold);padding:10px 14px;margin:14px 0;text-align:left;font-style:italic;font-size:12.5px;color:#f3e8d2;line-height:1.6}
-.thankyou-box p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0 0 18px}
+/* Modals */
+.modal-overlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)}
+.modal-overlay.open{display:flex}
+.box-modal{width:min(520px,100%);background:#110e0b;border:1.5px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,.9);max-height:90vh;overflow-y:auto}
+
+/* POS Thermal Receipt Slip (80mm Style) */
+.thermal-receipt{background:#fff;color:#000;font-family:'Space Mono',monospace;padding:18px 14px;border-radius:4px;box-shadow:0 6px 20px rgba(0,0,0,.8);margin:14px 0;font-size:12px;line-height:1.4}
+.thermal-receipt h3{margin:0 0 4px;font-size:16px;text-align:center;font-weight:700}
+.thermal-receipt .dashed{border-top:1px dashed #000;margin:8px 0}
+.thermal-receipt .row{display:flex;justify-content:space-between;margin:3px 0}
+
+/* Owner Alarm Banner */
+#alarmBanner{position:fixed;top:0;left:0;right:0;z-index:9999999;background:#e23744;color:#fff;padding:12px;text-align:center;font-weight:900;letter-spacing:.05em;display:none;box-shadow:0 4px 20px rgba(226,55,68,.7);animation:alarmFlash .8s infinite alternate}
+@keyframes alarmFlash{0%{background:#e23744}100%{background:#800e16}}
 
 #cartFab{position:fixed;right:20px;bottom:20px;z-index:50;display:none;border:1px solid #f6d68d;background:linear-gradient(135deg,#f1d18a,#b88332);color:#160f06;border-radius:40px;padding:12px 20px;font-weight:900;box-shadow:0 8px 30px rgba(0,0,0,.8)}
 #cartFab.show{display:block}
 #cartCount{background:#211506;color:#fff;border-radius:50%;padding:2px 7px;margin-left:5px}
 #cartOverlay{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.75);display:none;justify-content:flex-end;backdrop-filter:blur(6px)}
 #cartOverlay.open{display:flex}
-.cart-panel{width:min(420px,100%);height:100%;background:#100e0b;border-left:1px solid var(--gold);padding:22px;overflow:auto}
-.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}
+.cart-panel{width:min(420px,100%);height:100%;background:#100e0b;border-left:1px solid var(--gold);padding:20px;overflow:auto}
+.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:12px}
 .cart-head h3{font-family:"Cinzel",serif;color:var(--gold2);margin:0}
 .close{border:1px solid var(--line);background:none;color:white;border-radius:50%;width:32px;height:32px;display:grid;place-items:center}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-.cart-row strong{font-size:13px}.cart-row small{display:block;color:var(--muted);margin-top:3px}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08)}
 .qty{display:flex;align-items:center;gap:8px}.qty button{background:#211a10;color:var(--gold2);border:1px solid var(--line);width:26px;height:26px;border-radius:50%}
-.cart-total{display:flex;justify-content:space-between;font-weight:900;color:var(--gold2);padding:16px 0;font-size:16px}
-#customerNote{width:100%;background:#080706;color:white;border:1px solid var(--line);border-radius:5px;padding:12px;margin:4px 0 14px}
-#sendOrder{width:100%;padding:14px}
-.smallprint{font-size:10px;color:#9e927f;line-height:1.5;margin-top:10px}
+.cart-total{display:flex;justify-content:space-between;font-weight:900;color:var(--gold2);padding:14px 0;font-size:16px}
 
-footer{border-top:1px solid var(--line);padding:32px 0 40px;text-align:center;background:rgba(7,6,5,.92);backdrop-filter:blur(10px)}
-footer img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
-footer h3{font-family:"Cinzel",serif;letter-spacing:.18em;color:var(--gold2);font-size:17px;margin:10px 0 5px}
-footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
+.form-input{width:100%;padding:11px;margin:5px 0 10px;background:#080706;color:white;border:1px solid var(--line);border-radius:5px;font-size:12px}
+.order-type-switch{display:flex;gap:8px;margin:8px 0 12px}
+.order-type-btn{flex:1;padding:9px;border:1px solid var(--line);background:#16120d;color:var(--muted);border-radius:5px;font-size:11px;font-weight:700}
+.order-type-btn.active{background:var(--gold);color:#080706;border-color:var(--gold)}
 
-/* Owner Item Editor Modal */
-#editDishModal{position:fixed;inset:0;z-index:9999999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)}
-#editDishModal.open{display:flex}
-.edit-dish-box{max-width:480px;width:100%;background:#110e0b;border:1.5px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)}
-.edit-dish-box input{width:100%;padding:11px;margin:6px 0 12px;background:#080706;color:white;border:1px solid var(--line);border-radius:5px;font-size:12.5px}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;text-align:center;background:rgba(7,6,5,.94)}
+footer img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+footer h3{font-family:"Cinzel",serif;letter-spacing:.18em;color:var(--gold2);font-size:16px;margin:10px 0 4px}
+footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
 
 @media(max-width:768px){
  .navlinks a:not(.order-top){display:none}
- .food-thumb-wrap{width:85px;height:85px;min-width:85px}
- .food-title{font-size:14px}
+ .food-thumb-wrap{width:80px;height:80px;min-width:80px}
+ .food-title{font-size:13.5px}
  .food-desc{font-size:11px}
  .food-price{font-size:15px}
 }
@@ -137,6 +141,13 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
 </head>
 <body>
 <div id="ambient"><video id="ambientVideo" autoplay muted playsinline preload="auto"></video></div>
+
+<!-- Urgent Owner Order Alarm Flash Bar -->
+<div id="alarmBanner">
+ 🚨 NEW INCOMING ORDER RECEIVED! 
+ <button id="stopAlarmBtn" style="background:#fff;color:#000;border:0;padding:4px 12px;margin-left:10px;border-radius:3px;font-weight:900">MUTE ALARM</button>
+</div>
+
 <header>
  <div class="wrap nav">
   <div class="brand" id="secretOwnerTrigger" title="Craving Foodies">
@@ -153,6 +164,7 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
   </nav>
  </div>
 </header>
+
 <main id="home">
  <section class="hero">
   <div class="wrap">
@@ -160,10 +172,10 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
    <h1>CRAVING FOODIES</h1>
    <p>Authentic taste, freshly prepared bites and pure quality. Pick your favourites from our verified Veg and Non-Veg menu and order directly via WhatsApp.</p>
    <div class="hero-actions"><a class="gold-btn" href="#menu">EXPLORE MENU</a><a class="outline-btn" href="#about">OUR PROMISE</a></div>
-   <div class="hero-rule"></div>
   </div>
  </section>
- <section class="wrap" style="padding:0 0 12px">
+
+ <section class="wrap" style="padding:0 0 10px">
   <div id="shopStatus" class="notice" style="border-color:#4fd682;color:#bff5d0;font-weight:800">● WE ARE OPEN — ORDER YOUR FAVOURITES</div>
   <div class="delivery-strip">
    <span>ALSO AVAILABLE ON:</span>
@@ -172,11 +184,12 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
    <span class="zomato-blink">● ZOMATO</span>
   </div>
  </section>
- <section class="section" id="menu" style="padding:20px 0 48px">
+
+ <section class="section" id="menu" style="padding:16px 0 44px">
   <div class="wrap">
-   <div style="text-align:center;margin-bottom:18px">
+   <div style="text-align:center;margin-bottom:16px">
     <div class="eyebrow">THE CRAVING COLLECTION</div>
-    <h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(22px,4vw,34px);margin:8px 0">OUR DELICIOUS MENU</h2>
+    <h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(20px,4vw,32px);margin:6px 0">OUR DELICIOUS MENU</h2>
     <p style="font-size:12px;color:var(--muted);margin:0">Tap on any dish photo to view full size.</p>
    </div>
    <div class="filters">
@@ -195,16 +208,18 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
    <div class="menu-list" id="menuList"></div>
   </div>
  </section>
- <section class="section" id="about" style="padding:20px 0 40px">
+
+ <section class="section" id="about" style="padding:10px 0 36px">
   <div class="wrap">
-   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
-    <div class="notice" style="margin:0"><b>100% PURE VEG CARE</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Separate cookware and oils ensure strict vegetarian hygiene without any contamination.</p></div>
-    <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Every order cooked fresh with premium ingredients and strict safety protocols.</p></div>
-    <div class="notice" style="margin:0"><b>DIRECT CONFIRMATION</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Instant WhatsApp notification directly received at the Craving Foodies kitchen counter.</p></div>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px">
+    <div class="notice" style="margin:0"><b>100% PURE VEG CARE</b><p style="margin:4px 0 0;font-size:11.5px;color:var(--muted)">Strict hygiene and separate cookware ensure pristine vegetarian food preparation.</p></div>
+    <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:4px 0 0;font-size:11.5px;color:var(--muted)">Every order cooked fresh with premium ingredients and verified quality standards.</p></div>
+    <div class="notice" style="margin:0"><b>LIVE KITCHEN TRACKING</b><p style="margin:4px 0 0;font-size:11.5px;color:var(--muted)">Follow every preparation stage directly on your phone until pickup or delivery.</p></div>
    </div>
   </div>
  </section>
 </main>
+
 <footer>
  <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies logo">
  <h3>CRAVING FOODIES</h3>
@@ -212,131 +227,202 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
  <p>© <span id="year"></span> Craving Foodies. All rights reserved.</p>
 </footer>
 
+<!-- Floating Cart Button -->
 <button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
 
-<!-- Zoom Modal -->
-<div id="imageModal">
- <div class="modal-box">
-  <button class="modal-close" id="closeModal">×</button>
-  <img id="modalImg" class="modal-img" src="" alt="Dish view">
-  <div class="modal-info">
-   <h3 id="modalTitle"></h3>
-   <p id="modalDesc"></p>
+<!-- Floating Live Customer Status Tracker -->
+<div id="statusTracker">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+  <span style="font-size:11.5px;font-weight:800;color:var(--gold2)">LIVE ORDER: <span id="trackerOrderId">#CF-0000</span></span>
+  <span id="trackerStatusBadge" style="font-size:10px;padding:2px 8px;border-radius:4px;background:#332616;color:var(--gold2)">Received</span>
+ </div>
+ <div class="stepper">
+  <div class="step-dot" id="dot1">1</div>
+  <div class="step-dot" id="dot2">2</div>
+  <div class="step-dot" id="dot3">3</div>
+ </div>
+ <div class="step-labels">
+  <span>Received</span>
+  <span>Preparing</span>
+  <span>Ready / Out</span>
+ </div>
+ <div style="display:flex;gap:8px;margin-top:12px">
+  <button class="outline-btn" id="viewSlipBtn" style="flex:1;padding:6px;font-size:11px">🧾 View Receipt</button>
+  <button class="outline-btn" id="dismissTrackerBtn" style="padding:6px 12px;font-size:11px">Dismiss</button>
+ </div>
+</div>
+
+<!-- Modal: Digital Receipt & Thermal Slip Viewer -->
+<div class="modal-overlay" id="receiptModal">
+ <div class="box-modal">
+  <div class="cart-head"><h3>ORDER RECEIPT</h3><button class="close" id="closeReceipt">×</button></div>
+  <div id="receiptContent"></div>
+  <div style="display:flex;gap:8px;margin-top:14px">
+   <button class="gold-btn" id="printReceiptBtn" style="flex:1">🖨️ PRINT / SAVE PDF</button>
+   <button class="outline-btn" id="shareReceiptBtn" style="flex:1">SHARE ON WHATSAPP</button>
   </div>
  </div>
 </div>
 
-<!-- Thank You Modal -->
-<div id="thankYouModal">
- <div class="thankyou-box">
-  <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies emblem">
-  <h3>ORDER INITIATED!</h3>
-  <div class="quote-box">
-   “Good food is not just a meal — it is a little moment of genuine happiness. Your cravings are in expert hands.”
+<!-- Modal: Photo Zoom -->
+<div class="modal-overlay" id="imageModal">
+ <div class="box-modal" style="padding:0;overflow:hidden">
+  <button class="close" id="closeZoom" style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.8);z-index:10">×</button>
+  <img id="modalImg" src="" style="width:100%;max-height:55vh;object-fit:cover;display:block" alt="Dish">
+  <div style="padding:16px">
+   <h3 id="modalTitle" style="margin:0 0 4px;color:var(--gold2);font-family:'Cinzel',serif"></h3>
+   <p id="modalDesc" style="margin:0;font-size:12px;color:var(--muted);line-height:1.5"></p>
   </div>
-  <p>Thank you for choosing <b>Craving Foodies</b>! We have received your order request via WhatsApp. Our kitchen team will confirm item availability and final total shortly.</p>
-  <button class="gold-btn" id="closeThankYou" style="width:100%">AWESOME, THANKS!</button>
  </div>
 </div>
 
-<!-- Secret Owner Overlay -->
-<div id="adminOverlay" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)">
- <div style="width:min(560px,100%);max-height:88vh;overflow:auto;background:#110e0b;border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)">
+<!-- Modal: Cart & Checkout -->
+<div id="cartOverlay">
+ <div class="cart-panel">
+  <div class="cart-head"><h3>YOUR ORDER</h3><button class="close" id="closeCart">×</button></div>
+  <div id="cartItems"></div>
+  <div class="cart-total"><span>SUBTOTAL</span><span id="cartTotalPanel">₹0</span></div>
+  
+  <div style="border-top:1px solid var(--line);padding-top:14px">
+   <label style="font-size:11px;font-weight:700;color:var(--gold2)">ORDER TYPE</label>
+   <div class="order-type-switch">
+    <button type="button" class="order-type-btn active" id="btnDelivery" onclick="setOrderType('Delivery')">🛵 Home Delivery</button>
+    <button type="button" class="order-type-btn" id="btnTakeaway" onclick="setOrderType('Takeaway')">🛍️ Self Takeaway</button>
+   </div>
+
+   <label style="font-size:11px;font-weight:700;color:var(--gold2)">YOUR NAME</label>
+   <input class="form-input" id="custName" type="text" placeholder="e.g. Rahul Sharma" required>
+
+   <label style="font-size:11px;font-weight:700;color:var(--gold2)">CONTACT NUMBER (FOR CALL/OTP)</label>
+   <input class="form-input" id="custPhone" type="tel" placeholder="e.g. 9876543210" required>
+
+   <div id="deliveryFields">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+     <label style="font-size:11px;font-weight:700;color:var(--gold2)">DELIVERY ADDRESS</label>
+     <button type="button" id="btnGetLocation" style="background:none;border:none;color:#4fd682;font-size:10.5px;font-weight:800;cursor:pointer">📍 Fetch GPS Pin</button>
+    </div>
+    <input class="form-input" id="custAddress" type="text" placeholder="House / Flat No, Street, Landmark">
+    <input type="hidden" id="custMapsLink" value="">
+    <p id="gpsStatus" style="font-size:10px;color:#4fd682;margin:-6px 0 8px;display:none">✓ GPS Location Pin attached!</p>
+   </div>
+
+   <label style="font-size:11px;font-weight:700;color:var(--gold2)">SPECIAL COOKING INSTRUCTIONS</label>
+   <input class="form-input" id="custNotes" type="text" placeholder="e.g. Extra spicy, no onions, etc.">
+
+   <button class="gold-btn" id="sendOrder" style="width:100%;padding:14px;margin-top:6px">PLACE ORDER ON WHATSAPP</button>
+   <p style="font-size:10px;color:#9e927f;line-height:1.4;margin-top:8px">Order dispatched directly to kitchen counter. Live tracking enabled automatically.</p>
+  </div>
+ </div>
+</div>
+
+<!-- Modal: Secret Owner Panel -->
+<div class="modal-overlay" id="adminOverlay">
+ <div class="box-modal" style="width:min(580px,100%)">
   <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div>
   <div id="adminLogin">
    <p style="color:#c4b9a6;font-size:12px;margin:12px 0">Private Owner Authentication</p>
-   <input id="adminEmail" type="email" placeholder="Owner Email" style="width:100%;padding:12px;margin:6px 0;background:#080706;color:white;border:1px solid var(--line);border-radius:5px">
-   <input id="adminPassword" type="password" placeholder="Password" style="width:100%;padding:12px;margin:6px 0;background:#080706;color:white;border:1px solid var(--line);border-radius:5px">
-   <button class="gold-btn" id="adminSignIn" style="width:100%;margin-top:8px">SIGN IN</button>
-   <p id="adminMessage" class="smallprint"></p>
+   <input id="adminEmail" type="email" placeholder="Owner Email" class="form-input">
+   <input id="adminPassword" type="password" placeholder="Password" class="form-input">
+   <button class="gold-btn" id="adminSignIn" style="width:100%;margin-top:6px">SIGN IN</button>
+   <p id="adminMessage" style="font-size:11px;color:var(--red)"></p>
   </div>
+
   <div id="adminControls" style="display:none">
-   <div style="display:flex;gap:10px;margin:18px 0">
+   <div style="display:flex;gap:8px;margin:14px 0">
     <button class="gold-btn" id="shopOpen" style="flex:1">OPEN SHOP</button>
     <button class="outline-btn" id="shopClosed" style="flex:1">MARK SHOP CLOSED</button>
    </div>
-   <p style="color:#c4b9a6;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:8px">Live Dishes Management (Toggle Availability or Edit Details):</p>
+
+   <!-- Live Active Orders Section -->
+   <h4 style="color:var(--gold2);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:18px 0 10px">🔥 LIVE KITCHEN ORDERS</h4>
+   <div id="liveOrdersContainer">
+    <p style="font-size:11px;color:var(--muted)">No pending orders right now.</p>
+   </div>
+
+   <!-- Menu Live Dishes Management with Direct Gallery Upload -->
+   <h4 style="color:var(--gold2);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:22px 0 10px">🍔 MENU MANAGEMENT (GALLERY UPLOAD & PRICE)</h4>
    <div id="availabilityControls"></div>
    <button class="outline-btn" id="adminSignOut" style="margin-top:16px;width:100%">LOGOUT</button>
   </div>
  </div>
 </div>
 
-<!-- Edit Dish Modal -->
-<div id="editDishModal">
- <div class="edit-dish-box">
-  <div class="cart-head"><h3 id="editModalHeader">EDIT DISH DETAILS</h3><button class="close" id="closeEditDish">×</button></div>
+<!-- Modal: Owner Edit Dish & Gallery Image Picker -->
+<div class="modal-overlay" id="editDishModal">
+ <div class="box-modal" style="width:min(460px,100%)">
+  <div class="cart-head"><h3 id="editModalHeader">EDIT DISH & PHOTO</h3><button class="close" id="closeEditDish">×</button></div>
   <input type="hidden" id="editDishId">
-  <label style="font-size:11px;color:var(--gold2)">Dish Name</label>
-  <input type="text" id="editDishName">
-  <label style="font-size:11px;color:var(--gold2)">Price (₹)</label>
-  <input type="number" id="editDishPrice">
-  <label style="font-size:11px;color:var(--gold2)">Image URL or Filename</label>
-  <input type="text" id="editDishImg">
-  <label style="font-size:11px;color:var(--gold2)">Short Description</label>
-  <input type="text" id="editDishDesc">
-  <button class="gold-btn" id="saveDishDetails" style="width:100%;margin-top:4px">SAVE &amp; APPLY LIVE</button>
-  <p id="editDishMsg" class="smallprint" style="text-align:center;color:#4fd682"></p>
- </div>
-</div>
+  
+  <div style="width:80px;height:80px;border-radius:8px;border:1px dashed var(--gold);margin:10px auto;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1a1510">
+   <img id="editDishPreview" src="" alt="Preview" style="width:100%;height:100%;object-fit:cover">
+  </div>
 
-<!-- Cart Drawer -->
-<div id="cartOverlay">
- <div class="cart-panel">
-  <div class="cart-head"><h3>YOUR ORDER</h3><button class="close" id="closeCart">×</button></div>
-  <div id="cartItems"></div>
-  <div class="cart-total"><span>SUBTOTAL</span><span id="cartTotalPanel">₹0</span></div>
-  <input id="customerNote" type="text" placeholder="Add delivery note / instruction">
-  <button class="gold-btn" id="sendOrder">SEND ORDER ON WHATSAPP</button>
-  <p class="smallprint">Direct Kitchen Order. Availability & final amount confirmed by Craving Foodies on WhatsApp.</p>
+  <label style="font-size:11px;color:var(--gold2);display:block">📷 Choose Photo From Gallery (No URL required):</label>
+  <input type="file" id="editDishFileInput" accept="image/*" style="background:#16120d;border:1px solid var(--gold);padding:8px;border-radius:5px;width:100%;font-size:11px;margin:5px 0 10px;color:#f7d78d">
+
+  <label style="font-size:11px;color:var(--gold2)">Dish Name</label>
+  <input type="text" id="editDishName" class="form-input">
+
+  <label style="font-size:11px;color:var(--gold2)">Price (₹)</label>
+  <input type="number" id="editDishPrice" class="form-input">
+
+  <label style="font-size:11px;color:var(--gold2)">Short Description</label>
+  <input type="text" id="editDishDesc" class="form-input">
+
+  <button class="gold-btn" id="saveDishDetails" style="width:100%;margin-top:6px">SAVE & UPLOAD LIVE</button>
+  <p id="editDishMsg" style="font-size:11px;text-align:center;color:#4fd682;margin:6px 0 0"></p>
  </div>
 </div>
 
 <script>
 const WHATSAPP="918887052718";
-// 100% Verified, Working, Authentic Food Images Array
+let currentOrderType = "Delivery";
+
+// Fallback Luxury SVG Food Graphics (No broken URLs)
+const defaultPlaceholder = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314100b'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23d8ad55' stroke-width='1.5' stroke-dasharray='4,3' opacity='0.4'/%3E%3Cpath d='M50 26 C43 26 37 32 37 39 C37 45 42 50 48 51 L48 74 L52 74 L52 51 C58 50 63 45 63 39 C63 32 57 26 50 26 Z M47 31 L49 31 L49 46 L47 46 Z M51 31 L53 31 L53 46 L51 46 Z' fill='%23d8ad55' opacity='0.85'/%3E%3C/svg%3E";
+
 const defaultMenu=[
-[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy golden rolls stuffed with seasoned shredded vegetables and herbs.","https://images.pexels.com/photos/4553127/pexels-photo-4553127.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries tossed in spicy peri peri seasoning.","https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[4,"Classic Masala Maggi","maggi","veg",49,"Street style masala noodles loaded with authentic desi spices.","https://images.pexels.com/photos/884600/pexels-photo-884600.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[6,"Veg Loaded Maggi","maggi","veg",69,"Classic masala noodles tossed with sweet corn, onions, peas and crunchy bell peppers.","https://images.pexels.com/photos/2347311/pexels-photo-2347311.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[7,"Schezwan Maggi","maggi","veg",69,"Fiery hot noodles tossed in spicy garlic red schezwan sauce.","https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[8,"Cheese Masala Maggi","maggi","veg",79,"Rich noodles generously topped with melted creamy cheese.","https://images.pexels.com/photos/2092906/pexels-photo-2092906.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[9,"Double Masala Cheese Maggi","maggi","veg",89,"Double spiced noodles finished with grated premium mozzarella cheese.","https://images.pexels.com/photos/2092906/pexels-photo-2092906.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[45,"Chicken Maggi","maggi","nonveg",99,"Steaming hot spiced noodles tossed with tender, juicy chicken shreds.","https://images.pexels.com/photos/2664216/pexels-photo-2664216.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Crispy spiced potato tikki patty with house mayo and crunchy onions.","https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[11,"Spicy Masala Veg Burger","burgers","veg",69,"Herb spiced vegetable patty tossed with spicy tawa masala in a toasted bun.","https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[12,"Cheesy Veg Burger","burgers","veg",89,"Crispy veg patty smothered in golden melted cheese and fresh lettuce.","https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[13,"Paneer Tikka Burger","burgers","veg",109,"Marinated paneer patty with spicy mint sauce and tandoori seasoning.","https://images.pexels.com/photos/1639562/pexels-photo-1639562.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[35,"Veg Double Decker Burger","burgers","veg",99,"Two-layer stacked vegetarian burger with double patties and sauces.","https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[23,"Desi Double Egg Burger","burgers","nonveg",69,"Two farm fresh eggs grilled with spices and packed in a toasted bun.","https://images.pexels.com/photos/580612/pexels-photo-580612.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Fluffy egg patty topped with melted cheese slices and cracked pepper.","https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Succulent chicken chunks tossed on tawa with rich burger dressing.","https://images.pexels.com/photos/2271107/pexels-photo-2271107.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[14,"Veg Roll","rolls","veg",59,"Crisp handmade paratha roll wrapped with seasoned garden vegetables.","https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[16,"Veg Cheese Roll","rolls","veg",79,"Crispy vegetable wrap drizzled with melted cheese and zesty mint dip.","https://images.pexels.com/photos/2089712/pexels-photo-2089712.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.","https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha layered with two farm fresh eggs, onions and lime juice.","https://images.pexels.com/photos/2955819/pexels-photo-2955819.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated paratha packed with spiced marinated juicy chicken chunks.","https://images.pexels.com/photos/2955819/pexels-photo-2955819.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.","https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.","https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled between toast.","https://images.pexels.com/photos/1600711/pexels-photo-1600711.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[37,"Double Decker Sandwich","sandwiches","veg",99,"Three toasted layers packed with cheese, spiced aloo and garden vegetables.","https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[40,"Aloo Patties","patties","veg",25,"Golden baked flaky puff pastry layered with spiced potato stuffing.","https://images.pexels.com/photos/3880854/pexels-photo-3880854.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[41,"Veg Cheese Patties","patties","veg",40,"Flaky butter puff pastry loaded with melted cheese and potato filling.","https://images.pexels.com/photos/3880854/pexels-photo-3880854.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed flaky puff with molten cheese & chef seasoning.","https://images.pexels.com/photos/3880854/pexels-photo-3880854.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.","https://images.pexels.com/photos/1437267/pexels-photo-1437267.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.","https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs tossed on the tawa in spicy desi masala and green chillies.","https://images.pexels.com/photos/162712/egg-ingredient-cook-cooking-162712.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street style egg scramble served piping hot with 2 crispy parathas.","https://images.pexels.com/photos/5410400/pexels-photo-5410400.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.","https://images.pexels.com/photos/5410400/pexels-photo-5410400.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[44,"Desi Egg Curry","curry","nonveg",99,"Two pan-seared boiled eggs cooked in rich, slow-simmered onion-tomato gravy.","https://images.pexels.com/photos/674574/pexels-photo-674574.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[32,"Extra Cheese","addons","veg",20,"Extra portion of melted gourmet mozzarella cheese.","https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.","https://images.pexels.com/photos/162712/egg-ingredient-cook-cooking-162712.jpeg?auto=compress&cs=tinysrgb&w=700"],
-[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.","https://images.pexels.com/photos/50593/coca-cola-cold-drink-soft-drink-coke-50593.jpeg?auto=compress&cs=tinysrgb&w=700"]
+[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy golden rolls stuffed with seasoned shredded vegetables and herbs.",defaultPlaceholder],
+[3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries tossed in spicy peri peri seasoning.",defaultPlaceholder],
+[4,"Classic Masala Maggi","maggi","veg",49,"Street style masala noodles loaded with authentic desi spices.",defaultPlaceholder],
+[6,"Veg Loaded Maggi","maggi","veg",69,"Classic masala noodles tossed with sweet corn, onions, peas and crunchy bell peppers.",defaultPlaceholder],
+[7,"Schezwan Maggi","maggi","veg",69,"Fiery hot noodles tossed in spicy garlic red schezwan sauce.",defaultPlaceholder],
+[8,"Cheese Masala Maggi","maggi","veg",79,"Rich noodles generously topped with melted creamy cheese.",defaultPlaceholder],
+[9,"Double Masala Cheese Maggi","maggi","veg",89,"Double spiced noodles finished with grated premium mozzarella cheese.",defaultPlaceholder],
+[45,"Chicken Maggi","maggi","nonveg",99,"Steaming hot spiced noodles tossed with tender, juicy chicken shreds.",defaultPlaceholder],
+[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Crispy spiced potato tikki patty with house mayo and crunchy onions.",defaultPlaceholder],
+[11,"Spicy Masala Veg Burger","burgers","veg",69,"Herb spiced vegetable patty tossed with spicy tawa masala in a toasted bun.",defaultPlaceholder],
+[12,"Cheesy Veg Burger","burgers","veg",89,"Crispy veg patty smothered in golden melted cheese and fresh lettuce.",defaultPlaceholder],
+[13,"Paneer Tikka Burger","burgers","veg",109,"Marinated paneer patty with spicy mint sauce and tandoori seasoning.",defaultPlaceholder],
+[35,"Veg Double Decker Burger","burgers","veg",99,"Two-layer stacked vegetarian burger with double patties and sauces.",defaultPlaceholder],
+[23,"Desi Double Egg Burger","burgers","nonveg",69,"Two farm fresh eggs grilled with spices and packed in a toasted bun.",defaultPlaceholder],
+[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Fluffy egg patty topped with melted cheese slices and cracked pepper.",defaultPlaceholder],
+[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Succulent chicken chunks tossed on tawa with rich burger dressing.",defaultPlaceholder],
+[14,"Veg Roll","rolls","veg",59,"Crisp handmade paratha roll wrapped with seasoned garden vegetables.",defaultPlaceholder],
+[16,"Veg Cheese Roll","rolls","veg",79,"Crispy vegetable wrap drizzled with melted cheese and zesty mint dip.",defaultPlaceholder],
+[17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.",defaultPlaceholder],
+[21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha layered with two farm fresh eggs, onions and lime juice.",defaultPlaceholder],
+[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated paratha packed with spiced marinated juicy chicken chunks.",defaultPlaceholder],
+[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.",defaultPlaceholder],
+[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.",defaultPlaceholder],
+[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled between toast.",defaultPlaceholder],
+[37,"Double Decker Sandwich","sandwiches","veg",99,"Three toasted layers packed with cheese, spiced aloo and garden vegetables.",defaultPlaceholder],
+[40,"Aloo Patties","patties","veg",25,"Golden baked flaky puff pastry layered with spiced potato stuffing.",defaultPlaceholder],
+[41,"Veg Cheese Patties","patties","veg",40,"Flaky butter puff pastry loaded with melted cheese and potato filling.",defaultPlaceholder],
+[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed flaky puff with molten cheese & chef seasoning.",defaultPlaceholder],
+[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.",defaultPlaceholder],
+[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.",defaultPlaceholder],
+[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs tossed on the tawa in spicy desi masala and green chillies.",defaultPlaceholder],
+[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street style egg scramble served piping hot with 2 crispy parathas.",defaultPlaceholder],
+[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.",defaultPlaceholder],
+[44,"Desi Egg Curry","curry","nonveg",99,"Two pan-seared boiled eggs cooked in rich, slow-simmered onion-tomato gravy.",defaultPlaceholder],
+[32,"Extra Cheese","addons","veg",20,"Extra portion of melted gourmet mozzarella cheese.",defaultPlaceholder],
+[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.",defaultPlaceholder],
+[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.",defaultPlaceholder]
 ];
 
 const listContainer=document.getElementById("menuList"),cart=new Map(),money=n=>"₹"+n;
-let liveAvailability={},liveItemOverrides={},shopIsOpen=true;
+let liveAvailability={},liveItemOverrides={},shopIsOpen=true,activeOrdersMap={};
 
 function getActiveMenu(){
  return defaultMenu.map(x=>{
@@ -353,10 +439,9 @@ function render(filter="all"){
  const items=activeMenu.filter(x=>filter==="all"||x[2]===filter||x[3]===filter);
  listContainer.innerHTML=items.map(x=>{
    const ok=isAvailable(x),premium=x[0]===42;
-   return `<article class="food-item ${ok?'':'unavailable'}">
-     <div class="food-thumb-wrap" onclick="openPhotoZoom('${x[1]}','${x[6]}','${x[5]}')" title="Click to view full photo">
+   return `<article class="food-item ${ok?'':'unavailable'} hardware-accel">
+     <div class="food-thumb-wrap" onclick="openPhotoZoom('${x[1]}','${x[6]}','${x[5]}')" title="Zoom photo">
        <img class="food-thumb" src="${x[6]}" alt="${x[1]}" loading="lazy">
-       <span class="zoom-hint">🔍</span>
        <span class="diet-pill ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>
      </div>
      <div class="food-details">
@@ -368,7 +453,7 @@ function render(filter="all"){
        ${ok&&shopIsOpen?`<button class="add-btn" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavail-badge">'+(shopIsOpen?'UNAVAIL':'CLOSED')+'</span>'}
      </div>
    </article>`;
- }).join("")||'<div style="text-align:center;padding:30px;color:var(--muted)">No items found in this section.</div>';
+ }).join("")||'<div style="text-align:center;padding:30px;color:var(--muted)">No items found.</div>';
  
  listContainer.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
    const id=+b.dataset.add;
@@ -377,24 +462,36 @@ function render(filter="all"){
  });
 }
 
-// Click to Zoom
-const imgModal=document.getElementById('imageModal');
 function openPhotoZoom(name,url,desc){
  document.getElementById('modalTitle').textContent=name;
  document.getElementById('modalImg').src=url;
  document.getElementById('modalDesc').textContent=desc;
- imgModal.classList.add('open');
+ document.getElementById('imageModal').classList.add('open');
 }
-document.getElementById('closeModal').onclick=()=>imgModal.classList.remove('open');
-imgModal.onclick=e=>{if(e.target===imgModal)imgModal.classList.remove('open')};
+document.getElementById('closeZoom').onclick=()=>document.getElementById('imageModal').classList.remove('open');
 
-function applyShopStatus(){
- const el=document.getElementById('shopStatus');
- el.textContent=shopIsOpen?'● WE ARE OPEN — ORDER YOUR FAVOURITES':'● WE ARE CURRENTLY CLOSED — PLEASE VISIT AGAIN SOON';
- el.style.borderColor=shopIsOpen?'#4fd682':'#ff6b6b';
- el.style.color=shopIsOpen?'#bff5d0':'#ffb5a9';
- render(document.querySelector('.filter.active')?.dataset.filter||'all');
+function setOrderType(t){
+ currentOrderType=t;
+ document.getElementById('btnDelivery').classList.toggle('active',t==='Delivery');
+ document.getElementById('btnTakeaway').classList.toggle('active',t==='Takeaway');
+ document.getElementById('deliveryFields').style.display=t==='Delivery'?'block':'none';
 }
+
+// Browser GPS Location Fetcher
+document.getElementById('btnGetLocation').onclick=()=>{
+ if(!navigator.geolocation){alert("GPS not supported on your browser.");return;}
+ document.getElementById('btnGetLocation').textContent="Locating...";
+ navigator.geolocation.getCurrentPosition(pos=>{
+   const lat = pos.coords.latitude, lng = pos.coords.longitude;
+   const mapUrl = `https://maps.google.com/?q=${lat},${lng}`;
+   document.getElementById('custMapsLink').value = mapUrl;
+   document.getElementById('gpsStatus').style.display = "block";
+   document.getElementById('btnGetLocation').textContent="✓ Pin Captured";
+ }, err=>{
+   alert("Location access denied. Please type your complete address manually.");
+   document.getElementById('btnGetLocation').textContent="📍 Fetch GPS Pin";
+ },{enableHighAccuracy:true,timeout:10000});
+};
 
 function updateCart(){
  const activeMenu = getActiveMenu();
@@ -411,7 +508,7 @@ function updateCart(){
  holder.innerHTML=count?[...cart.entries()].map(([id,q])=>{
    const x=activeMenu.find(i=>i[0]===id);
    return `<div class="cart-row">
-     <div><strong>${x[1]}</strong><small>${x[3]==='veg'?'VEG':'NON-VEG'} · ${money(x[4])} each</small></div>
+     <div><strong>${x[1]}</strong><small style="display:block;color:var(--muted)">${money(x[4])} each</small></div>
      <div class="qty"><button data-dec="${id}">−</button><b>${q}</b><button data-inc="${id}">+</button></div>
    </div>`;
  }).join(""):'<p style="color:#b8ad99;font-size:13px">Your cart is empty.</p>';
@@ -426,38 +523,140 @@ document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
 }));
 
 const cartOver=document.getElementById("cartOverlay");
-const thankYouModal=document.getElementById("thankYouModal");
 document.getElementById("cartFab").onclick=()=>cartOver.classList.add("open");
 document.getElementById("closeCart").onclick=()=>cartOver.classList.remove("open");
-cartOver.onclick=e=>{if(e.target===cartOver)cartOver.classList.remove("open")};
 
-document.getElementById("closeThankYou").onclick=()=>thankYouModal.classList.remove("open");
-thankYouModal.onclick=e=>{if(e.target===thankYouModal)thankYouModal.classList.remove("open")};
+// Audio Synthesizers for Ding & Loud Owner Alarm
+let audioCtx;
+function getAudioContext(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx;}
 
-document.getElementById("sendOrder").onclick=()=>{
- const activeMenu = getActiveMenu();
- if(!cart.size){alert("Please add an item to order.");return}
- let lines=["Hi Craving Foodies! I would like to place an order:",""];
- let total=0;
- cart.forEach((q,id)=>{
-   const x=activeMenu.find(i=>i[0]===id);
-   lines.push(`${q} x ${x[1]} — ${money(q*x[4])} (${x[3].toUpperCase()})`);
-   total+=q*x[4];
- });
- lines.push("",`Subtotal: ${money(total)}`);
- const note=document.getElementById("customerNote").value.trim();
- if(note)lines.push("Note: "+note);
- lines.push("Please confirm availability, delivery charges and final total.");
+function playDingSound(){
+ try{
+  const ctx = getAudioContext();
+  const osc = ctx.createOscillator(), gain = ctx.createGain();
+  osc.type = "sine"; osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.3);
+  gain.gain.setValueAtTime(0.3, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.6);
+  osc.connect(gain); gain.connect(ctx.destination);
+  osc.start(); osc.stop(ctx.currentTime + 0.6);
+ }catch(e){}
+}
+
+let alarmTimer = null;
+function startLoudAlarm(){
+ document.getElementById('alarmBanner').style.display='block';
+ if(alarmTimer) return;
+ alarmTimer = setInterval(()=>{
+  try{
+    const ctx = getAudioContext();
+    const osc = ctx.createOscillator(), gain = ctx.createGain();
+    osc.type = "square"; osc.frequency.setValueAtTime(880, ctx.currentTime);
+    gain.gain.setValueAtTime(0.4, ctx.currentTime);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(); osc.stop(ctx.currentTime + 0.25);
+  }catch(e){}
+ }, 700);
+}
+function stopLoudAlarm(){
+ document.getElementById('alarmBanner').style.display='none';
+ if(alarmTimer){ clearInterval(alarmTimer); alarmTimer=null; }
+}
+document.getElementById('stopAlarmBtn').onclick=stopLoudAlarm;
+
+// Customer Tracker Management
+function updateTrackerUI(order){
+ if(!order){ document.getElementById('statusTracker').classList.remove('open'); return; }
+ document.getElementById('statusTracker').classList.add('open');
+ document.getElementById('trackerOrderId').textContent = "#" + order.orderId;
+ document.getElementById('trackerStatusBadge').textContent = order.status;
  
- window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+ const d1 = document.getElementById('dot1'), d2 = document.getElementById('dot2'), d3 = document.getElementById('dot3');
+ d1.className = 'step-dot done'; d2.className = 'step-dot'; d3.className = 'step-dot';
  
- cartOver.classList.remove("open");
- thankYouModal.classList.add("open");
- cart.clear();
- updateCart();
+ if(order.status === 'Preparing'){
+   d2.className = 'step-dot active';
+ }else if(order.status === 'Ready' || order.status === 'Out for Delivery'){
+   d2.className = 'step-dot done';
+   d3.className = 'step-dot active';
+   playDingSound();
+ }
+}
+
+document.getElementById('dismissTrackerBtn').onclick=()=>{
+ document.getElementById('statusTracker').classList.remove('open');
 };
 
-document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById('viewSlipBtn').onclick=()=>{
+ const orderId = localStorage.getItem('cf_last_order_id');
+ const orderData = JSON.parse(localStorage.getItem('cf_last_order_data')||'null');
+ if(orderData) showDigitalReceipt(orderData);
+};
+
+// Generate Thermal 80mm Slip
+function generateSlipHTML(order){
+ const activeMenu = getActiveMenu();
+ return `
+  <div class="thermal-receipt" id="printableSlip">
+   <h3>*** CRAVING FOODIES ***</h3>
+   <div style="text-align:center;font-size:10px">CRISPY AND CRUNCHY · KANPUR<br>PHONE: +91 88870 52718</div>
+   <div class="dashed"></div>
+   <div class="row"><b>ORDER: #${order.orderId}</b><span>${order.type.toUpperCase()}</span></div>
+   <div class="row"><span>DATE: ${new Date(order.timestamp).toLocaleDateString()}</span><span>${new Date(order.timestamp).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>
+   <div class="row"><span>CUSTOMER: ${order.name}</span><span>${order.phone}</span></div>
+   ${order.address?`<div>ADDR: ${order.address}</div>`:''}
+   ${order.mapsLink?`<div style="font-size:9.5px;word-break:break-all">MAP: ${order.mapsLink}</div>`:''}
+   <div class="dashed"></div>
+   <div class="row" style="font-weight:700"><span>ITEM</span><span>QTY</span><span>AMT</span></div>
+   <div class="dashed"></div>
+   ${order.items.map(i=>`
+     <div class="row">
+      <span style="flex:2">${i.name}</span>
+      <span style="flex:1;text-align:center">x${i.qty}</span>
+      <span style="flex:1;text-align:right">₹${i.qty*i.price}</span>
+     </div>
+   `).join('')}
+   <div class="dashed"></div>
+   <div class="row" style="font-size:14px;font-weight:700"><span>TOTAL AMOUNT:</span><span>₹${order.total}</span></div>
+   ${order.notes?`<div class="dashed"></div><div><b>KITCHEN NOTE:</b> ${order.notes}</div>`:''}
+   <div class="dashed"></div>
+   <div style="text-align:center;font-size:10.5px;margin-top:6px">THANK YOU! CRAVE AGAIN!</div>
+  </div>
+ `;
+}
+
+function showDigitalReceipt(order){
+ document.getElementById('receiptContent').innerHTML = generateSlipHTML(order);
+ document.getElementById('receiptModal').classList.add('open');
+ 
+ document.getElementById('printReceiptBtn').onclick=()=>{
+   const w = window.open('','_blank');
+   w.document.write('<html><head><title>Receipt #'+order.orderId+'</title><style>body{margin:20px;font-family:monospace;}</style></head><body>'+document.getElementById('printableSlip').outerHTML+'</body></html>');
+   w.document.close();
+   w.focus();
+   w.print();
+   w.close();
+ };
+ 
+ document.getElementById('shareReceiptBtn').onclick=()=>{
+   const text = encodeURIComponent(`*CRAVING FOODIES INVOICE*\nOrder: #${order.orderId}\nCustomer: ${order.name}\nTotal: ₹${order.total}\nTrack: https://kg2942995-png.github.io/-craving-foodies/`);
+   window.open(`https://wa.me/91${order.phone}?text=${text}`,'_blank');
+ };
+}
+
+document.getElementById('closeReceipt').onclick=()=>document.getElementById('receiptModal').classList.remove('open');
+
+// Logo Secret Owner Trigger
+let tapCount=0,tapTimer;
+document.getElementById('secretOwnerTrigger').addEventListener('click',()=>{
+ tapCount++;
+ clearTimeout(tapTimer);
+ if(tapCount>=3){tapCount=0;document.getElementById('adminOverlay').classList.add('open');}
+ tapTimer=setTimeout(()=>{tapCount=0;},600);
+});
+document.getElementById('closeAdmin').onclick=()=>document.getElementById('adminOverlay').classList.remove('open');
+document.getElementById('year').textContent=new Date().getFullYear();
+
 render();
 updateCart();
 
@@ -466,24 +665,11 @@ const bg=document.getElementById("ambientVideo");let clipIndex=0;
 function playClip(){bg.src=clips[clipIndex];bg.load();const p=bg.play();if(p&&p.catch)p.catch(()=>{});}
 bg.addEventListener("ended",()=>{clipIndex=(clipIndex+1)%clips.length;playClip()});
 playClip();
-
-// SECRET OWNER TRIGGER (Triple tap logo or Ctrl+Shift+O)
-let tapCount=0,tapTimer;
-const adminOver=document.getElementById('adminOverlay');
-function openSecretAdmin(){adminOver.style.display='flex';}
-document.getElementById('secretOwnerTrigger').addEventListener('click',()=>{
- tapCount++;
- clearTimeout(tapTimer);
- if(tapCount>=3){tapCount=0;openSecretAdmin();}
- tapTimer=setTimeout(()=>{tapCount=0;},600);
-});
-window.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&(e.key==='O'||e.key==='o'))openSecretAdmin();});
-document.getElementById('closeAdmin').onclick=()=>adminOver.style.display='none';
 </script>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+import { getDatabase, ref, onValue, set, push, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
@@ -496,103 +682,306 @@ const firebaseConfig = {
   appId: "1:860801174924:web:5a94b7c89335e6cdfd9aa9"
 };
 
-const login=document.getElementById('adminLogin'),controls=document.getElementById('adminControls'),msg=document.getElementById('adminMessage');
-const editModal=document.getElementById('editDishModal'),editMsg=document.getElementById('editDishMsg');
-let db,auth,statusRef;
+const app=initializeApp(firebaseConfig);
+const db=getDatabase(app);
+const auth=getAuth(app);
 
-function drawControls(){
- const activeMenu = getActiveMenu();
- const holder=document.getElementById('availabilityControls');
- holder.innerHTML=activeMenu.map(x=>`
-   <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px">
-     <div style="flex:1;min-width:0">
-       <span style="font-weight:700">${x[1]}</span>
-       <span style="color:var(--gold2)"> · ₹${x[4]}</span>
-       <b style="color:${x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[3].toUpperCase()})</b>
-     </div>
-     <div style="display:flex;align-items:center;gap:12px">
-       <button type="button" class="outline-btn" style="padding:4px 8px;font-size:11px" data-edit="${x[0]}">✏️ Edit</button>
-       <label style="cursor:pointer;display:flex;align-items:center;gap:4px">
-         <input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}>
-         <span style="font-size:10px;color:var(--muted)">On</span>
-       </label>
-     </div>
-   </div>
- `).join('');
+// Client-side Direct Gallery Photo Compression Engine
+let currentBase64Img = "";
+const fileInput = document.getElementById('editDishFileInput');
+const previewImg = document.getElementById('editDishPreview');
+const editMsg = document.getElementById('editDishMsg');
 
- holder.querySelectorAll('[data-live]').forEach(c=>c.onchange=()=>set(ref(db,'cravingFoodies/availability/'+c.dataset.live),c.checked));
- 
- holder.querySelectorAll('[data-edit]').forEach(btn=>btn.onclick=()=>{
-   const id=+btn.dataset.edit;
-   const x = activeMenu.find(item=>item[0]===id);
-   document.getElementById('editDishId').value = id;
-   document.getElementById('editDishName').value = x[1];
-   document.getElementById('editDishPrice').value = x[4];
-   document.getElementById('editDishImg').value = x[6];
-   document.getElementById('editDishDesc').value = x[5];
-   editMsg.textContent = "";
-   editModal.classList.add('open');
- });
+function compressImageFile(file){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = e => {
+      const img = new Image();
+      img.src = e.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const MAX_WIDTH = 480;
+        const scale = Math.min(1, MAX_WIDTH / img.width);
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', 0.72));
+      };
+      img.onerror = err => reject(err);
+    };
+    reader.onerror = err => reject(err);
+  });
 }
 
-document.getElementById('closeEditDish').onclick=()=>editModal.classList.remove('open');
-
-document.getElementById('saveDishDetails').onclick=async()=>{
- const id = document.getElementById('editDishId').value;
- const name = document.getElementById('editDishName').value.trim();
- const price = +document.getElementById('editDishPrice').value;
- const img = document.getElementById('editDishImg').value.trim();
- const desc = document.getElementById('editDishDesc').value.trim();
- 
- if(!name || !price || !img){ alert('Please fill in name, price and image URL.'); return; }
- 
- try{
-   await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { name, price, img, desc });
-   editMsg.textContent = "Saved and live updated!";
-   setTimeout(()=>{ editModal.classList.remove('open'); }, 1200);
- }catch(e){
-   alert('Error saving dish: ' + e.message);
- }
+fileInput.onchange = async (e)=>{
+  const file = e.target.files[0];
+  if(!file) return;
+  editMsg.textContent = "Compressing gallery photo...";
+  try{
+    currentBase64Img = await compressImageFile(file);
+    previewImg.src = currentBase64Img;
+    editMsg.textContent = "Photo loaded! Ready to save.";
+  }catch(err){
+    alert("Photo compression error: " + err.message);
+  }
 };
 
-const app=initializeApp(firebaseConfig);
-db=getDatabase(app);
-auth=getAuth(app);
-statusRef=ref(db,'cravingFoodies/shopOpen');
+// Send Order Handler
+document.getElementById('sendOrder').onclick=async()=>{
+  const activeMenu = getActiveMenu();
+  if(!cart.size){alert("Your cart is empty.");return;}
+  
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+  const mapsLink = document.getElementById('custMapsLink').value.trim();
+  const notes = document.getElementById('custNotes').value.trim();
+  
+  if(!name || !phone){ alert("Please enter your Name and Mobile Number."); return; }
+  if(currentOrderType === 'Delivery' && !address && !mapsLink){
+    alert("Please provide your delivery address or click 'Fetch GPS Pin'.");
+    return;
+  }
+  
+  const orderId = Math.floor(1000 + Math.random() * 9000);
+  const itemsArray = [];
+  let total = 0;
+  
+  cart.forEach((q,id)=>{
+    const x = activeMenu.find(item=>item[0]===id);
+    if(x){
+      itemsArray.push({ id, name: x[1], price: x[4], qty: q, veg: x[3] });
+      total += (q * x[4]);
+    }
+  });
 
-onValue(statusRef,s=>{shopIsOpen=s.val()!==false;applyShopStatus()});
+  const orderData = {
+    orderId,
+    name,
+    phone,
+    type: currentOrderType,
+    address,
+    mapsLink,
+    notes,
+    items: itemsArray,
+    total,
+    status: "Received",
+    timestamp: Date.now()
+  };
+
+  // Push to Firebase Realtime Database
+  try{
+    await set(ref(db, 'cravingFoodies/activeOrders/' + orderId), orderData);
+  }catch(e){
+    console.error("Firebase write error:", e);
+  }
+
+  // Save Local State for Customer Tracker
+  localStorage.setItem('cf_last_order_id', orderId);
+  localStorage.setItem('cf_last_order_data', JSON.stringify(orderData));
+  updateTrackerUI(orderData);
+
+  // Construct WhatsApp Kitchen Message
+  let msg = [
+    `*NEW ORDER: #${orderId}*`,
+    `Order Type: *${currentOrderType.toUpperCase()}*`,
+    `Customer: ${name} (${phone})`,
+    ""
+  ];
+  if(currentOrderType === 'Delivery'){
+    msg.push(`Delivery Address: ${address}`);
+    if(mapsLink) msg.push(`GPS Location: ${mapsLink}`);
+    msg.push("");
+  }
+  msg.push("*ITEMS ORDERED:*");
+  itemsArray.forEach(i=>{
+    msg.push(`- ${i.qty}x ${i.name} — ₹${i.qty * i.price}`);
+  });
+  msg.push("");
+  msg.push(`*SUBTOTAL: ₹${total}*`);
+  if(notes) msg.push(`Note: ${notes}`);
+  msg.push("Please confirm and start preparation.");
+
+  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg.join("\n")),"_blank");
+
+  cart.clear();
+  updateCart();
+  cartOver.classList.remove('open');
+};
+
+// Owner Orders Management
+function drawLiveOrders(orders){
+  const holder = document.getElementById('liveOrdersContainer');
+  const keys = Object.keys(orders);
+  if(!keys.length){
+    holder.innerHTML = '<p style="font-size:11px;color:var(--muted)">No pending orders right now.</p>';
+    stopLoudAlarm();
+    return;
+  }
+  
+  // Trigger loud alarm if any order is unacknowledged "Received"
+  const hasNew = keys.some(k => orders[k].status === 'Received');
+  if(hasNew) startLoudAlarm();
+
+  holder.innerHTML = keys.map(k=>{
+    const o = orders[k];
+    return `
+      <div style="background:#18130d;border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px;font-size:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <strong style="color:var(--gold2)">#${o.orderId} · ${o.type.toUpperCase()}</strong>
+          <span style="font-weight:700;color:${o.status==='Received'?'#f5d68d':o.status==='Preparing'?'#4fd682':'#70b5ff'}">${o.status}</span>
+        </div>
+        <div><b>${o.name}</b> (${o.phone}) · <b>₹${o.total}</b></div>
+        ${o.address?`<div style="color:var(--muted);font-size:11px">📍 ${o.address}</div>`:''}
+        ${o.mapsLink?`<div><a href="${o.mapsLink}" target="_blank" style="color:#4fd682;font-size:10.5px;font-weight:700">Open in Google Maps ↗</a></div>`:''}
+        <div style="margin:6px 0;font-size:11px;color:#c0b49e">
+          ${o.items.map(i=>`• ${i.qty}x ${i.name}`).join('<br>')}
+        </div>
+        ${o.notes?`<div style="font-size:10.5px;color:#ff9e94">Note: ${o.notes}</div>`:''}
+        
+        <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+          ${o.status==='Received'?`<button class="gold-btn" style="flex:1;padding:6px;font-size:11px" onclick="setOrderStatus(${o.orderId},'Preparing')">👨‍🍳 Start Preparing</button>`:''}
+          ${o.status==='Preparing'?`<button class="gold-btn" style="flex:1;padding:6px;font-size:11px" onclick="setOrderStatus(${o.orderId},'Ready')">✅ Mark Food Ready</button>`:''}
+          <button class="outline-btn" style="padding:6px;font-size:11px" onclick="showDigitalReceipt(${JSON.stringify(o).replace(/"/g, '&quot;')})">📄 Slip</button>
+          <button class="outline-btn" style="padding:6px;font-size:11px;color:#ff7b6b;border-color:#7a2c26" onclick="setOrderStatus(${o.orderId},'Completed')">Complete / Clear</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+window.setOrderStatus = (id, st)=>{
+  stopLoudAlarm();
+  if(st === 'Completed'){
+    set(ref(db, 'cravingFoodies/activeOrders/' + id), null);
+  }else{
+    update(ref(db, 'cravingFoodies/activeOrders/' + id), { status: st });
+  }
+};
+
+window.showDigitalReceipt = showDigitalReceipt;
+
+// Draw Dishes Management for Owner
+function drawOwnerDishes(){
+  const activeMenu = getActiveMenu();
+  const holder = document.getElementById('availabilityControls');
+  holder.innerHTML = activeMenu.map(x=>`
+    <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px">
+      <div style="flex:1;min-width:0">
+        <span style="font-weight:700">${x[1]}</span>
+        <span style="color:var(--gold2)"> · ₹${x[4]}</span>
+        <b style="color:${x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[3].toUpperCase()})</b>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <button type="button" class="outline-btn" style="padding:4px 8px;font-size:10.5px" data-edit="${x[0]}">📷 Upload Photo</button>
+        <label style="cursor:pointer;display:flex;align-items:center;gap:4px">
+          <input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}>
+          <span style="font-size:10px;color:var(--muted)">On</span>
+        </label>
+      </div>
+    </div>
+  `).join('');
+
+  holder.querySelectorAll('[data-live]').forEach(c=>c.onchange=()=>set(ref(db,'cravingFoodies/availability/'+c.dataset.live),c.checked));
+  
+  holder.querySelectorAll('[data-edit]').forEach(btn=>btn.onclick=()=>{
+    const id=+btn.dataset.edit;
+    const x = activeMenu.find(item=>item[0]===id);
+    document.getElementById('editDishId').value = id;
+    document.getElementById('editDishName').value = x[1];
+    document.getElementById('editDishPrice').value = x[4];
+    document.getElementById('editDishDesc').value = x[5];
+    currentBase64Img = x[6];
+    previewImg.src = x[6];
+    fileInput.value = "";
+    editMsg.textContent = "";
+    document.getElementById('editDishModal').classList.add('open');
+  });
+}
+
+document.getElementById('closeEditDish').onclick=()=>document.getElementById('editDishModal').classList.remove('open');
+
+document.getElementById('saveDishDetails').onclick=async()=>{
+  const id = document.getElementById('editDishId').value;
+  const name = document.getElementById('editDishName').value.trim();
+  const price = +document.getElementById('editDishPrice').value;
+  const desc = document.getElementById('editDishDesc').value.trim();
+  
+  if(!name || !price){ alert('Please fill in dish name and price.'); return; }
+  
+  editMsg.textContent = "Saving to live database...";
+  try{
+    await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { 
+      name, 
+      price, 
+      img: currentBase64Img || defaultPlaceholder, 
+      desc 
+    });
+    editMsg.textContent = "Saved and live updated!";
+    setTimeout(()=>{ document.getElementById('editDishModal').classList.remove('open'); }, 1200);
+  }catch(e){
+    alert('Error saving dish: ' + e.message);
+  }
+};
+
+// Realtime Listeners
+onValue(ref(db,'cravingFoodies/shopOpen'),s=>{
+  shopIsOpen=s.val()!==false;
+  const el=document.getElementById('shopStatus');
+  el.textContent=shopIsOpen?'● WE ARE OPEN — ORDER YOUR FAVOURITES':'● WE ARE CURRENTLY CLOSED — PLEASE VISIT AGAIN SOON';
+  el.style.borderColor=shopIsOpen?'#4fd682':'#ff6b6b';
+  el.style.color=shopIsOpen?'#bff5d0':'#ffb5a9';
+  render(document.querySelector('.filter.active')?.dataset.filter||'all');
+});
 
 onValue(ref(db,'cravingFoodies/availability'),s=>{
- liveAvailability=s.val()||{};
- render(document.querySelector('.filter.active')?.dataset.filter||'all');
- if(auth.currentUser)drawControls();
+  liveAvailability=s.val()||{};
+  render(document.querySelector('.filter.active')?.dataset.filter||'all');
+  if(auth.currentUser) drawOwnerDishes();
 });
 
 onValue(ref(db,'cravingFoodies/itemOverrides'),s=>{
- liveItemOverrides=s.val()||{};
- render(document.querySelector('.filter.active')?.dataset.filter||'all');
- updateCart();
- if(auth.currentUser)drawControls();
+  liveItemOverrides=s.val()||{};
+  render(document.querySelector('.filter.active')?.dataset.filter||'all');
+  updateCart();
+  if(auth.currentUser) drawOwnerDishes();
 });
 
+// Live Active Orders Sync (For Owner Alarm & Customer Tracker)
+onValue(ref(db,'cravingFoodies/activeOrders'),s=>{
+  activeOrdersMap = s.val() || {};
+  if(auth.currentUser) drawLiveOrders(activeOrdersMap);
+  
+  const myOrderId = localStorage.getItem('cf_last_order_id');
+  if(myOrderId && activeOrdersMap[myOrderId]){
+    updateTrackerUI(activeOrdersMap[myOrderId]);
+  }
+});
+
+// Auth Handlers
 onAuthStateChanged(auth,u=>{
- login.style.display=u?'none':'block';
- controls.style.display=u?'block':'none';
- if(u)drawControls();
+  document.getElementById('adminLogin').style.display=u?'none':'block';
+  document.getElementById('adminControls').style.display=u?'block':'none';
+  if(u){
+    drawOwnerDishes();
+    drawLiveOrders(activeOrdersMap);
+  }
 });
 
 document.getElementById('adminSignIn').onclick=async()=>{
- try{
-   await signInWithEmailAndPassword(auth,document.getElementById('adminEmail').value,document.getElementById('adminPassword').value);
-   msg.textContent='Logged in successfully.';
- }catch(e){
-   msg.textContent='Login Error: '+e.message;
- }
+  try{
+    await signInWithEmailAndPassword(auth,document.getElementById('adminEmail').value,document.getElementById('adminPassword').value);
+    document.getElementById('adminMessage').textContent='';
+  }catch(e){
+    document.getElementById('adminMessage').textContent='Login Error: '+e.message;
+  }
 };
 
 document.getElementById('adminSignOut').onclick=()=>signOut(auth);
-document.getElementById('shopOpen').onclick=()=>set(statusRef,true);
-document.getElementById('shopClosed').onclick=()=>set(statusRef,false);
+document.getElementById('shopOpen').onclick=()=>set(ref(db,'cravingFoodies/shopOpen'),true);
+document.getElementById('shopClosed').onclick=()=>set(ref(db,'cravingFoodies/shopOpen'),false);
 </script>
 </body>
 </html>
