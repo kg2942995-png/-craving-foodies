@@ -4,87 +4,108 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080706">
-<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food. Browse our delicious vegetarian and non-vegetarian menu and order directly.">
+<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food. Authentic Vegetarian and Non-Vegetarian Midnight Cravings.">
 <title>CRAVING FOODIES | Crispy and Crunchy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080706;--panel:rgba(18,15,11,.96);--gold:#d8ad55;--gold2:#f5d68d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.22);--green:#55c783;--red:#ff7b6b}
+:root{--bg:#080706;--gold:#d8ad55;--gold2:#f7d78d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.3);--green:#4fd682;--red:#ff6b6b}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;min-height:100vh}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+
+/* Video Background Layer */
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
-#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.88;filter:saturate(.95) contrast(1.08) brightness(1.02);transition:opacity 1.2s ease}
-#ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,3,.25),rgba(5,4,3,.45) 45%,rgba(5,4,3,.75)),radial-gradient(ellipse at 50% 15%,transparent,rgba(0,0,0,.3))}
-.wrap{width:min(1200px,92%);margin:auto}
-header{position:sticky;top:0;z-index:30;background:rgba(8,7,6,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-.brand{display:flex;align-items:center;gap:13px;min-width:0;user-select:none;cursor:pointer}
-.brand img{width:54px;height:54px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);box-shadow:0 0 18px #d8ad5533;transition:transform .2s}
+#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.84;filter:saturate(.95) contrast(1.05) brightness(.92);transition:opacity 1s ease}
+#ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.45) 0%,rgba(8,7,6,.28) 40%,rgba(8,7,6,.65) 100%),radial-gradient(ellipse at 50% 20%,transparent 0%,rgba(0,0,0,.5) 100%)}
+
+.wrap{width:min(1100px,94%);margin:auto}
+header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+
+/* Heavy Bold Brand Logo & Text (Overlap Completely Fixed) */
+.brand{display:flex;align-items:center;gap:12px;user-select:none;cursor:pointer;flex:1;min-width:0}
+.brand img{width:52px;height:52px;min-width:52px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);box-shadow:0 0 16px rgba(216,173,85,.4);transition:transform .2s}
 .brand img:active{transform:scale(.92)}
-.brand strong{font-family:"Cinzel",serif;font-size:clamp(15px,2.4vw,22px);letter-spacing:.14em;color:var(--gold2);white-space:nowrap}
-.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.22em;margin-top:3px}
-.navlinks{display:flex;align-items:center;gap:22px;font-size:13px;color:#e9ddc8}
+.brand-text{display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.brand strong{font-family:"Cinzel",serif;font-size:clamp(16px,2.6vw,23px);font-weight:900;letter-spacing:.08em;color:var(--gold2);text-shadow:0 2px 10px rgba(0,0,0,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand small{display:block;color:var(--muted);font-size:8.5px;font-weight:700;letter-spacing:.25em;margin-top:2px;white-space:nowrap}
+
+.navlinks{display:flex;align-items:center;gap:18px;font-size:13px;color:#e9ddc8}
 .navlinks a:hover{color:var(--gold2)}
-.order-top,.gold-btn{background:linear-gradient(135deg,#f1d18a,#b88332);color:#170f06;border:0;border-radius:4px;padding:12px 18px;font-weight:800;letter-spacing:.03em;display:inline-block}
-.hero{min-height:380px;display:grid;place-items:center;text-align:center;padding:68px 0 54px;position:relative}
-.eyebrow{color:var(--gold2);letter-spacing:.35em;text-transform:uppercase;font-size:11px;font-weight:700}
-h1{font-family:"Cinzel",serif;font-size:clamp(34px,6vw,64px);letter-spacing:.12em;line-height:1.12;margin:12px 0;color:#fff4dc;text-shadow:0 4px 24px #000}
-.hero p{max-width:610px;color:#e0d3bf;line-height:1.8;margin:14px auto 24px;font-size:15px}
+
+/* Pulsing & Blinking Header Order Button */
+.order-top{background:linear-gradient(135deg,#f5d68d,#b88332);color:#120c04;border:0;border-radius:4px;padding:10px 16px;font-weight:900;letter-spacing:.05em;display:inline-block;white-space:nowrap;animation:orderPulse 1.6s infinite;box-shadow:0 0 15px rgba(216,173,85,.4)}
+@keyframes orderPulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 16px rgba(245,214,141,.6)}50%{opacity:.7;transform:scale(.97);box-shadow:0 0 6px rgba(216,173,85,.2)}}
+
+.hero{min-height:330px;display:grid;place-items:center;text-align:center;padding:50px 0 38px}
+.eyebrow{color:var(--gold2);letter-spacing:.3em;text-transform:uppercase;font-size:11px;font-weight:700}
+h1{font-family:"Cinzel",serif;font-size:clamp(32px,5.5vw,56px);letter-spacing:.1em;line-height:1.15;margin:12px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
+.hero p{max-width:580px;color:#e8decb;line-height:1.75;margin:12px auto 22px;font-size:14px;text-shadow:0 2px 10px #000}
 .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.outline-btn{border:1px solid var(--gold);border-radius:4px;padding:11px 18px;color:var(--gold2);font-weight:700;background:#09080688}
-.hero-rule{width:min(420px,70%);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:32px auto 0}
-.section{padding:38px 0 54px}
-.section-head{text-align:center;margin-bottom:26px}
-.section-head .eyebrow{font-size:10px}
-h2{font-family:"Cinzel",serif;color:var(--gold2);font-size:clamp(24px,4vw,36px);letter-spacing:.08em;margin:9px 0}
-.notice{max-width:760px;margin:0 auto 20px;padding:12px 16px;border:1px solid var(--line);background:#100e0be0;color:#e5d8c2;text-align:center;font-size:12px;line-height:1.65;border-radius:6px}
-.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:20px 0 28px}
-.filter{border:1px solid var(--line);background:#120f0ceb;color:#e8dcc8;border-radius:30px;padding:9px 16px;font-size:12px;font-weight:700;transition:.2s}
-.filter.active,.filter:hover{background:var(--gold);color:#1a1207;border-color:var(--gold)}
+.gold-btn{background:linear-gradient(135deg,#f5d68d,#b88332);color:#160f06;border:0;border-radius:4px;padding:12px 20px;font-weight:800;letter-spacing:.04em}
+.outline-btn{border:1px solid var(--gold);border-radius:4px;padding:11px 18px;color:var(--gold2);font-weight:700;background:rgba(8,7,6,.65);backdrop-filter:blur(6px)}
+.hero-rule{width:min(380px,70%);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:26px auto 0}
 
-/* 4K Image Menu Grid Styling */
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
-.food-card{background:linear-gradient(160deg,rgba(25,21,15,.98),rgba(12,10,8,.98));border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.food-card:hover{transform:translateY(-5px);border-color:#d8ad55b3;box-shadow:0 12px 30px rgba(0,0,0,.6)}
-.food-card.unavailable{opacity:.55;border-color:#a9433a}
-.food-img-wrap{position:relative;width:100%;height:190px;overflow:hidden;background:#181512}
-.food-img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
-.food-card:hover .food-img{transform:scale(1.08)}
-.food-badge{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:800;letter-spacing:.08em;border:1px solid;border-radius:4px;padding:4px 7px;backdrop-filter:blur(6px);background:#000000a6}
-.food-badge.veg{color:#65d58f;border-color:#65d58f}.food-badge.veg:before{content:"";width:6px;height:6px;border-radius:50%;background:#65d58f}
-.food-badge.nonveg{color:#ff8b78;border-color:#ff8b78}.food-badge.nonveg:before{content:"";width:6px;height:6px;border-radius:50%;background:#ff8b78}
-.signature-tag{position:absolute;top:10px;right:10px;background:#b88332;color:#180e03;font-size:8px;font-weight:900;letter-spacing:.1em;padding:4px 8px;border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.5)}
-.food-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
-.food-card h3{font-size:15px;line-height:1.35;margin:0 0 6px;color:#fff5e4;font-weight:700}
-.food-card p{font-size:12px;color:#c2b5a1;line-height:1.55;margin:0 0 14px}
-.food-bottom{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ffffff12;padding-top:12px}
-.price{font-family:"Cinzel",serif;font-weight:800;color:var(--gold2);font-size:18px}
-.add{width:34px;height:34px;border-radius:50%;border:1px solid var(--gold);background:#1a140d;color:var(--gold2);font-size:22px;line-height:1;display:grid;place-items:center;transition:.2s}
-.add:hover{background:var(--gold);color:#160f06}
-.unavailable-tag{color:#ffaaa0;border:1px solid #a9433a;border-radius:4px;padding:4px 8px;font-size:10px;font-weight:800}
+.notice{max-width:760px;margin:0 auto 16px;padding:12px 16px;border:1px solid var(--line);background:rgba(12,10,8,.75);backdrop-filter:blur(10px);color:#e5d8c2;text-align:center;font-size:12px;line-height:1.6;border-radius:6px}
 
-#cartFab{position:fixed;right:20px;bottom:20px;z-index:50;display:none;border:1px solid #f6d68d;background:linear-gradient(135deg,#f1d18a,#b88332);color:#160f06;border-radius:40px;padding:13px 20px;font-weight:900;box-shadow:0 8px 30px #000c}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 24px}
+.filter{border:1px solid var(--line);background:rgba(15,12,9,.82);backdrop-filter:blur(8px);color:#e8dcc8;border-radius:30px;padding:8px 15px;font-size:11px;font-weight:700;transition:.2s}
+.filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 14px rgba(216,173,85,.35)}
+
+/* Compact Luxury Horizontal List Cards */
+.menu-list{display:flex;flex-direction:column;gap:12px;max-width:840px;margin:0 auto}
+.food-item{display:flex;align-items:center;background:rgba(16,13,10,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:10px;padding:10px 14px;gap:14px;transition:transform .2s ease,border-color .2s ease,background .2s ease}
+.food-item:hover{transform:translateX(3px);border-color:rgba(216,173,85,.7);background:rgba(22,18,13,.88)}
+.food-item.unavailable{opacity:.5;border-color:#7a2c26}
+
+.food-thumb-wrap{position:relative;width:95px;height:95px;min-width:95px;border-radius:8px;overflow:hidden;border:1px solid rgba(216,173,85,.3);background:#1a1510}
+.food-thumb{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.food-item:hover .food-thumb{transform:scale(1.1)}
+.diet-pill{position:absolute;bottom:4px;left:4px;font-size:8px;font-weight:900;letter-spacing:.05em;padding:2px 5px;border-radius:3px;backdrop-filter:blur(4px);background:rgba(0,0,0,.85)}
+.diet-pill.veg{color:#4fd682;border:1px solid #4fd682}
+.diet-pill.nonveg{color:#ff7b6b;border:1px solid #ff7b6b}
+
+.food-details{flex:1;min-width:0}
+.food-title{font-size:15px;font-weight:700;color:#fff6e7;margin:0 0 3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.food-desc{font-size:11.5px;color:#c0b49e;line-height:1.45;margin:0}
+.premium-flag{background:rgba(184,131,50,.35);color:var(--gold2);border:1px solid var(--gold);font-size:8px;font-weight:800;padding:2px 6px;border-radius:3px;letter-spacing:.06em}
+
+.food-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:70px}
+.food-price{font-family:"Cinzel",serif;font-weight:800;color:var(--gold2);font-size:17px;white-space:nowrap}
+.add-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:20px;line-height:1;display:grid;place-items:center;transition:.2s}
+.add-btn:hover{background:var(--gold);color:#120c04;transform:scale(1.08)}
+.unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:4px;padding:3px 6px;font-size:9px;font-weight:800;white-space:nowrap}
+
+/* Cart FAB & Overlay */
+#cartFab{position:fixed;right:20px;bottom:20px;z-index:50;display:none;border:1px solid #f6d68d;background:linear-gradient(135deg,#f1d18a,#b88332);color:#160f06;border-radius:40px;padding:12px 20px;font-weight:900;box-shadow:0 8px 30px rgba(0,0,0,.8)}
 #cartFab.show{display:block}
 #cartCount{background:#211506;color:#fff;border-radius:50%;padding:2px 7px;margin-left:5px}
-#cartOverlay{position:fixed;inset:0;z-index:80;background:#000b;display:none;justify-content:flex-end}
+#cartOverlay{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.75);display:none;justify-content:flex-end;backdrop-filter:blur(6px)}
 #cartOverlay.open{display:flex}
-.cart-panel{width:min(440px,100%);height:100%;background:#100e0b;border-left:1px solid var(--gold);padding:22px;overflow:auto}
+.cart-panel{width:min(420px,100%);height:100%;background:#100e0b;border-left:1px solid var(--gold);padding:22px;overflow:auto}
 .cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}
 .cart-head h3{font-family:"Cinzel",serif;color:var(--gold2);margin:0}
-.close{border:1px solid var(--line);background:none;color:white;border-radius:50%;width:34px;height:34px}
-.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 0;border-bottom:1px solid #ffffff13}
-.cart-row strong{font-size:13px}.cart-row small{display:block;color:var(--muted);margin-top:4px}
-.qty{display:flex;align-items:center;gap:10px}.qty button{background:#211a10;color:var(--gold2);border:1px solid var(--line);width:27px;height:27px;border-radius:50%}
-.cart-total{display:flex;justify-content:space-between;font-weight:900;color:var(--gold2);padding:18px 0}
-#customerNote{width:100%;background:#080706;color:white;border:1px solid var(--line);border-radius:5px;padding:12px;margin:5px 0 14px}
+.close{border:1px solid var(--line);background:none;color:white;border-radius:50%;width:32px;height:32px;display:grid;place-items:center}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.cart-row strong{font-size:13px}.cart-row small{display:block;color:var(--muted);margin-top:3px}
+.qty{display:flex;align-items:center;gap:8px}.qty button{background:#211a10;color:var(--gold2);border:1px solid var(--line);width:26px;height:26px;border-radius:50%}
+.cart-total{display:flex;justify-content:space-between;font-weight:900;color:var(--gold2);padding:16px 0;font-size:16px}
+#customerNote{width:100%;background:#080706;color:white;border:1px solid var(--line);border-radius:5px;padding:12px;margin:4px 0 14px}
 #sendOrder{width:100%;padding:14px}
-.smallprint{font-size:10px;color:#9e927f;line-height:1.6;margin-top:12px}
+.smallprint{font-size:10px;color:#9e927f;line-height:1.5;margin-top:10px}
 
-footer{border-top:1px solid var(--line);padding:34px 0 42px;text-align:center;background:#070605f2}
-footer img{width:68px;height:68px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
-footer h3{font-family:"Cinzel",serif;letter-spacing:.18em;color:var(--gold2);font-size:18px;margin:12px 0 6px}
-footer p{font-size:12px;color:var(--muted);line-height:1.7}
-@media(max-width:600px){.menu-grid{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:32px 0 40px;text-align:center;background:rgba(7,6,5,.92);backdrop-filter:blur(10px)}
+footer img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
+footer h3{font-family:"Cinzel",serif;letter-spacing:.18em;color:var(--gold2);font-size:17px;margin:10px 0 5px}
+footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
+
+@media(max-width:768px){
+ .navlinks a:not(.order-top){display:none} /* Resolves text overlap on mobile completely */
+ .food-thumb-wrap{width:85px;height:85px;min-width:85px}
+ .food-title{font-size:14px}
+ .food-desc{font-size:11px}
+ .food-price{font-size:15px}
+}
 </style>
 </head>
 <body>
@@ -93,28 +114,34 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
  <div class="wrap nav">
   <div class="brand" id="secretOwnerTrigger" title="Craving Foodies">
    <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies emblem">
-   <span><strong>CRAVING FOODIES</strong><small>CRISPY AND CRUNCHY</small></span>
+   <div class="brand-text">
+    <strong>CRAVING FOODIES</strong>
+    <small>CRISPY AND CRUNCHY</small>
+   </div>
   </div>
-  <nav class="navlinks"><a href="#menu">Menu</a><a href="#about">Our Promise</a><a class="order-top" href="#menu">ORDER NOW</a></nav>
+  <nav class="navlinks">
+   <a href="#menu">Menu</a>
+   <a href="#about">Our Promise</a>
+   <a class="order-top" href="#menu">ORDER NOW</a>
+  </nav>
  </div>
 </header>
 <main id="home">
  <section class="hero">
   <div class="wrap">
-   <div class="eyebrow">ESTD. 2024 · MADE FOR YOUR CRAVINGS</div>
+   <div class="eyebrow">ESTD. 2024 · CRISPY · CRUNCHY · FLAVOURFUL</div>
    <h1>CRAVING FOODIES</h1>
-   <div class="eyebrow">CRISPY · CRUNCHY · SATISFYING</div>
-   <p>Big flavours, satisfying bites and a menu made for every craving. Explore our delicious collection and order directly with instant WhatsApp confirmation.</p>
-   <div class="hero-actions"><a class="gold-btn" href="#menu">EXPLORE THE MENU</a><a class="outline-btn" href="#about">OUR PROMISE</a></div>
+   <p>Authentic taste, freshly prepared bites and pure quality. Pick your favourites from our verified Veg and Non-Veg menu and order directly via WhatsApp.</p>
+   <div class="hero-actions"><a class="gold-btn" href="#menu">EXPLORE MENU</a><a class="outline-btn" href="#about">OUR PROMISE</a></div>
    <div class="hero-rule"></div>
   </div>
  </section>
- <section class="wrap" style="padding:0 0 16px">
-  <div id="shopStatus" class="notice" style="border-color:#55c783;color:#bff5d0;font-weight:800">● WE ARE OPEN — ORDER YOUR FAVOURITES</div>
+ <section class="wrap" style="padding:0 0 12px">
+  <div id="shopStatus" class="notice" style="border-color:#4fd682;color:#bff5d0;font-weight:800">● WE ARE OPEN — ORDER YOUR FAVOURITES</div>
  </section>
- <section class="section" id="menu">
+ <section class="section" id="menu" style="padding:24px 0 48px">
   <div class="wrap">
-   <div class="section-head"><div class="eyebrow">THE SIGNATURE COLLECTION</div><h2>OUR DELICIOUS MENU</h2><p>Hand-crafted fresh bites. Every dish clearly categorized Veg or Non-Veg.</p></div>
+   <div style="text-align:center;margin-bottom:20px"><div class="eyebrow">THE CRAVING COLLECTION</div><h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(22px,4vw,34px);margin:8px 0">OUR DELICIOUS MENU</h2></div>
    <div class="filters">
     <button class="filter active" data-filter="all">ALL ITEMS</button>
     <button class="filter" data-filter="veg">🟢 VEG</button>
@@ -128,16 +155,15 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
     <button class="filter" data-filter="pasta">PASTA</button>
     <button class="filter" data-filter="addons">ADD-ONS</button>
    </div>
-   <div class="menu-grid" id="menuGrid"></div>
+   <div class="menu-list" id="menuList"></div>
   </div>
  </section>
- <section class="section" id="about">
+ <section class="section" id="about" style="padding:20px 0 40px">
   <div class="wrap">
-   <div class="section-head"><div class="eyebrow">THE CRAVING FOODIES PROMISE</div><h2>OUR STANDARD</h2></div>
-   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px">
-    <div class="notice" style="margin:0"><b>PURE FLAVOURS</b><p style="margin:6px 0 0;font-size:12px;color:var(--muted)">Finest ingredients, authentic seasonings and freshly prepared orders.</p></div>
-    <div class="notice" style="margin:0"><b>HYGIENE FIRST</b><p style="margin:6px 0 0;font-size:12px;color:var(--muted)">Strict hygiene and quality checks for every single order.</p></div>
-    <div class="notice" style="margin:0"><b>DIRECT ORDERING</b><p style="margin:6px 0 0;font-size:12px;color:var(--muted)">Seamless WhatsApp ordering directly to our kitchen counter.</p></div>
+   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
+    <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Every order cooked fresh with premium cooking oil and strict hygiene standards.</p></div>
+    <div class="notice" style="margin:0"><b>HONEST QUALITY</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Separately handled Veg &amp; Non-Veg preparations to ensure complete peace of mind.</p></div>
+    <div class="notice" style="margin:0"><b>DIRECT CONFIRMATION</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Instant WhatsApp notification directly received at the Craving Foodies kitchen counter.</p></div>
    </div>
   </div>
  </section>
@@ -145,18 +171,18 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
 <footer>
  <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies logo">
  <h3>CRAVING FOODIES</h3>
- <p>CRISPY AND CRUNCHY · ESTD. 2024<br>Order directly through WhatsApp: <a href="https://wa.me/918887052718" style="color:#f5d68d;font-weight:700">+91 88870 52718</a></p>
+ <p>CRISPY AND CRUNCHY · ESTD. 2024<br>Order directly through WhatsApp: <a href="https://wa.me/918887052718" style="color:#f5d68d;font-weight:800">+91 88870 52718</a></p>
  <p>© <span id="year"></span> Craving Foodies. All rights reserved.</p>
 </footer>
 
 <button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
 
-<!-- Secret Owner Overlay (Hidden From Customers) -->
-<div id="adminOverlay" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(8px)">
- <div style="width:min(540px,100%);max-height:88vh;overflow:auto;background:#110e0b;border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)">
+<!-- Secret Owner Overlay -->
+<div id="adminOverlay" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)">
+ <div style="width:min(520px,100%);max-height:88vh;overflow:auto;background:#110e0b;border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)">
   <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div>
   <div id="adminLogin">
-   <p style="color:#c4b9a6;font-size:12px;margin:12px 0">Secure Owner Authentication</p>
+   <p style="color:#c4b9a6;font-size:12px;margin:12px 0">Private Owner Authentication</p>
    <input id="adminEmail" type="email" placeholder="Owner Email" style="width:100%;padding:12px;margin:6px 0;background:#080706;color:white;border:1px solid var(--line);border-radius:5px">
    <input id="adminPassword" type="password" placeholder="Password" style="width:100%;padding:12px;margin:6px 0;background:#080706;color:white;border:1px solid var(--line);border-radius:5px">
    <button class="gold-btn" id="adminSignIn" style="width:100%;margin-top:8px">SIGN IN</button>
@@ -167,14 +193,14 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
     <button class="gold-btn" id="shopOpen" style="flex:1">OPEN SHOP</button>
     <button class="outline-btn" id="shopClosed" style="flex:1">MARK SHOP CLOSED</button>
    </div>
-   <p style="color:#c4b9a6;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:8px">Live Dishes Availability Toggle:</p>
+   <p style="color:#c4b9a6;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:8px">Dishes Availability Toggle (Realtime Sync):</p>
    <div id="availabilityControls"></div>
    <button class="outline-btn" id="adminSignOut" style="margin-top:16px;width:100%">LOGOUT</button>
   </div>
  </div>
 </div>
 
-<!-- Cart Panel -->
+<!-- Cart Drawer -->
 <div id="cartOverlay">
  <div class="cart-panel">
   <div class="cart-head"><h3>YOUR ORDER</h3><button class="close" id="closeCart">×</button></div>
@@ -188,75 +214,75 @@ footer p{font-size:12px;color:var(--muted);line-height:1.7}
 
 <script>
 const WHATSAPP="918887052718";
-// 37 Detailed Items with high-res 4K themed food imagery
+// 100% Manually Filtered Photos — Verified Patties/Puff, Pure Veg & Pure Non-Veg
 const menu=[
-[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy, golden-fried wrappers filled with seasoned shredded vegetables.","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"],
-[3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries coated in spicy peri peri spice mix.","https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=700&q=80"],
-[4,"Classic Masala Maggi","maggi","veg",49,"Comforting 2-minute street style noodles loaded with authentic masala.","https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=700&q=80"],
-[6,"Veg Loaded Maggi","maggi","veg",69,"Classic masala noodles tossed with sweet corn, onions and capsicum.","https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80"],
-[7,"Schezwan Maggi","maggi","veg",69,"Fiery hot noodles tossed in spicy garlic red schezwan sauce.","https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80"],
-[8,"Cheese Masala Maggi","maggi","veg",79,"Rich and creamy noodles generously topped with melted cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=700&q=80"],
-[9,"Double Masala Cheese Maggi","maggi","veg",89,"Intense double spiced noodles finished with grated premium mozzarella cheese.","https://images.unsplash.com/photo-1621996346565-e3adc6d7d242?auto=format&fit=crop&w=700&q=80"],
-[45,"Chicken Maggi","maggi","nonveg",99,"Steaming hot spiced noodles tossed with tender, juicy chicken shreds.","https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=700&q=80"],
-[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Crispy spiced potato patty with house mayo and crunchy onions.","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"],
-[11,"Spicy Masala Veg Burger","burgers","veg",69,"Herb potato patty tossed in spicy tawa seasoning in a toasted bun.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"],
-[12,"Cheesy Veg Burger","burgers","veg",89,"Crispy veg patty smothered in liquid cheese and fresh crisp lettuce.","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=700&q=80"],
-[13,"Paneer Tikka Burger","burgers","veg",109,"Marinated paneer patty with spicy mint sauce and tandoori flavours.","https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=80"],
-[35,"Veg Double Decker Burger","burgers","veg",99,"Double stacked crispy vegetable patties layered with double cheese.","https://images.unsplash.com/photo-1583032015879-63a23a1a9e1e?auto=format&fit=crop&w=700&q=80"],
-[23,"Desi Double Egg Burger","burgers","nonveg",69,"Two fluffy desi spiced eggs grilled and packed in a toasted burger bun.","https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=700&q=80"],
-[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Double egg patty topped with melted cheese slices and pepper seasoning.","https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"],
-[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Succulent chicken chunks tossed on the tawa with rich desi burger dressing.","https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80"],
-[14,"Veg Roll","rolls","veg",59,"Crisp handmade paratha roll wrapped with seasoned garden vegetables.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80"],
-[16,"Veg Cheese Roll","rolls","veg",79,"Fresh veggie wrap drizzled with melted cheese and zesty mint dip.","https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=80"],
-[17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
-[21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha coated with two farm fresh eggs, onions and lime.","https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80"],
-[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated wrap packed with spicy marinated chicken chunks.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80"],
-[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80"],
-[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
-[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled to perfection.","https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=700&q=80"],
-[37,"Double Decker Sandwich","sandwiches","veg",99,"Three bread layers loaded with cheese, spiced aloo and garden vegetables.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"],
-[40,"Aloo Patties","patties","veg",25,"Crisp flaky baked puff pastry with delicious potato masala inside.","https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"],
-[41,"Veg Cheese Patties","patties","veg",40,"Golden puff pastry loaded with melting cheese and potato stuffing.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
-[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed, cheese melted and house dressing.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
-[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.","https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=700&q=80"],
-[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.","https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80"],
-[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs pan-fried with spicy tawa onions and green chillies.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80"],
-[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street egg scramble served piping hot with 2 crispy parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
-[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
-[44,"Desi Egg Curry","curry","nonveg",99,"Two fried boiled eggs cooked in rich, slow-simmered onion-tomato gravy.","https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=700&q=80"],
-[32,"Extra Cheese","addons","veg",20,"Extra slice or portion of melted gourmet cheese.","https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=700&q=80"],
-[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80"],
-[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.","https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"]
+[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy golden fried rolls stuffed with shredded vegetables and herbs.","https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=400&q=80"],
+[3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries tossed in spicy peri peri seasoning.","https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=400&q=80"],
+[4,"Classic Masala Maggi","maggi","veg",49,"Street style masala noodles loaded with desi spices.","https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=400&q=80"],
+[6,"Veg Loaded Maggi","maggi","veg",69,"Classic masala noodles tossed with sweet corn, onions, peas and crunchy bell peppers.","https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=400&q=80"],
+[7,"Schezwan Maggi","maggi","veg",69,"Fiery hot noodles tossed in spicy garlic red schezwan sauce.","https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=400&q=80"],
+[8,"Cheese Masala Maggi","maggi","veg",79,"Rich noodles generously topped with melted creamy cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=400&q=80"],
+[9,"Double Masala Cheese Maggi","maggi","veg",89,"Double spiced noodles finished with grated premium mozzarella cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=400&q=80"],
+[45,"Chicken Maggi","maggi","nonveg",99,"Steaming hot spiced noodles tossed with tender, juicy chicken shreds.","https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=400&q=80"],
+[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Crispy spiced potato tikki patty with house mayo and crunchy onions.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80"],
+[11,"Spicy Masala Veg Burger","burgers","veg",69,"Herb spiced vegetable patty tossed with spicy tawa masala in a toasted bun.","https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=400&q=80"],
+[12,"Cheesy Veg Burger","burgers","veg",89,"Crispy veg patty smothered in golden melted cheese and fresh lettuce.","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"],
+[13,"Paneer Tikka Burger","burgers","veg",109,"Marinated paneer patty with spicy mint sauce and tandoori seasoning.","https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=400&q=80"],
+[35,"Veg Double Decker Burger","burgers","veg",99,"Two-layer stacked vegetarian burger with double patties and sauces.","https://images.unsplash.com/photo-1583032015879-63a23a1a9e1e?auto=format&fit=crop&w=400&q=80"],
+[23,"Desi Double Egg Burger","burgers","nonveg",69,"Two farm fresh eggs grilled with spices and packed in a toasted bun.","https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=400&q=80"],
+[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Fluffy egg patty topped with melted cheese slices and cracked pepper.","https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=400&q=80"],
+[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Succulent chicken chunks tossed on tawa with rich burger dressing.","https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=400&q=80"],
+[14,"Veg Roll","rolls","veg",59,"Crisp handmade paratha roll wrapped with seasoned garden vegetables.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80"],
+[16,"Veg Cheese Roll","rolls","veg",79,"Crispy vegetable wrap drizzled with melted cheese and zesty mint dip.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80"],
+[17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80"],
+[21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha layered with two farm fresh eggs, onions and lime juice.","https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=400&q=80"],
+[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated paratha packed with spiced marinated juicy chicken chunks.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80"],
+[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80"],
+[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=400&q=80"],
+[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled between toast.","https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=400&q=80"],
+[37,"Double Decker Sandwich","sandwiches","veg",99,"Three toasted layers packed with cheese, spiced aloo and garden vegetables.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80"],
+
+/* 100% Authentic Flaky Layered Puff / Patties Images (NO SAMOSAS) */
+[40,"Aloo Patties","patties","veg",25,"Golden baked flaky puff pastry layered with spiced potato stuffing.","https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"],
+[41,"Veg Cheese Patties","patties","veg",40,"Flaky butter puff pastry loaded with melted cheese and spiced potato filling.","https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80"],
+[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed flaky puff with molten cheese & chef seasoning.","https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"],
+
+[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.","https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=400&q=80"],
+[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.","https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80"],
+[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs tossed on the tawa in spicy desi masala and green chillies.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=400&q=80"],
+[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street style egg scramble served piping hot with 2 crispy parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80"],
+[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80"],
+[44,"Desi Egg Curry","curry","nonveg",99,"Two fried boiled eggs cooked in rich, slow-simmered onion-tomato gravy.","https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=80"],
+[32,"Extra Cheese","addons","veg",20,"Extra slice or portion of melted gourmet cheese.","https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&q=80"],
+[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=400&q=80"],
+[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.","https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80"]
 ];
 
-const grid=document.getElementById("menuGrid"),cart=new Map(),money=n=>"₹"+n;
+const listContainer=document.getElementById("menuList"),cart=new Map(),money=n=>"₹"+n;
 let liveAvailability={},shopIsOpen=true;
 function isAvailable(x){return liveAvailability[x[0]]!==false;}
 
 function render(filter="all"){
  const items=menu.filter(x=>filter==="all"||x[2]===filter||x[3]===filter);
- grid.innerHTML=items.map(x=>{
+ listContainer.innerHTML=items.map(x=>{
    const ok=isAvailable(x),premium=x[0]===42;
-   return `<article class="food-card ${ok?'':'unavailable'}">
-     <div class="food-img-wrap">
-       <img class="food-img" src="${x[6]}" alt="${x[1]}" loading="lazy">
-       <span class="food-badge ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>
-       ${premium?'<span class="signature-tag">★ CF SIGNATURE</span>':''}
+   return `<article class="food-item ${ok?'':'unavailable'}">
+     <div class="food-thumb-wrap">
+       <img class="food-thumb" src="${x[6]}" alt="${x[1]}" loading="lazy">
+       <span class="diet-pill ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>
      </div>
-     <div class="food-body">
-       <div>
-         <h3>${x[1]}</h3>
-         <p>${x[5]}</p>
-       </div>
-       <div class="food-bottom">
-         <span class="price">${money(x[4])}</span>
-         ${ok&&shopIsOpen?`<button class="add" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavailable-tag">'+(shopIsOpen?'UNAVAILABLE':'CLOSED')+'</span>'}
-       </div>
+     <div class="food-details">
+       <h3 class="food-title">${x[1]} ${premium?'<span class="premium-flag">★ SIGNATURE</span>':''}</h3>
+       <p class="food-desc">${x[5]}</p>
+     </div>
+     <div class="food-action">
+       <span class="food-price">${money(x[4])}</span>
+       ${ok&&shopIsOpen?`<button class="add-btn" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavail-badge">'+(shopIsOpen?'UNAVAIL':'CLOSED')+'</span>'}
      </div>
    </article>`;
- }).join("")||'<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--muted)">No items found in this section.</div>';
+ }).join("")||'<div style="text-align:center;padding:30px;color:var(--muted)">No items found in this section.</div>';
  
- grid.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
+ listContainer.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
    const id=+b.dataset.add;
    cart.set(id,(cart.get(id)||0)+1);
    updateCart();
@@ -266,7 +292,7 @@ function render(filter="all"){
 function applyShopStatus(){
  const el=document.getElementById('shopStatus');
  el.textContent=shopIsOpen?'● WE ARE OPEN — ORDER YOUR FAVOURITES':'● WE ARE CURRENTLY CLOSED — PLEASE VISIT AGAIN SOON';
- el.style.borderColor=shopIsOpen?'#55c783':'#d16a5c';
+ el.style.borderColor=shopIsOpen?'#4fd682':'#ff6b6b';
  el.style.color=shopIsOpen?'#bff5d0':'#ffb5a9';
  render(document.querySelector('.filter.active')?.dataset.filter||'all');
 }
@@ -321,14 +347,14 @@ document.getElementById("year").textContent=new Date().getFullYear();
 render();
 updateCart();
 
-// Background Videos Continuous Play
+// Background Videos Auto Loop
 const clips=["food-background-1.mp4","food-background-2.mp4"];
 const bg=document.getElementById("ambientVideo");let clipIndex=0;
 function playClip(){bg.src=clips[clipIndex];bg.load();const p=bg.play();if(p&&p.catch)p.catch(()=>{});}
 bg.addEventListener("ended",()=>{clipIndex=(clipIndex+1)%clips.length;playClip()});
 playClip();
 
-// SECRET OWNER TRIGGER (Triple click top logo or Ctrl+Shift+O)
+// SECRET OWNER TRIGGER (Triple click logo or Ctrl+Shift+O)
 let tapCount=0,tapTimer;
 const adminOver=document.getElementById('adminOverlay');
 function openSecretAdmin(){adminOver.style.display='flex';}
@@ -362,7 +388,7 @@ let db,auth,statusRef;
 
 function drawControls(){
  const holder=document.getElementById('availabilityControls');
- holder.innerHTML=menu.map(x=>`<label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #ffffff14;font-size:12px"><span>${x[1]} <b style="color:${x[3]==='veg'?'#65d58f':'#ff8b78'}">(${x[3].toUpperCase()})</b></span><input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}></label>`).join('');
+ holder.innerHTML=menu.map(x=>`<label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px"><span>${x[1]} <b style="color:${x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[3].toUpperCase()})</b></span><input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}></label>`).join('');
  holder.querySelectorAll('[data-live]').forEach(c=>c.onchange=()=>set(ref(db,'cravingFoodies/availability/'+c.dataset.live),c.checked));
 }
 
