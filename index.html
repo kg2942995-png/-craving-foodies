@@ -4,16 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#080706">
-<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food. Authentic Vegetarian and Non-Vegetarian Midnight Cravings.">
+<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food. Authentic Vegetarian and Non-Vegetarian Midnight Specials.">
 <title>CRAVING FOODIES | Crispy and Crunchy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080706;--gold:#d8ad55;--gold2:#f7d78d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.3);--green:#4fd682;--red:#ff6b6b}
+:root{--bg:#080706;--gold:#d8ad55;--gold2:#f7d78d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.3);--green:#4fd682;--red:#ff6b6b;--swiggy:#fc8019;--zomato:#e23744}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;min-height:100vh}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
 
-/* Video Background Layer */
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
 #ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.84;filter:saturate(.95) contrast(1.05) brightness(.92);transition:opacity 1s ease}
 #ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.45) 0%,rgba(8,7,6,.28) 40%,rgba(8,7,6,.65) 100%),radial-gradient(ellipse at 50% 20%,transparent 0%,rgba(0,0,0,.5) 100%)}
@@ -22,7 +21,6 @@
 header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 
-/* Heavy Bold Brand Logo & Text (Overlap Completely Fixed) */
 .brand{display:flex;align-items:center;gap:12px;user-select:none;cursor:pointer;flex:1;min-width:0}
 .brand img{width:52px;height:52px;min-width:52px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);box-shadow:0 0 16px rgba(216,173,85,.4);transition:transform .2s}
 .brand img:active{transform:scale(.92)}
@@ -33,34 +31,40 @@ header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.92);backdrop-filt
 .navlinks{display:flex;align-items:center;gap:18px;font-size:13px;color:#e9ddc8}
 .navlinks a:hover{color:var(--gold2)}
 
-/* Pulsing & Blinking Header Order Button */
 .order-top{background:linear-gradient(135deg,#f5d68d,#b88332);color:#120c04;border:0;border-radius:4px;padding:10px 16px;font-weight:900;letter-spacing:.05em;display:inline-block;white-space:nowrap;animation:orderPulse 1.6s infinite;box-shadow:0 0 15px rgba(216,173,85,.4)}
 @keyframes orderPulse{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 16px rgba(245,214,141,.6)}50%{opacity:.7;transform:scale(.97);box-shadow:0 0 6px rgba(216,173,85,.2)}}
 
-.hero{min-height:330px;display:grid;place-items:center;text-align:center;padding:50px 0 38px}
+.hero{min-height:300px;display:grid;place-items:center;text-align:center;padding:46px 0 30px}
 .eyebrow{color:var(--gold2);letter-spacing:.3em;text-transform:uppercase;font-size:11px;font-weight:700}
-h1{font-family:"Cinzel",serif;font-size:clamp(32px,5.5vw,56px);letter-spacing:.1em;line-height:1.15;margin:12px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
-.hero p{max-width:580px;color:#e8decb;line-height:1.75;margin:12px auto 22px;font-size:14px;text-shadow:0 2px 10px #000}
+h1{font-family:"Cinzel",serif;font-size:clamp(30px,5vw,52px);letter-spacing:.1em;line-height:1.15;margin:10px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
+.hero p{max-width:580px;color:#e8decb;line-height:1.75;margin:10px auto 18px;font-size:14px;text-shadow:0 2px 10px #000}
 .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .gold-btn{background:linear-gradient(135deg,#f5d68d,#b88332);color:#160f06;border:0;border-radius:4px;padding:12px 20px;font-weight:800;letter-spacing:.04em}
 .outline-btn{border:1px solid var(--gold);border-radius:4px;padding:11px 18px;color:var(--gold2);font-weight:700;background:rgba(8,7,6,.65);backdrop-filter:blur(6px)}
-.hero-rule{width:min(380px,70%);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:26px auto 0}
+.hero-rule{width:min(380px,70%);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:24px auto 0}
 
-.notice{max-width:760px;margin:0 auto 16px;padding:12px 16px;border:1px solid var(--line);background:rgba(12,10,8,.75);backdrop-filter:blur(10px);color:#e5d8c2;text-align:center;font-size:12px;line-height:1.6;border-radius:6px}
+.notice{max-width:760px;margin:0 auto 14px;padding:12px 16px;border:1px solid var(--line);background:rgba(12,10,8,.75);backdrop-filter:blur(10px);color:#e5d8c2;text-align:center;font-size:12px;line-height:1.6;border-radius:6px}
+
+/* Blinking Swiggy & Zomato Strip */
+.delivery-strip{max-width:760px;margin:0 auto 14px;padding:10px 16px;border:1px solid rgba(216,173,85,.35);background:rgba(15,12,9,.82);backdrop-filter:blur(10px);text-align:center;font-size:13px;font-weight:800;letter-spacing:.05em;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.swiggy-blink{color:var(--swiggy);font-weight:900;text-shadow:0 0 10px rgba(252,128,25,.5);animation:blinkSwiggy 1.4s infinite alternate}
+.zomato-blink{color:var(--zomato);font-weight:900;text-shadow:0 0 10px rgba(226,55,68,.5);animation:blinkZomato 1.4s infinite alternate}
+@keyframes blinkSwiggy{0%{opacity:1;transform:scale(1)}100%{opacity:.45;transform:scale(.96)}}
+@keyframes blinkZomato{0%{opacity:.45;transform:scale(.96)}100%{opacity:1;transform:scale(1)}}
 
 .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:16px 0 24px}
 .filter{border:1px solid var(--line);background:rgba(15,12,9,.82);backdrop-filter:blur(8px);color:#e8dcc8;border-radius:30px;padding:8px 15px;font-size:11px;font-weight:700;transition:.2s}
 .filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 14px rgba(216,173,85,.35)}
 
-/* Compact Luxury Horizontal List Cards */
 .menu-list{display:flex;flex-direction:column;gap:12px;max-width:840px;margin:0 auto}
 .food-item{display:flex;align-items:center;background:rgba(16,13,10,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:10px;padding:10px 14px;gap:14px;transition:transform .2s ease,border-color .2s ease,background .2s ease}
 .food-item:hover{transform:translateX(3px);border-color:rgba(216,173,85,.7);background:rgba(22,18,13,.88)}
 .food-item.unavailable{opacity:.5;border-color:#7a2c26}
 
-.food-thumb-wrap{position:relative;width:95px;height:95px;min-width:95px;border-radius:8px;overflow:hidden;border:1px solid rgba(216,173,85,.3);background:#1a1510}
+.food-thumb-wrap{position:relative;width:95px;height:95px;min-width:95px;border-radius:8px;overflow:hidden;border:1px solid rgba(216,173,85,.3);background:#1a1510;cursor:zoom-in}
 .food-thumb{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
-.food-item:hover .food-thumb{transform:scale(1.1)}
+.food-thumb-wrap:hover .food-thumb{transform:scale(1.12)}
+.zoom-hint{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.7);color:#fff;font-size:9px;padding:2px 4px;border-radius:3px;pointer-events:none}
 .diet-pill{position:absolute;bottom:4px;left:4px;font-size:8px;font-weight:900;letter-spacing:.05em;padding:2px 5px;border-radius:3px;backdrop-filter:blur(4px);background:rgba(0,0,0,.85)}
 .diet-pill.veg{color:#4fd682;border:1px solid #4fd682}
 .diet-pill.nonveg{color:#ff7b6b;border:1px solid #ff7b6b}
@@ -76,7 +80,25 @@ h1{font-family:"Cinzel",serif;font-size:clamp(32px,5.5vw,56px);letter-spacing:.1
 .add-btn:hover{background:var(--gold);color:#120c04;transform:scale(1.08)}
 .unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:4px;padding:3px 6px;font-size:9px;font-weight:800;white-space:nowrap}
 
-/* Cart FAB & Overlay */
+/* Click-to-Zoom Image Modal */
+#imageModal{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(10px)}
+#imageModal.open{display:flex}
+.modal-box{max-width:520px;width:100%;background:#110e0b;border:1px solid var(--gold);border-radius:12px;overflow:hidden;position:relative}
+.modal-img{width:100%;max-height:55vh;object-fit:cover;display:block}
+.modal-info{padding:16px}
+.modal-info h3{margin:0 0 6px;color:var(--gold2);font-family:"Cinzel",serif;font-size:18px}
+.modal-info p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6}
+.modal-close{position:absolute;top:12px;right:12px;background:rgba(0,0,0,.75);border:1px solid var(--line);color:#fff;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:18px}
+
+/* Thank You Popup Modal */
+#thankYouModal{position:fixed;inset:0;z-index:999999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(12px)}
+#thankYouModal.open{display:flex}
+.thankyou-box{max-width:480px;width:100%;background:linear-gradient(150deg,#18130d,#0d0a07);border:1.5px solid var(--gold);border-radius:14px;padding:28px 24px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,.95)}
+.thankyou-box img{width:70px;height:70px;border-radius:50%;border:1px solid var(--gold);margin:0 auto 14px;object-fit:cover;box-shadow:0 0 20px rgba(216,173,85,.4)}
+.thankyou-box h3{font-family:"Cinzel",serif;color:var(--gold2);font-size:22px;letter-spacing:.08em;margin:0 0 8px}
+.thankyou-box .quote-box{background:rgba(216,173,85,.08);border-left:3px solid var(--gold);padding:10px 14px;margin:14px 0;text-align:left;font-style:italic;font-size:12.5px;color:#f3e8d2;line-height:1.6}
+.thankyou-box p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0 0 18px}
+
 #cartFab{position:fixed;right:20px;bottom:20px;z-index:50;display:none;border:1px solid #f6d68d;background:linear-gradient(135deg,#f1d18a,#b88332);color:#160f06;border-radius:40px;padding:12px 20px;font-weight:900;box-shadow:0 8px 30px rgba(0,0,0,.8)}
 #cartFab.show{display:block}
 #cartCount{background:#211506;color:#fff;border-radius:50%;padding:2px 7px;margin-left:5px}
@@ -99,8 +121,14 @@ footer img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px 
 footer h3{font-family:"Cinzel",serif;letter-spacing:.18em;color:var(--gold2);font-size:17px;margin:10px 0 5px}
 footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
 
+/* Owner Item Editor Modal */
+#editDishModal{position:fixed;inset:0;z-index:9999999;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)}
+#editDishModal.open{display:flex}
+.edit-dish-box{max-width:480px;width:100%;background:#110e0b;border:1.5px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)}
+.edit-dish-box input{width:100%;padding:11px;margin:6px 0 12px;background:#080706;color:white;border:1px solid var(--line);border-radius:5px;font-size:12.5px}
+
 @media(max-width:768px){
- .navlinks a:not(.order-top){display:none} /* Resolves text overlap on mobile completely */
+ .navlinks a:not(.order-top){display:none}
  .food-thumb-wrap{width:85px;height:85px;min-width:85px}
  .food-title{font-size:14px}
  .food-desc{font-size:11px}
@@ -138,10 +166,20 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
  </section>
  <section class="wrap" style="padding:0 0 12px">
   <div id="shopStatus" class="notice" style="border-color:#4fd682;color:#bff5d0;font-weight:800">● WE ARE OPEN — ORDER YOUR FAVOURITES</div>
+  <div class="delivery-strip">
+   <span>ALSO AVAILABLE ON:</span>
+   <span class="swiggy-blink">● SWIGGY</span>
+   <span style="color:var(--gold2)">|</span>
+   <span class="zomato-blink">● ZOMATO</span>
+  </div>
  </section>
- <section class="section" id="menu" style="padding:24px 0 48px">
+ <section class="section" id="menu" style="padding:20px 0 48px">
   <div class="wrap">
-   <div style="text-align:center;margin-bottom:20px"><div class="eyebrow">THE CRAVING COLLECTION</div><h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(22px,4vw,34px);margin:8px 0">OUR DELICIOUS MENU</h2></div>
+   <div style="text-align:center;margin-bottom:18px">
+    <div class="eyebrow">THE CRAVING COLLECTION</div>
+    <h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(22px,4vw,34px);margin:8px 0">OUR DELICIOUS MENU</h2>
+    <p style="font-size:12px;color:var(--muted);margin:0">Tap on any dish photo to view full size.</p>
+   </div>
    <div class="filters">
     <button class="filter active" data-filter="all">ALL ITEMS</button>
     <button class="filter" data-filter="veg">🟢 VEG</button>
@@ -161,8 +199,8 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
  <section class="section" id="about" style="padding:20px 0 40px">
   <div class="wrap">
    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
-    <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Every order cooked fresh with premium cooking oil and strict hygiene standards.</p></div>
-    <div class="notice" style="margin:0"><b>HONEST QUALITY</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Separately handled Veg &amp; Non-Veg preparations to ensure complete peace of mind.</p></div>
+    <div class="notice" style="margin:0"><b>100% PURE VEG CARE</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Separate cookware and oils ensure strict vegetarian hygiene without any contamination.</p></div>
+    <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Every order cooked fresh with premium ingredients and strict safety protocols.</p></div>
     <div class="notice" style="margin:0"><b>DIRECT CONFIRMATION</b><p style="margin:5px 0 0;font-size:11.5px;color:var(--muted)">Instant WhatsApp notification directly received at the Craving Foodies kitchen counter.</p></div>
    </div>
   </div>
@@ -177,9 +215,34 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
 
 <button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
 
+<!-- Click to Zoom Dish Image Modal -->
+<div id="imageModal">
+ <div class="modal-box">
+  <button class="modal-close" id="closeModal">×</button>
+  <img id="modalImg" class="modal-img" src="" alt="Dish view">
+  <div class="modal-info">
+   <h3 id="modalTitle"></h3>
+   <p id="modalDesc"></p>
+  </div>
+ </div>
+</div>
+
+<!-- Order Confirmation / Thank You Modal -->
+<div id="thankYouModal">
+ <div class="thankyou-box">
+  <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies emblem">
+  <h3>ORDER INITIATED!</h3>
+  <div class="quote-box">
+   “Good food is not just a meal — it is a little moment of genuine happiness. Your cravings are in expert hands.”
+  </div>
+  <p>Thank you for choosing <b>Craving Foodies</b>! We have received your order request via WhatsApp. Our kitchen team will confirm item availability and final total shortly.</p>
+  <button class="gold-btn" id="closeThankYou" style="width:100%">AWESOME, THANKS!</button>
+ </div>
+</div>
+
 <!-- Secret Owner Overlay -->
 <div id="adminOverlay" style="position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)">
- <div style="width:min(520px,100%);max-height:88vh;overflow:auto;background:#110e0b;border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)">
+ <div style="width:min(560px,100%);max-height:88vh;overflow:auto;background:#110e0b;border:1px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.9)">
   <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div>
   <div id="adminLogin">
    <p style="color:#c4b9a6;font-size:12px;margin:12px 0">Private Owner Authentication</p>
@@ -193,10 +256,28 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
     <button class="gold-btn" id="shopOpen" style="flex:1">OPEN SHOP</button>
     <button class="outline-btn" id="shopClosed" style="flex:1">MARK SHOP CLOSED</button>
    </div>
-   <p style="color:#c4b9a6;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:8px">Dishes Availability Toggle (Realtime Sync):</p>
+   <p style="color:#c4b9a6;font-size:12px;border-bottom:1px solid var(--line);padding-bottom:8px">Live Dishes Management (Toggle Availability or Edit Details):</p>
    <div id="availabilityControls"></div>
    <button class="outline-btn" id="adminSignOut" style="margin-top:16px;width:100%">LOGOUT</button>
   </div>
+ </div>
+</div>
+
+<!-- Edit Dish Live Details Modal (Owner Only) -->
+<div id="editDishModal">
+ <div class="edit-dish-box">
+  <div class="cart-head"><h3 id="editModalHeader">EDIT DISH DETAILS</h3><button class="close" id="closeEditDish">×</button></div>
+  <input type="hidden" id="editDishId">
+  <label style="font-size:11px;color:var(--gold2)">Dish Name</label>
+  <input type="text" id="editDishName">
+  <label style="font-size:11px;color:var(--gold2)">Price (₹)</label>
+  <input type="number" id="editDishPrice">
+  <label style="font-size:11px;color:var(--gold2)">Image URL or Filename (e.g. your-photo.jpg or https://...)</label>
+  <input type="text" id="editDishImg">
+  <label style="font-size:11px;color:var(--gold2)">Short Description</label>
+  <input type="text" id="editDishDesc">
+  <button class="gold-btn" id="saveDishDetails" style="width:100%;margin-top:4px">SAVE &amp; APPLY LIVE</button>
+  <p id="editDishMsg" class="smallprint" style="text-align:center;color:#4fd682"></p>
  </div>
 </div>
 
@@ -214,61 +295,69 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.7}
 
 <script>
 const WHATSAPP="918887052718";
-// 100% Manually Filtered Photos — Verified Patties/Puff, Pure Veg & Pure Non-Veg
-const menu=[
-[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy golden fried rolls stuffed with shredded vegetables and herbs.","https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=400&q=80"],
-[3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries tossed in spicy peri peri seasoning.","https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=400&q=80"],
-[4,"Classic Masala Maggi","maggi","veg",49,"Street style masala noodles loaded with desi spices.","https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=400&q=80"],
-[6,"Veg Loaded Maggi","maggi","veg",69,"Classic masala noodles tossed with sweet corn, onions, peas and crunchy bell peppers.","https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=400&q=80"],
-[7,"Schezwan Maggi","maggi","veg",69,"Fiery hot noodles tossed in spicy garlic red schezwan sauce.","https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=400&q=80"],
-[8,"Cheese Masala Maggi","maggi","veg",79,"Rich noodles generously topped with melted creamy cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=400&q=80"],
-[9,"Double Masala Cheese Maggi","maggi","veg",89,"Double spiced noodles finished with grated premium mozzarella cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=400&q=80"],
-[45,"Chicken Maggi","maggi","nonveg",99,"Steaming hot spiced noodles tossed with tender, juicy chicken shreds.","https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=400&q=80"],
-[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Crispy spiced potato tikki patty with house mayo and crunchy onions.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=400&q=80"],
-[11,"Spicy Masala Veg Burger","burgers","veg",69,"Herb spiced vegetable patty tossed with spicy tawa masala in a toasted bun.","https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=400&q=80"],
-[12,"Cheesy Veg Burger","burgers","veg",89,"Crispy veg patty smothered in golden melted cheese and fresh lettuce.","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=400&q=80"],
-[13,"Paneer Tikka Burger","burgers","veg",109,"Marinated paneer patty with spicy mint sauce and tandoori seasoning.","https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=400&q=80"],
-[35,"Veg Double Decker Burger","burgers","veg",99,"Two-layer stacked vegetarian burger with double patties and sauces.","https://images.unsplash.com/photo-1583032015879-63a23a1a9e1e?auto=format&fit=crop&w=400&q=80"],
-[23,"Desi Double Egg Burger","burgers","nonveg",69,"Two farm fresh eggs grilled with spices and packed in a toasted bun.","https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=400&q=80"],
-[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Fluffy egg patty topped with melted cheese slices and cracked pepper.","https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=400&q=80"],
-[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Succulent chicken chunks tossed on tawa with rich burger dressing.","https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=400&q=80"],
-[14,"Veg Roll","rolls","veg",59,"Crisp handmade paratha roll wrapped with seasoned garden vegetables.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80"],
-[16,"Veg Cheese Roll","rolls","veg",79,"Crispy vegetable wrap drizzled with melted cheese and zesty mint dip.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80"],
-[17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80"],
-[21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha layered with two farm fresh eggs, onions and lime juice.","https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=400&q=80"],
-[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated paratha packed with spiced marinated juicy chicken chunks.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80"],
-[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80"],
-[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=400&q=80"],
-[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled between toast.","https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=400&q=80"],
-[37,"Double Decker Sandwich","sandwiches","veg",99,"Three toasted layers packed with cheese, spiced aloo and garden vegetables.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=400&q=80"],
-
-/* 100% Authentic Flaky Layered Puff / Patties Images (NO SAMOSAS) */
-[40,"Aloo Patties","patties","veg",25,"Golden baked flaky puff pastry layered with spiced potato stuffing.","https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"],
-[41,"Veg Cheese Patties","patties","veg",40,"Flaky butter puff pastry loaded with melted cheese and spiced potato filling.","https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=400&q=80"],
-[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed flaky puff with molten cheese & chef seasoning.","https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80"],
-
-[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.","https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=400&q=80"],
-[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.","https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=400&q=80"],
-[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs tossed on the tawa in spicy desi masala and green chillies.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=400&q=80"],
-[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street style egg scramble served piping hot with 2 crispy parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80"],
-[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80"],
-[44,"Desi Egg Curry","curry","nonveg",99,"Two fried boiled eggs cooked in rich, slow-simmered onion-tomato gravy.","https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=80"],
-[32,"Extra Cheese","addons","veg",20,"Extra slice or portion of melted gourmet cheese.","https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=400&q=80"],
-[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=400&q=80"],
-[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.","https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80"]
+// Baseline Dishes Data
+const defaultMenu=[
+[2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy golden rolls stuffed with seasoned shredded vegetables and herbs.","https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80"],
+[3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries tossed in spicy peri peri seasoning.","https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=80"],
+[4,"Classic Masala Maggi","maggi","veg",49,"Street style masala noodles loaded with authentic desi spices.","https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80"],
+[6,"Veg Loaded Maggi","maggi","veg",69,"Classic masala noodles tossed with sweet corn, onions, peas and crunchy bell peppers.","https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=700&q=80"],
+[7,"Schezwan Maggi","maggi","veg",69,"Fiery hot noodles tossed in spicy garlic red schezwan sauce.","https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=700&q=80"],
+[8,"Cheese Masala Maggi","maggi","veg",79,"Rich noodles generously topped with melted creamy cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=700&q=80"],
+[9,"Double Masala Cheese Maggi","maggi","veg",89,"Double spiced noodles finished with grated premium mozzarella cheese.","https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=700&q=80"],
+[45,"Chicken Maggi","maggi","nonveg",99,"Steaming hot spiced noodles tossed with tender, juicy chicken shreds.","https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=700&q=80"],
+[10,"Classic Aloo Tikki Burger","burgers","veg",59,"Crispy spiced potato tikki patty with house mayo and crunchy onions.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"],
+[11,"Spicy Masala Veg Burger","burgers","veg",69,"Herb spiced vegetable patty tossed with spicy tawa masala in a toasted bun.","https://images.unsplash.com/photo-1520072959219-c595dc870360?auto=format&fit=crop&w=700&q=80"],
+[12,"Cheesy Veg Burger","burgers","veg",89,"Crispy veg patty smothered in golden melted cheese and fresh lettuce.","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=700&q=80"],
+[13,"Paneer Tikka Burger","burgers","veg",109,"Marinated paneer patty with spicy mint sauce and tandoori seasoning.","https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"],
+[35,"Veg Double Decker Burger","burgers","veg",99,"Two-layer stacked vegetarian burger with double patties and sauces.","https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=700&q=80"],
+[23,"Desi Double Egg Burger","burgers","nonveg",69,"Two farm fresh eggs grilled with spices and packed in a toasted bun.","https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?auto=format&fit=crop&w=700&q=80"],
+[24,"Cheesy Egg Melt Burger","burgers","nonveg",89,"Fluffy egg patty topped with melted cheese slices and cracked pepper.","https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=700&q=80"],
+[25,"Tawa Spiced Chicken Burger","burgers","nonveg",109,"Succulent chicken chunks tossed on tawa with rich burger dressing.","https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=700&q=80"],
+[14,"Veg Roll","rolls","veg",59,"Crisp handmade paratha roll wrapped with seasoned garden vegetables.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80"],
+[16,"Veg Cheese Roll","rolls","veg",79,"Crispy vegetable wrap drizzled with melted cheese and zesty mint dip.","https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&w=700&q=80"],
+[17,"Paneer Tikka Roll","rolls","veg",99,"Smoky tandoori paneer wrapped with crunchy onions inside a crisp paratha.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
+[21,"Double Egg Roll","rolls","nonveg",79,"Crispy paratha layered with two farm fresh eggs, onions and lime juice.","https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?auto=format&fit=crop&w=700&q=80"],
+[22,"Loaded Chicken Egg Roll","rolls","nonveg",109,"Egg coated paratha packed with spiced marinated juicy chicken chunks.","https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=700&q=80"],
+[38,"Aloo Sandwich","sandwiches","veg",49,"Toasted golden bread slices stuffed with spiced aloo masala.","https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80"],
+[39,"Veggies Sandwich","sandwiches","veg",69,"Toasted sandwich filled with capsicum, sweet corn, onion and herb mayo.","https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=700&q=80"],
+[36,"Paneer Tikka Sandwich","sandwiches","veg",89,"Spiced grilled paneer cubes and crunchy veggies grilled between toast.","https://images.unsplash.com/photo-1528736235302-52922df5c122?auto=format&fit=crop&w=700&q=80"],
+[37,"Double Decker Sandwich","sandwiches","veg",99,"Three toasted layers packed with cheese, spiced aloo and garden vegetables.","https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80"],
+[40,"Aloo Patties","patties","veg",25,"Golden baked flaky puff pastry layered with spiced potato stuffing.","https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=80"],
+[41,"Veg Cheese Patties","patties","veg",40,"Flaky butter puff pastry loaded with melted cheese and potato filling.","https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80"],
+[42,"Special Overload CF Patties","patties","veg",79,"Our Signature CF item: Double stuffed flaky puff with molten cheese & chef seasoning.","https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80"],
+[43,"White Sauce Veg Pasta","pasta","veg",119,"Creamy Alfredo penne pasta with sweet corn, broccoli and Italian herbs.","https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=700&q=80"],
+[46,"White Sauce Chicken Pasta","pasta","nonveg",149,"Tender chicken tossed in creamy garlic white sauce and penne pasta.","https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=700&q=80"],
+[26,"Masala Tawa Boiled Eggs (4 pcs)","eggs","nonveg",75,"Four boiled eggs tossed on the tawa in spicy desi masala and green chillies.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80"],
+[27,"Midnight Dhaba Egg Bhurji + 2 Parathe","bowls","nonveg",109,"Spiced street style egg scramble served piping hot with 2 crispy parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
+[28,"Desi Chicken Keema Bhurji + 2 Parathe","bowls","nonveg",149,"Slow cooked spiced minced chicken paired with 2 hot parathas.","https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"],
+[44,"Desi Egg Curry","curry","nonveg",99,"Two pan-seared boiled eggs cooked in rich, slow-simmered onion-tomato gravy.","https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=700&q=80"],
+[32,"Extra Cheese","addons","veg",20,"Extra portion of melted gourmet mozzarella cheese.","https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=700&q=80"],
+[33,"Extra Egg / Boiled Egg","addons","nonveg",15,"Single freshly boiled farm egg tossed in mild seasoning.","https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?auto=format&fit=crop&w=700&q=80"],
+[34,"Coke / Thums Up (250 ml)","addons","veg",25,"Chilled refreshing bottle of soft drink to pair with your hot meal.","https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=700&q=80"]
 ];
 
 const listContainer=document.getElementById("menuList"),cart=new Map(),money=n=>"₹"+n;
-let liveAvailability={},shopIsOpen=true;
+let liveAvailability={},liveItemOverrides={},shopIsOpen=true;
+
+function getActiveMenu(){
+ return defaultMenu.map(x=>{
+   const o = liveItemOverrides[x[0]];
+   if(!o) return x;
+   return [x[0], o.name||x[1], x[2], x[3], o.price!==undefined?+o.price:x[4], o.desc||x[5], o.img||x[6]];
+ });
+}
+
 function isAvailable(x){return liveAvailability[x[0]]!==false;}
 
 function render(filter="all"){
- const items=menu.filter(x=>filter==="all"||x[2]===filter||x[3]===filter);
+ const activeMenu = getActiveMenu();
+ const items=activeMenu.filter(x=>filter==="all"||x[2]===filter||x[3]===filter);
  listContainer.innerHTML=items.map(x=>{
    const ok=isAvailable(x),premium=x[0]===42;
    return `<article class="food-item ${ok?'':'unavailable'}">
-     <div class="food-thumb-wrap">
+     <div class="food-thumb-wrap" onclick="openPhotoZoom('${x[1]}','${x[6]}','${x[5]}')" title="Click to view full photo">
        <img class="food-thumb" src="${x[6]}" alt="${x[1]}" loading="lazy">
+       <span class="zoom-hint">🔍</span>
        <span class="diet-pill ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>
      </div>
      <div class="food-details">
@@ -289,6 +378,17 @@ function render(filter="all"){
  });
 }
 
+// Click to Zoom Image Functions
+const imgModal=document.getElementById('imageModal');
+function openPhotoZoom(name,url,desc){
+ document.getElementById('modalTitle').textContent=name;
+ document.getElementById('modalImg').src=url;
+ document.getElementById('modalDesc').textContent=desc;
+ imgModal.classList.add('open');
+}
+document.getElementById('closeModal').onclick=()=>imgModal.classList.remove('open');
+imgModal.onclick=e=>{if(e.target===imgModal)imgModal.classList.remove('open')};
+
 function applyShopStatus(){
  const el=document.getElementById('shopStatus');
  el.textContent=shopIsOpen?'● WE ARE OPEN — ORDER YOUR FAVOURITES':'● WE ARE CURRENTLY CLOSED — PLEASE VISIT AGAIN SOON';
@@ -298,15 +398,19 @@ function applyShopStatus(){
 }
 
 function updateCart(){
+ const activeMenu = getActiveMenu();
  let count=0,total=0;
- cart.forEach((q,id)=>{count+=q;total+=q*menu.find(x=>x[0]===id)[4]});
+ cart.forEach((q,id)=>{
+   const item = activeMenu.find(x=>x[0]===id);
+   if(item){ count+=q; total+=q*item[4]; }
+ });
  document.getElementById("cartCount").textContent=count;
  document.getElementById("cartFab").classList.toggle("show",count>0);
  document.getElementById("cartTotal").textContent=money(total);
  document.getElementById("cartTotalPanel").textContent=money(total);
  const holder=document.getElementById("cartItems");
  holder.innerHTML=count?[...cart.entries()].map(([id,q])=>{
-   const x=menu.find(i=>i[0]===id);
+   const x=activeMenu.find(i=>i[0]===id);
    return `<div class="cart-row">
      <div><strong>${x[1]}</strong><small>${x[3]==='veg'?'VEG':'NON-VEG'} · ${money(x[4])} each</small></div>
      <div class="qty"><button data-dec="${id}">−</button><b>${q}</b><button data-inc="${id}">+</button></div>
@@ -323,16 +427,21 @@ document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
 }));
 
 const cartOver=document.getElementById("cartOverlay");
+const thankYouModal=document.getElementById("thankYouModal");
 document.getElementById("cartFab").onclick=()=>cartOver.classList.add("open");
 document.getElementById("closeCart").onclick=()=>cartOver.classList.remove("open");
 cartOver.onclick=e=>{if(e.target===cartOver)cartOver.classList.remove("open")};
 
+document.getElementById("closeThankYou").onclick=()=>thankYouModal.classList.remove("open");
+thankYouModal.onclick=e=>{if(e.target===thankYouModal)thankYouModal.classList.remove("open")};
+
 document.getElementById("sendOrder").onclick=()=>{
+ const activeMenu = getActiveMenu();
  if(!cart.size){alert("Please add an item to order.");return}
  let lines=["Hi Craving Foodies! I would like to place an order:",""];
  let total=0;
  cart.forEach((q,id)=>{
-   const x=menu.find(i=>i[0]===id);
+   const x=activeMenu.find(i=>i[0]===id);
    lines.push(`${q} x ${x[1]} — ${money(q*x[4])} (${x[3].toUpperCase()})`);
    total+=q*x[4];
  });
@@ -340,7 +449,13 @@ document.getElementById("sendOrder").onclick=()=>{
  const note=document.getElementById("customerNote").value.trim();
  if(note)lines.push("Note: "+note);
  lines.push("Please confirm availability, delivery charges and final total.");
+ 
  window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(lines.join("\n")),"_blank");
+ 
+ cartOver.classList.remove("open");
+ thankYouModal.classList.add("open");
+ cart.clear();
+ updateCart();
 };
 
 document.getElementById("year").textContent=new Date().getFullYear();
@@ -384,13 +499,63 @@ const firebaseConfig = {
 };
 
 const login=document.getElementById('adminLogin'),controls=document.getElementById('adminControls'),msg=document.getElementById('adminMessage');
+const editModal=document.getElementById('editDishModal'),editMsg=document.getElementById('editDishMsg');
 let db,auth,statusRef;
 
 function drawControls(){
+ const activeMenu = getActiveMenu();
  const holder=document.getElementById('availabilityControls');
- holder.innerHTML=menu.map(x=>`<label style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px"><span>${x[1]} <b style="color:${x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[3].toUpperCase()})</b></span><input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}></label>`).join('');
+ holder.innerHTML=activeMenu.map(x=>`
+   <div style="display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:12px">
+     <div style="flex:1;min-width:0">
+       <span style="font-weight:700">${x[1]}</span>
+       <span style="color:var(--gold2)"> · ₹${x[4]}</span>
+       <b style="color:${x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[3].toUpperCase()})</b>
+     </div>
+     <div style="display:flex;align-items:center;gap:12px">
+       <button type="button" class="outline-btn" style="padding:4px 8px;font-size:11px" data-edit="${x[0]}">✏️ Edit</button>
+       <label style="cursor:pointer;display:flex;align-items:center;gap:4px">
+         <input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}>
+         <span style="font-size:10px;color:var(--muted)">On</span>
+       </label>
+     </div>
+   </div>
+ `).join('');
+
  holder.querySelectorAll('[data-live]').forEach(c=>c.onchange=()=>set(ref(db,'cravingFoodies/availability/'+c.dataset.live),c.checked));
+ 
+ holder.querySelectorAll('[data-edit]').forEach(btn=>btn.onclick=()=>{
+   const id=+btn.dataset.edit;
+   const x = activeMenu.find(item=>item[0]===id);
+   document.getElementById('editDishId').value = id;
+   document.getElementById('editDishName').value = x[1];
+   document.getElementById('editDishPrice').value = x[4];
+   document.getElementById('editDishImg').value = x[6];
+   document.getElementById('editDishDesc').value = x[5];
+   editMsg.textContent = "";
+   editModal.classList.add('open');
+ });
 }
+
+document.getElementById('closeEditDish').onclick=()=>editModal.classList.remove('open');
+
+document.getElementById('saveDishDetails').onclick=async()=>{
+ const id = document.getElementById('editDishId').value;
+ const name = document.getElementById('editDishName').value.trim();
+ const price = +document.getElementById('editDishPrice').value;
+ const img = document.getElementById('editDishImg').value.trim();
+ const desc = document.getElementById('editDishDesc').value.trim();
+ 
+ if(!name || !price || !img){ alert('Please fill in name, price and image URL.'); return; }
+ 
+ try{
+   await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { name, price, img, desc });
+   editMsg.textContent = "Saved and live updated!";
+   setTimeout(()=>{ editModal.classList.remove('open'); }, 1200);
+ }catch(e){
+   alert('Error saving dish: ' + e.message);
+ }
+};
 
 const app=initializeApp(firebaseConfig);
 db=getDatabase(app);
@@ -398,9 +563,19 @@ auth=getAuth(app);
 statusRef=ref(db,'cravingFoodies/shopOpen');
 
 onValue(statusRef,s=>{shopIsOpen=s.val()!==false;applyShopStatus()});
+
+// Live Availability listener
 onValue(ref(db,'cravingFoodies/availability'),s=>{
  liveAvailability=s.val()||{};
  render(document.querySelector('.filter.active')?.dataset.filter||'all');
+ if(auth.currentUser)drawControls();
+});
+
+// Live Item Overrides listener (Images, Prices, Names)
+onValue(ref(db,'cravingFoodies/itemOverrides'),s=>{
+ liveItemOverrides=s.val()||{};
+ render(document.querySelector('.filter.active')?.dataset.filter||'all');
+ updateCart();
  if(auth.currentUser)drawControls();
 });
 
