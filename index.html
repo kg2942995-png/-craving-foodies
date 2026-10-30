@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#080706">
-<meta name="description" content="Craving Foodies — crispy, crunchy and crave-worthy food.">
+<meta name="description" content="Craving Foodies — Crispy, crunchy and crave-worthy food in Kanpur.">
 <title>CRAVING FOODIES | Crispy and Crunchy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +17,7 @@ body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 
-/* 60fps GPU Hardware Acceleration */
-.hardware-accel,#ambient,.food-item,#cartFab,#statusTracker{transform:translate3d(0,0,0);will-change:transform,opacity}
+.hardware-accel,#ambient,.food-card,#cartFab,#statusTracker,#fullScreenLiveAlert{transform:translate3d(0,0,0);will-change:transform,opacity}
 
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
 #ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.84;filter:saturate(.95) contrast(1.05) brightness(.92);transition:opacity 1s ease}
@@ -26,10 +25,10 @@ button{font:inherit;cursor:pointer}
 
 .wrap{width:min(1100px,94%);margin:auto}
 header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 
 .brand{display:flex;align-items:center;gap:12px;user-select:none;cursor:pointer;flex:1;min-width:0}
-.brand img{width:50px;height:50px;min-width:50px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);box-shadow:0 0 16px rgba(216,173,85,.35);transition:transform .2s cubic-bezier(.25,.8,.25,1)}
+.brand img{width:48px;height:48px;min-width:48px;border-radius:50%;object-fit:cover;border:1.5px solid var(--gold);box-shadow:0 0 16px rgba(216,173,85,.35);transition:transform .2s cubic-bezier(.25,.8,.25,1)}
 .brand img:active{transform:scale(.92)}
 .brand-text{display:flex;flex-direction:column;min-width:0;overflow:hidden}
 .brand strong{font-family:"Cinzel",serif;font-size:clamp(16px,2.6vw,22px);font-weight:900;letter-spacing:.08em;color:var(--gold2);text-shadow:0 2px 10px rgba(0,0,0,.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -39,14 +38,14 @@ header{position:sticky;top:0;z-index:40;background:rgba(8,7,6,.94);backdrop-filt
 .order-top{background:linear-gradient(135deg,#f5d68d,#b88332);color:#120c04;border:0;border-radius:4px;padding:9px 15px;font-weight:900;letter-spacing:.05em;white-space:nowrap;animation:orderPulse 1.6s infinite ease-in-out;box-shadow:0 0 14px rgba(216,173,85,.35)}
 @keyframes orderPulse{0%,100%{opacity:1;transform:scale3d(1,1,1)}50%{opacity:.75;transform:scale3d(.96,.96,1)}}
 
-.hero{min-height:280px;display:grid;place-items:center;text-align:center;padding:40px 0 24px}
+.hero{min-height:260px;display:grid;place-items:center;text-align:center;padding:36px 0 20px}
 .eyebrow{color:var(--gold2);letter-spacing:.3em;text-transform:uppercase;font-size:11px;font-weight:700}
-h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,50px);letter-spacing:.1em;line-height:1.15;margin:10px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
-.hero p{max-width:580px;color:#e8decb;line-height:1.7;margin:8px auto 16px;font-size:13.5px;text-shadow:0 2px 10px #000}
+h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,48px);letter-spacing:.1em;line-height:1.15;margin:8px 0;color:#fff7e6;text-shadow:0 4px 20px #000}
+.hero p{max-width:580px;color:#e8decb;line-height:1.65;margin:8px auto 16px;font-size:13px;text-shadow:0 2px 10px #000}
 .hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.gold-btn{background:linear-gradient(135deg,#f5d68d,#b88332);color:#160f06;border:0;border-radius:5px;padding:12px 20px;font-weight:800;letter-spacing:.04em;transition:transform .15s ease}
+.gold-btn{background:linear-gradient(135deg,#f5d68d,#b88332);color:#160f06;border:0;border-radius:5px;padding:12px 18px;font-weight:800;letter-spacing:.04em;transition:transform .15s ease}
 .gold-btn:active{transform:scale(.96)}
-.outline-btn{border:1px solid var(--gold);border-radius:5px;padding:11px 18px;color:var(--gold2);font-weight:700;background:rgba(8,7,6,.65);backdrop-filter:blur(6px);transition:transform .15s ease}
+.outline-btn{border:1px solid var(--gold);border-radius:5px;padding:11px 16px;color:var(--gold2);font-weight:700;background:rgba(8,7,6,.65);backdrop-filter:blur(6px);transition:transform .15s ease}
 .outline-btn:active{transform:scale(.96)}
 
 .notice{max-width:760px;margin:0 auto 12px;padding:12px 16px;border:1px solid var(--line);background:rgba(12,10,8,.82);backdrop-filter:blur(8px);color:#e5d8c2;text-align:center;font-size:12px;line-height:1.5;border-radius:6px}
@@ -56,33 +55,56 @@ h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,50px);letter-spacing:.1em
 @keyframes blinkSwiggy{0%{opacity:1}100%{opacity:.4}}
 @keyframes blinkZomato{0%{opacity:.4}100%{opacity:1}}
 
-.filters{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin:14px 0 20px}
+.filters{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:14px 0 20px}
 .filter{border:1px solid var(--line);background:rgba(15,12,9,.82);backdrop-filter:blur(8px);color:#e8dcc8;border-radius:30px;padding:8px 14px;font-size:11px;font-weight:700;transition:all .18s ease}
 .filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 14px rgba(216,173,85,.35)}
 
-.menu-list{display:flex;flex-direction:column;gap:12px;max-width:840px;margin:0 auto}
-.food-item{display:flex;align-items:center;background:rgba(16,13,10,.82);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:10px;padding:10px 14px;gap:14px;transition:border-color .2s ease,background .2s ease}
-.food-item.unavailable{opacity:.5;border-color:#7a2c26}
+/* 2-Column Responsive High-Performance Luxury Grid */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;max-width:980px;margin:0 auto}
+@media(max-width:640px){
+  .menu-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+.food-card{background:rgba(16,13,10,.82);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s ease,background .2s ease}
+.food-card.unavailable{opacity:.5;border-color:#7a2c26}
 
-.food-thumb-wrap{position:relative;width:90px;height:90px;min-width:90px;border-radius:8px;overflow:hidden;border:1px solid rgba(216,173,85,.3);background:#15110d;cursor:zoom-in;display:flex;align-items:center;justify-content:center}
-.food-thumb{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
-.food-thumb-wrap:hover .food-thumb{transform:scale(1.08)}
-.diet-pill{position:absolute;bottom:4px;left:4px;font-size:8px;font-weight:900;letter-spacing:.05em;padding:2px 5px;border-radius:3px;backdrop-filter:blur(4px);background:rgba(0,0,0,.85)}
+.food-card-thumb{position:relative;width:100%;aspect-ratio:4/3;background:#15110d;overflow:hidden;cursor:zoom-in}
+.food-card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.food-card-thumb:hover img{transform:scale(1.08)}
+.diet-pill{position:absolute;bottom:6px;left:6px;font-size:8px;font-weight:900;letter-spacing:.05em;padding:2px 5px;border-radius:3px;backdrop-filter:blur(4px);background:rgba(0,0,0,.85)}
 .diet-pill.veg{color:#4fd682;border:1px solid #4fd682}
 .diet-pill.nonveg{color:#ff7b6b;border:1px solid #ff7b6b}
+.premium-pill{position:absolute;top:6px;right:6px;background:rgba(184,131,50,.85);color:#fff;font-size:8px;font-weight:800;padding:2px 6px;border-radius:3px}
+.combo-badge{position:absolute;top:6px;left:6px;background:#e23744;color:#fff;font-size:8px;font-weight:900;padding:2px 6px;border-radius:3px;letter-spacing:.05em}
 
-.food-details{flex:1;min-width:0}
-.food-title{font-size:14.5px;font-weight:700;color:#fff6e7;margin:0 0 3px}
-.food-desc{font-size:11.5px;color:#c0b49e;line-height:1.4;margin:0}
-.premium-flag{background:rgba(184,131,50,.35);color:var(--gold2);border:1px solid var(--gold);font-size:8px;font-weight:800;padding:2px 5px;border-radius:3px;margin-left:4px}
-
-.food-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:65px}
-.food-price{font-family:"Cinzel",serif;font-weight:800;color:var(--gold2);font-size:16px;white-space:nowrap}
-.add-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:20px;line-height:1;display:grid;place-items:center;transition:transform .15s ease,background .15s ease}
+.food-card-body{padding:10px;display:flex;flex-direction:column;flex:1;justify-content:space-between}
+.food-card-title{font-size:13.5px;font-weight:700;color:#fff6e7;margin:0 0 4px;line-height:1.3}
+.food-card-desc{font-size:11px;color:#c0b49e;line-height:1.4;margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.food-card-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:auto}
+.food-card-price{font-family:"Cinzel",serif;font-weight:800;color:var(--gold2);font-size:15.5px}
+.add-btn{width:30px;height:30px;border-radius:50%;border:1px solid var(--gold);background:rgba(30,22,13,.9);color:var(--gold2);font-size:18px;line-height:1;display:grid;place-items:center;transition:transform .15s ease}
 .add-btn:active{transform:scale(.9)}
-.unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:4px;padding:3px 6px;font-size:9px;font-weight:800;white-space:nowrap}
+.unavail-badge{color:#ff9e94;border:1px solid #7a2c26;border-radius:4px;padding:2px 6px;font-size:9px;font-weight:800}
 
-/* Floating Customer Live Status Tracker */
+/* Fullscreen Luxury Alert Overlay with Central CF Emblem */
+#fullScreenLiveAlert{position:fixed;inset:0;z-index:99999999;background:rgba(8,7,6,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:20px;text-align:center}
+#fullScreenLiveAlert.open{display:flex}
+.alert-content-box{max-width:440px;width:100%;display:flex;flex-direction:column;align-items:center;animation:fadeInAlert .35s ease-out}
+@keyframes fadeInAlert{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.alert-logo-wrap{position:relative;width:130px;height:130px;border-radius:50%;margin-bottom:20px}
+.alert-logo-wrap img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2.5px solid var(--gold);box-shadow:0 0 30px rgba(216,173,85,.5)}
+.alert-logo-ring{position:absolute;inset:-8px;border-radius:50%;border:2px dashed var(--gold);animation:ringRotate 12s linear infinite}
+@keyframes ringRotate{100%{transform:rotate(360deg)}}
+
+.alert-title{font-family:"Cinzel",serif;font-size:22px;letter-spacing:.08em;margin:0 0 8px;font-weight:900}
+.alert-badge{display:inline-block;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800;letter-spacing:.06em;margin-bottom:12px}
+.badge-prep{background:rgba(216,173,85,.15);border:1px solid var(--gold);color:var(--gold2);animation:pulsePrep 1.5s infinite alternate}
+.badge-ready{background:rgba(79,214,130,.2);border:1.5px solid #4fd682;color:#4fd682;animation:pulseReady 1.2s infinite alternate;box-shadow:0 0 20px rgba(79,214,130,.4)}
+@keyframes pulsePrep{0%{box-shadow:0 0 6px rgba(216,173,85,.2)}100%{box-shadow:0 0 20px rgba(216,173,85,.6)}}
+@keyframes pulseReady{0%{transform:scale(1)}100%{transform:scale(1.05);box-shadow:0 0 25px rgba(79,214,130,.7)}}
+
+.alert-msg{font-size:13px;color:#c0b49e;line-height:1.6;margin:0 0 24px;max-width:340px}
+
+/* Floating Bottom Live Tracker */
 #statusTracker{position:fixed;bottom:20px;left:20px;right:20px;max-width:440px;margin:auto;z-index:90;background:rgba(17,14,11,.96);backdrop-filter:blur(14px);border:1.5px solid var(--gold);border-radius:12px;padding:14px 16px;box-shadow:0 10px 35px rgba(0,0,0,.9);display:none}
 #statusTracker.open{display:block}
 .stepper{display:flex;justify-content:space-between;position:relative;margin:12px 0 6px}
@@ -95,7 +117,7 @@ h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,50px);letter-spacing:.1em
 /* Modals */
 .modal-overlay{position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;padding:16px;backdrop-filter:blur(10px)}
 .modal-overlay.open{display:flex}
-.box-modal{width:min(520px,100%);background:#110e0b;border:1.5px solid var(--gold);border-radius:12px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,.9);max-height:90vh;overflow-y:auto}
+.box-modal{width:min(520px,100%);background:#110e0b;border:1.5px solid var(--gold);border-radius:12px;padding:20px;box-shadow:0 12px 40px rgba(0,0,0,.9);max-height:90vh;overflow-y:auto}
 
 /* POS Thermal Receipt Slip (80mm Style) */
 .thermal-receipt{background:#fff;color:#000;font-family:'Space Mono',monospace;padding:18px 14px;border-radius:4px;box-shadow:0 6px 20px rgba(0,0,0,.8);margin:14px 0;font-size:12px;line-height:1.4}
@@ -103,9 +125,17 @@ h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,50px);letter-spacing:.1em
 .thermal-receipt .dashed{border-top:1px dashed #000;margin:8px 0}
 .thermal-receipt .row{display:flex;justify-content:space-between;margin:3px 0}
 
-/* Owner Alarm Banner */
-#alarmBanner{position:fixed;top:0;left:0;right:0;z-index:9999999;background:#e23744;color:#fff;padding:12px;text-align:center;font-weight:900;letter-spacing:.05em;display:none;box-shadow:0 4px 20px rgba(226,55,68,.7);animation:alarmFlash .8s infinite alternate}
-@keyframes alarmFlash{0%{background:#e23744}100%{background:#800e16}}
+/* Dynamic Payment Selector UI */
+.payment-selector{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0 14px}
+.pay-opt{background:#16120d;border:1.5px solid var(--line);border-radius:8px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s ease;position:relative}
+.pay-opt.active{border-color:var(--gold);background:rgba(216,173,85,.16);box-shadow:0 0 14px rgba(216,173,85,.35)}
+.pay-opt.disabled{opacity:.4;cursor:not-allowed;border-color:#443324}
+.pay-opt b{display:block;font-size:12px;color:var(--gold2)}
+.pay-opt small{font-size:9.5px;color:var(--muted);display:block;margin-top:2px}
+
+/* Dynamic Glowing Online UPI Box */
+.online-upi-box{background:linear-gradient(180deg,rgba(30,23,15,.95) 0%,rgba(16,13,9,.98) 100%);border:1.5px solid var(--gold);border-radius:10px;padding:16px;margin:12px 0;text-align:center;box-shadow:0 0 20px rgba(216,173,85,.2)}
+.cod-box{background:rgba(25,20,14,.9);border:1px dashed #55442f;border-radius:10px;padding:14px;margin:12px 0;text-align:center}
 
 #cartFab{position:fixed;right:20px;bottom:20px;z-index:50;display:none;border:1px solid #f6d68d;background:linear-gradient(135deg,#f1d18a,#b88332);color:#160f06;border-radius:40px;padding:12px 20px;font-weight:900;box-shadow:0 8px 30px rgba(0,0,0,.8)}
 #cartFab.show{display:block}
@@ -125,18 +155,17 @@ h1{font-family:"Cinzel",serif;font-size:clamp(28px,5vw,50px);letter-spacing:.1em
 .order-type-btn{flex:1;padding:9px;border:1px solid var(--line);background:#16120d;color:var(--muted);border-radius:5px;font-size:11px;font-weight:700}
 .order-type-btn.active{background:var(--gold);color:#080706;border-color:var(--gold)}
 
+/* Strict Food Hygiene & Non-Refund Policy Box */
+.policy-card{background:rgba(20,15,10,.85);border:1px solid rgba(216,173,85,.3);border-radius:8px;padding:14px;margin:24px auto 14px;max-width:840px;font-size:11.5px;color:#c0b49e;line-height:1.6}
+.policy-card b{color:var(--gold2)}
+
 footer{border-top:1px solid var(--line);padding:30px 0 40px;text-align:center;background:rgba(7,6,5,.94)}
 footer img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:1px solid var(--gold)}
 footer h3{font-family:"Cinzel",serif;letter-spacing:.18em;color:var(--gold2);font-size:16px;margin:10px 0 4px}
 footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
 
-@media(max-width:768px){
- .navlinks a:not(.order-top){display:none}
- .food-thumb-wrap{width:80px;height:80px;min-width:80px}
- .food-title{font-size:13.5px}
- .food-desc{font-size:11px}
- .food-price{font-size:15px}
-}
+#alarmBanner{position:fixed;top:0;left:0;right:0;z-index:9999999;background:#e23744;color:#fff;padding:12px;text-align:center;font-weight:900;letter-spacing:.05em;display:none;box-shadow:0 4px 20px rgba(226,55,68,.7);animation:alarmFlash .8s infinite alternate}
+@keyframes alarmFlash{0%{background:#e23744}100%{background:#800e16}}
 </style>
 </head>
 <body>
@@ -194,6 +223,7 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
    </div>
    <div class="filters">
     <button class="filter active" data-filter="all">ALL ITEMS</button>
+    <button class="filter" data-filter="combos" style="color:#f7d78d;border-color:var(--gold)">🔥 OFFERS &amp; COMBOS</button>
     <button class="filter" data-filter="veg">🟢 VEG</button>
     <button class="filter" data-filter="nonveg">🔴 NON-VEG</button>
     <button class="filter" data-filter="starters">STARTERS</button>
@@ -205,7 +235,9 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
     <button class="filter" data-filter="pasta">PASTA</button>
     <button class="filter" data-filter="addons">ADD-ONS</button>
    </div>
-   <div class="menu-list" id="menuList"></div>
+   
+   <!-- 2-Column Responsive High-Performance Grid -->
+   <div class="menu-grid" id="menuList"></div>
   </div>
  </section>
 
@@ -216,6 +248,20 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
     <div class="notice" style="margin:0"><b>HYGIENIC KITCHEN</b><p style="margin:4px 0 0;font-size:11.5px;color:var(--muted)">Every order cooked fresh with premium ingredients and verified quality standards.</p></div>
     <div class="notice" style="margin:0"><b>LIVE KITCHEN TRACKING</b><p style="margin:4px 0 0;font-size:11.5px;color:var(--muted)">Follow every preparation stage directly on your phone until pickup or delivery.</p></div>
    </div>
+
+   <!-- Strict Non-Refundable & Fixed Pricing Policy -->
+   <div class="policy-card">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+     <span style="font-size:15px">📜</span>
+     <b style="font-size:12.5px;color:var(--gold2)">KITCHEN POLICY &amp; FOOD CARE NOTICE</b>
+    </div>
+    <ul style="margin:0;padding-left:18px">
+     <li><b>100% Non-Refundable &amp; No Cancellation:</b> Because food items are freshly cooked specifically for your order, orders cannot be cancelled, modified, or refunded once accepted by the kitchen.</li>
+     <li><b>Strict Fixed Billing Policy:</b> Prices, packaging, and delivery charges are computer-calculated and strictly non-negotiable. Customers cannot alter, deduct, or bargain the final payable amount.</li>
+     <li><b>Prepaid Orders Over ₹150:</b> To prevent food wastage and unaccepted orders, orders above ₹150 strictly require advance online UPI payment. Cash on Delivery is available exclusively for orders up to ₹150.</li>
+     <li><b>Pure Food Quality Standard:</b> We adhere to pristine food safety and temperature control. Please consume within 45 minutes of receipt for optimal crispiness and flavor.</li>
+    </ul>
+   </div>
   </div>
  </section>
 </main>
@@ -224,11 +270,26 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
  <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies logo">
  <h3>CRAVING FOODIES</h3>
  <p>CRISPY AND CRUNCHY · ESTD. 2024<br>Order directly through WhatsApp: <a href="https://wa.me/918887052718" style="color:#f5d68d;font-weight:800">+91 88870 52718</a></p>
+ <p style="font-size:10px;color:#857a6b;margin-top:6px">All food prepared under strict hygienic norms. Non-refundable policy applicable on all dispatched meals.</p>
  <p>© <span id="year"></span> Craving Foodies. All rights reserved.</p>
 </footer>
 
-<!-- Floating Cart Button -->
-<button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
+<!-- Fullscreen Customer Live Kitchen Alert -->
+<div id="fullScreenLiveAlert">
+ <div class="alert-content-box">
+  <div class="alert-logo-wrap">
+   <div class="alert-logo-ring" id="alertLogoRing"></div>
+   <img src="craving-foodies-logo-hd.jpg" alt="Craving Foodies Emblem">
+  </div>
+  <div class="alert-badge badge-prep" id="alertBadge">● KITCHEN PREPARING</div>
+  <h2 class="alert-title" id="alertTitle">YOUR FOOD IS BEING PREPARED!</h2>
+  <p class="alert-msg" id="alertDesc">Our chefs are carefully crafting your meal with fresh ingredients and authentic flavours.</p>
+  <div style="display:flex;gap:10px;width:100%">
+   <button class="gold-btn" id="viewSlipFromAlert" style="flex:1">🧾 VIEW RECEIPT / PAY</button>
+   <button class="outline-btn" id="dismissAlertBtn" style="flex:1">MINIMIZE</button>
+  </div>
+ </div>
+</div>
 
 <!-- Floating Live Customer Status Tracker -->
 <div id="statusTracker">
@@ -255,10 +316,42 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
 <!-- Modal: Digital Receipt & Thermal Slip Viewer -->
 <div class="modal-overlay" id="receiptModal">
  <div class="box-modal">
-  <div class="cart-head"><h3>ORDER RECEIPT</h3><button class="close" id="closeReceipt">×</button></div>
+  <div class="cart-head"><h3>ORDER RECEIPT &amp; PAYMENT</h3><button class="close" id="closeReceipt">×</button></div>
   <div id="receiptContent"></div>
-  <div style="display:flex;gap:8px;margin-top:14px">
-   <button class="gold-btn" id="printReceiptBtn" style="flex:1">🖨️ PRINT / SAVE PDF</button>
+  
+  <!-- Dynamic Glowing Online UPI Box -->
+  <div id="upiPayBox" class="online-upi-box">
+   <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:6px">
+     <span style="font-size:16px">⚡</span>
+     <b style="font-size:13px;color:var(--gold2)">INSTANT SECURE UPI PAYMENT</b>
+   </div>
+   <p style="font-size:11px;color:var(--muted);margin:0 0 10px">Scan QR or tap below with GPay, PhonePe, or Paytm.</p>
+   
+   <div style="display:inline-block;padding:8px;background:#fff;border-radius:8px;margin:4px auto;box-shadow:0 0 15px rgba(216,173,85,.3)">
+     <img id="receiptQrImg" src="" alt="UPI QR" style="width:160px;height:160px;display:block">
+   </div>
+   <div style="font-size:12px;margin:8px 0 10px;color:#f7d78d">Official UPI ID: <b>8808032031@yespop</b></div>
+   <a id="directUpiBtn" href="#" class="gold-btn" style="display:block;margin:6px 0;padding:12px;text-align:center;font-size:13px">⚡ PAY VIA GPAY / PHONEPE / PAYTM</a>
+   
+   <!-- UTR / Transaction ID Submission Card -->
+   <div style="background:rgba(0,0,0,.65);border:1px solid rgba(216,173,85,.35);border-radius:6px;padding:12px;margin-top:12px;text-align:left">
+     <label style="font-size:10.5px;font-weight:700;color:var(--gold2);display:block;margin-bottom:4px">SUBMIT 12-DIGIT UPI REFERENCE / UTR NO:</label>
+     <div style="display:flex;gap:6px">
+       <input type="text" id="custUtrInput" maxlength="16" placeholder="e.g. 412389012345" class="form-input" style="margin:0;padding:8px">
+       <button type="button" class="gold-btn" id="btnSubmitUtr" style="padding:8px 14px;font-size:11px;white-space:nowrap">CONFIRM</button>
+     </div>
+     <p id="utrSuccessNotice" style="font-size:10.5px;color:#4fd682;margin:6px 0 0;display:none">✓ Payment Reference logged! Kitchen notified.</p>
+   </div>
+  </div>
+
+  <!-- Cash on Delivery Banner -->
+  <div id="codNoticeBox" class="cod-box" style="display:none">
+    <b style="color:var(--gold2);font-size:12px">💵 CASH ON DELIVERY CONFIRMED</b>
+    <p style="font-size:11px;color:var(--muted);margin:4px 0 0">Please keep exact cash ready upon delivery / counter handover. Note that food items are non-refundable once dispatched.</p>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-top:12px">
+   <button class="gold-btn" id="printReceiptBtn" style="flex:1">🖨️ PRINT / PDF</button>
    <button class="outline-btn" id="shareReceiptBtn" style="flex:1">SHARE ON WHATSAPP</button>
   </div>
  </div>
@@ -281,14 +374,39 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
  <div class="cart-panel">
   <div class="cart-head"><h3>YOUR ORDER</h3><button class="close" id="closeCart">×</button></div>
   <div id="cartItems"></div>
-  <div class="cart-total"><span>SUBTOTAL</span><span id="cartTotalPanel">₹0</span></div>
   
+  <div style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px">
+   <div class="cart-total" style="padding:4px 0"><span>FOOD SUBTOTAL</span><span id="cartSubtotalPanel">₹0</span></div>
+   <div class="cart-total" id="deliveryRow" style="padding:4px 0;font-size:13px;color:var(--muted);display:none">
+    <span>DELIVERY CHARGE (50% OFF)</span><span id="cartDeliveryCharge">₹0</span>
+   </div>
+   <div class="cart-total" style="padding:10px 0 14px;border-top:1px dashed var(--line);margin-top:6px;font-size:18px">
+    <span>ESTIMATED TOTAL</span><span id="cartGrandTotalPanel">₹0</span>
+   </div>
+  </div>
+
   <div style="border-top:1px solid var(--line);padding-top:14px">
    <label style="font-size:11px;font-weight:700;color:var(--gold2)">ORDER TYPE</label>
    <div class="order-type-switch">
     <button type="button" class="order-type-btn active" id="btnDelivery" onclick="setOrderType('Delivery')">🛵 Home Delivery</button>
     <button type="button" class="order-type-btn" id="btnTakeaway" onclick="setOrderType('Takeaway')">🛍️ Self Takeaway</button>
    </div>
+
+   <!-- Smart Payment Mode Selection -->
+   <label style="font-size:11px;font-weight:700;color:var(--gold2)">PAYMENT MODE</label>
+   <div class="payment-selector">
+     <div class="pay-opt active" id="payOptUPI" onclick="selectPaymentMode('UPI')">
+       <b>⚡ Online UPI / QR</b>
+       <small>Instant GPay / PhonePe</small>
+     </div>
+     <div class="pay-opt" id="payOptCOD" onclick="selectPaymentMode('COD')">
+       <b>💵 Cash on Delivery</b>
+       <small id="codSubText">Allowed under ₹150</small>
+     </div>
+   </div>
+   <p id="codLockedNotice" style="font-size:10.5px;color:#ff9e94;margin:-8px 0 10px;display:none;background:rgba(255,107,107,.1);padding:6px 8px;border-radius:4px;border-left:3px solid #ff6b6b">
+    🔒 Orders above ₹150 require prepaid Online UPI to protect fresh food preparation.
+   </p>
 
    <label style="font-size:11px;font-weight:700;color:var(--gold2)">YOUR NAME</label>
    <input class="form-input" id="custName" type="text" placeholder="e.g. Rahul Sharma" required>
@@ -299,25 +417,27 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
    <div id="deliveryFields">
     <div style="display:flex;justify-content:space-between;align-items:center">
      <label style="font-size:11px;font-weight:700;color:var(--gold2)">DELIVERY ADDRESS</label>
-     <button type="button" id="btnGetLocation" style="background:none;border:none;color:#4fd682;font-size:10.5px;font-weight:800;cursor:pointer">📍 Fetch GPS Pin</button>
+     <button type="button" id="btnGetLocation" style="background:none;border:none;color:#4fd682;font-size:10.5px;font-weight:800;cursor:pointer">📍 Fetch GPS Pin &amp; Distance</button>
     </div>
     <input class="form-input" id="custAddress" type="text" placeholder="House / Flat No, Street, Landmark">
     <input type="hidden" id="custMapsLink" value="">
-    <p id="gpsStatus" style="font-size:10px;color:#4fd682;margin:-6px 0 8px;display:none">✓ GPS Location Pin attached!</p>
+    <input type="hidden" id="calculatedDistance" value="0">
+    <p id="gpsStatus" style="font-size:10.5px;color:#4fd682;margin:-4px 0 8px;display:none"></p>
+    <p id="longDistanceAlert" style="font-size:11px;color:#ff9e94;margin:-4px 0 8px;display:none;background:rgba(255,107,107,.15);border:1px solid #7a2c26;padding:6px;border-radius:4px;line-height:1.4"></p>
    </div>
 
    <label style="font-size:11px;font-weight:700;color:var(--gold2)">SPECIAL COOKING INSTRUCTIONS</label>
    <input class="form-input" id="custNotes" type="text" placeholder="e.g. Extra spicy, no onions, etc.">
 
-   <button class="gold-btn" id="sendOrder" style="width:100%;padding:14px;margin-top:6px">PLACE ORDER ON WHATSAPP</button>
-   <p style="font-size:10px;color:#9e927f;line-height:1.4;margin-top:8px">Order dispatched directly to kitchen counter. Live tracking enabled automatically.</p>
+   <button class="gold-btn" id="sendOrder" style="width:100%;padding:14px;margin-top:6px">PLACE ORDER &amp; PROCEED</button>
+   <p style="font-size:10px;color:#9e927f;line-height:1.4;margin-top:8px">100% Non-refundable policy applicable once accepted by kitchen.</p>
   </div>
  </div>
 </div>
 
 <!-- Modal: Secret Owner Panel -->
 <div class="modal-overlay" id="adminOverlay">
- <div class="box-modal" style="width:min(580px,100%)">
+ <div class="box-modal" style="width:min(620px,100%)">
   <div class="cart-head"><h3>OWNER CONTROL PANEL</h3><button class="close" id="closeAdmin">×</button></div>
   <div id="adminLogin">
    <p style="color:#c4b9a6;font-size:12px;margin:12px 0">Private Owner Authentication</p>
@@ -334,13 +454,16 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
    </div>
 
    <!-- Live Active Orders Section -->
-   <h4 style="color:var(--gold2);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:18px 0 10px">🔥 LIVE KITCHEN ORDERS</h4>
+   <h4 style="color:var(--gold2);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:18px 0 10px">🔥 LIVE KITCHEN ORDERS (WITH 1-CLICK PAYMENT VERIFY)</h4>
    <div id="liveOrdersContainer">
     <p style="font-size:11px;color:var(--muted)">No pending orders right now.</p>
    </div>
 
-   <!-- Menu Live Dishes Management with Direct Gallery Upload -->
-   <h4 style="color:var(--gold2);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:22px 0 10px">🍔 MENU MANAGEMENT (GALLERY UPLOAD & PRICE)</h4>
+   <!-- Create Combo / Offer Button -->
+   <button class="gold-btn" id="btnOpenAddCombo" style="width:100%;margin:16px 0 8px;font-size:12px">➕ CREATE NEW COMBO / SPECIAL OFFER</button>
+
+   <!-- Menu Management with Gallery Uploader -->
+   <h4 style="color:var(--gold2);font-size:13px;border-bottom:1px solid var(--line);padding-bottom:6px;margin:16px 0 10px">🍔 MENU &amp; OFFERS MANAGEMENT</h4>
    <div id="availabilityControls"></div>
    <button class="outline-btn" id="adminSignOut" style="margin-top:16px;width:100%">LOGOUT</button>
   </div>
@@ -350,7 +473,7 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
 <!-- Modal: Owner Edit Dish & Gallery Image Picker -->
 <div class="modal-overlay" id="editDishModal">
  <div class="box-modal" style="width:min(460px,100%)">
-  <div class="cart-head"><h3 id="editModalHeader">EDIT DISH & PHOTO</h3><button class="close" id="closeEditDish">×</button></div>
+  <div class="cart-head"><h3 id="editModalHeader">EDIT DISH / COMBO &amp; PHOTO</h3><button class="close" id="closeEditDish">×</button></div>
   <input type="hidden" id="editDishId">
   
   <div style="width:80px;height:80px;border-radius:8px;border:1px dashed var(--gold);margin:10px auto;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#1a1510">
@@ -360,28 +483,96 @@ footer p{font-size:11.5px;color:var(--muted);line-height:1.6}
   <label style="font-size:11px;color:var(--gold2);display:block">📷 Choose Photo From Gallery (No URL required):</label>
   <input type="file" id="editDishFileInput" accept="image/*" style="background:#16120d;border:1px solid var(--gold);padding:8px;border-radius:5px;width:100%;font-size:11px;margin:5px 0 10px;color:#f7d78d">
 
-  <label style="font-size:11px;color:var(--gold2)">Dish Name</label>
+  <label style="font-size:11px;color:var(--gold2)">Item / Combo Name</label>
   <input type="text" id="editDishName" class="form-input">
 
   <label style="font-size:11px;color:var(--gold2)">Price (₹)</label>
   <input type="number" id="editDishPrice" class="form-input">
 
-  <label style="font-size:11px;color:var(--gold2)">Short Description</label>
-  <input type="text" id="editDishDesc" class="form-input">
+  <label style="font-size:11px;color:var(--gold2)">Category</label>
+  <select id="editDishCategory" class="form-input" style="padding:10px">
+    <option value="starters">Starters</option>
+    <option value="maggi">Maggi</option>
+    <option value="burgers">Burgers</option>
+    <option value="rolls">Rolls</option>
+    <option value="sandwiches">Sandwiches</option>
+    <option value="patties">Patties</option>
+    <option value="pasta">Pasta</option>
+    <option value="combos">🔥 Offers &amp; Combos</option>
+    <option value="addons">Add-ons</option>
+  </select>
 
-  <button class="gold-btn" id="saveDishDetails" style="width:100%;margin-top:6px">SAVE & UPLOAD LIVE</button>
+  <label style="font-size:11px;color:var(--gold2)">Short Description / Combo Items</label>
+  <input type="text" id="editDishDesc" class="form-input" placeholder="e.g. Includes Burger + Fries + Drink">
+
+  <button class="gold-btn" id="saveDishDetails" style="width:100%;margin-top:6px">SAVE &amp; UPLOAD LIVE</button>
   <p id="editDishMsg" style="font-size:11px;text-align:center;color:#4fd682;margin:6px 0 0"></p>
  </div>
 </div>
 
+<button id="cartFab" type="button">YOUR CART <span id="cartCount">0</span> · <span id="cartTotal">₹0</span></button>
+
 <script>
 const WHATSAPP="918887052718";
-let currentOrderType = "Delivery";
+const UPI_ID="8808032031@yespop";
+const KITCHEN_LAT = 26.4499;
+const KITCHEN_LNG = 80.3319;
 
-// Fallback Luxury SVG Food Graphics (No broken URLs)
+let currentOrderType = "Delivery";
+let currentPaymentMode = "UPI";
+let userDistanceKM = 0;
+let userDeliveryCharge = 0;
+let kitchenSubsidy = 0;
+
+// Detailed Bill of Materials (BOM) & Inventory Recipe Matrix
+const recipeInventory = {
+  2: {"Roll Wrappers": 4, "Veg Mix Shred": "60g", "Oil / Seasoning": "10g"},
+  3: {"Frozen Fries": "120g", "Peri Peri Spice": "6g", "Frying Oil": "15g"},
+  4: {"Maggi Noodle Cake": 1, "Desi Masala Sachet": 1, "Butter": "10g"},
+  6: {"Maggi Noodle Cake": 1, "Sweet Corn": "15g", "Peas & Peppers": "20g", "Onion": "15g"},
+  7: {"Maggi Noodle Cake": 1, "Schezwan Sauce": "20g", "Garlic & Chilli": "5g"},
+  8: {"Maggi Noodle Cake": 1, "Cheese Slice / Grated": "20g", "Butter": "10g"},
+  9: {"Maggi Noodle Cake": 1, "Cheese Slice / Mozzarella": "35g", "Double Masala": 2},
+  45: {"Maggi Noodle Cake": 1, "Boiled Chicken Shreds": "45g", "Desi Masala": 1},
+  10: {"Burger Buns": 1, "Aloo Tikki Patty": 1, "Mayonnaise": "20g", "Cabbage Shred": "15g", "Onion Slice": "15g"},
+  11: {"Burger Buns": 1, "Spicy Veg Patty": 1, "Tawa Masala": "15g", "Mayonnaise": "20g"},
+  12: {"Burger Buns": 1, "Veg Patty": 1, "Cheese Slice": 1, "Creamy Mayo": "20g", "Lettuce / Cabbage": "15g"},
+  13: {"Burger Buns": 1, "Paneer Tikka Slab": "50g", "Mint Sauce": "15g", "Mayo": "15g", "Onion": "15g"},
+  35: {"Burger Buns": 1, "Veg Patties": 2, "Cheese Slice": 1, "Double Mayo": "35g"},
+  23: {"Burger Buns": 1, "Farm Eggs": 2, "Tawa Butter": "10g", "Onion & Spice": "15g"},
+  24: {"Burger Buns": 1, "Egg Patty": 1, "Cheese Slice": 1, "Black Pepper": "2g"},
+  25: {"Burger Buns": 1, "Tawa Chicken Chunks": "60g", "Burger Dressing": "25g", "Onion": "15g"},
+  14: {"Paratha Sheet": 1, "Seasoned Garden Veg": "60g", "Sauces": "15g"},
+  16: {"Paratha Sheet": 1, "Veg Mix": "60g", "Cheese Grated": "20g", "Mint Chutney": "15g"},
+  17: {"Paratha Sheet": 1, "Paneer Chunks": "50g", "Tandoori Sauce": "20g", "Onion": "15g"},
+  21: {"Paratha Sheet": 1, "Farm Eggs": 2, "Chilli Lime Mix": "10g"},
+  22: {"Paratha Sheet": 1, "Farm Egg": 1, "Chicken Chunks": "50g", "Sauce Mix": "20g"},
+  38: {"Bread Slices": 2, "Aloo Masala Filling": "50g", "Butter": "10g"},
+  39: {"Bread Slices": 2, "Veg Mix (Corn/Capsicum)": "50g", "Herb Mayo": "20g"},
+  36: {"Bread Slices": 2, "Paneer Tikka Chunks": "45g", "Green Chutney": "15g", "Butter": "10g"},
+  37: {"Bread Slices": 3, "Aloo Masala": "50g", "Cheese Slice": 1, "Veggies": "30g"},
+  40: {"Puff Pastry": 1, "Aloo Masala": "40g"},
+  41: {"Puff Pastry": 1, "Cheese Portion": "20g", "Aloo Masala": "35g"},
+  42: {"Puff Pastry": 1, "Double Cheese": "35g", "Chef Special Seasoning": "10g"},
+  43: {"Penne Pasta": "100g", "White Alfredo Sauce": "70g", "Corn & Broccoli": "30g"},
+  46: {"Penne Pasta": "100g", "White Alfredo Sauce": "70g", "Tender Chicken": "50g"},
+  26: {"Boiled Eggs": 4, "Tawa Masala": "25g", "Butter": "10g"},
+  27: {"Farm Eggs": 2, "Desi Bhurji Masala": "40g", "Plain Parathe": 2},
+  28: {"Chicken Keema": "90g", "Gravy Base": "60g", "Plain Parathe": 2},
+  44: {"Boiled Eggs": 2, "Slow Simmer Gravy": "120g"},
+  32: {"Mozzarella Portion": "25g"},
+  33: {"Boiled Egg": 1},
+  34: {"Soft Drink Bottle 250ml": 1},
+  // Default Starter Combos Inventory
+  101: {"Burger Buns": 1, "Aloo Tikki Patty": 1, "Frozen Fries": "80g", "Soft Drink": 1},
+  102: {"Maggi Noodle Cake": 1, "Cheese Grated": "20g", "Soft Drink": 1}
+};
+
 const defaultPlaceholder = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314100b'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23d8ad55' stroke-width='1.5' stroke-dasharray='4,3' opacity='0.4'/%3E%3Cpath d='M50 26 C43 26 37 32 37 39 C37 45 42 50 48 51 L48 74 L52 74 L52 51 C58 50 63 45 63 39 C63 32 57 26 50 26 Z M47 31 L49 31 L49 46 L47 46 Z M51 31 L53 31 L53 46 L51 46 Z' fill='%23d8ad55' opacity='0.85'/%3E%3C/svg%3E";
 
 const defaultMenu=[
+[101,"CF Ultimate Burger Combo","combos","veg",129,"Aloo Tikki Burger + Salted Fries + 250ml Cold Drink.",defaultPlaceholder],
+[102,"Cheese Maggi + Drink Combo","combos","veg",99,"Cheese Masala Maggi paired with a chilled soft drink.",defaultPlaceholder],
 [2,"Veg Spring Rolls (4 pcs)","starters","veg",79,"Crispy golden rolls stuffed with seasoned shredded vegetables and herbs.",defaultPlaceholder],
 [3,"Peri Peri Fries","starters","veg",59,"Crisp golden french fries tossed in spicy peri peri seasoning.",defaultPlaceholder],
 [4,"Classic Masala Maggi","maggi","veg",49,"Street style masala noodles loaded with authentic desi spices.",defaultPlaceholder],
@@ -428,7 +619,7 @@ function getActiveMenu(){
  return defaultMenu.map(x=>{
    const o = liveItemOverrides[x[0]];
    if(!o) return x;
-   return [x[0], o.name||x[1], x[2], x[3], o.price!==undefined?+o.price:x[4], o.desc||x[5], o.img||x[6]];
+   return [x[0], o.name||x[1], o.category||x[2], o.veg||x[3], o.price!==undefined?+o.price:x[4], o.desc||x[5], o.img||x[6]];
  });
 }
 
@@ -436,24 +627,32 @@ function isAvailable(x){return liveAvailability[x[0]]!==false;}
 
 function render(filter="all"){
  const activeMenu = getActiveMenu();
- const items=activeMenu.filter(x=>filter==="all"||x[2]===filter||x[3]===filter);
+ const items=activeMenu.filter(x=>{
+   if(filter==="all") return true;
+   if(filter==="combos") return x[2]==="combos";
+   return x[2]===filter||x[3]===filter;
+ });
+ 
  listContainer.innerHTML=items.map(x=>{
-   const ok=isAvailable(x),premium=x[0]===42;
-   return `<article class="food-item ${ok?'':'unavailable'} hardware-accel">
-     <div class="food-thumb-wrap" onclick="openPhotoZoom('${x[1]}','${x[6]}','${x[5]}')" title="Zoom photo">
-       <img class="food-thumb" src="${x[6]}" alt="${x[1]}" loading="lazy">
-       <span class="diet-pill ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>
+   const ok=isAvailable(x),premium=x[0]===42,isCombo=x[2]==='combos';
+   return `<article class="food-card ${ok?'':'unavailable'} hardware-accel">
+     <div class="food-card-thumb" onclick="openPhotoZoom('${x[1]}','${x[6]}','${x[5]}')">
+       <img src="${x[6]}" alt="${x[1]}" loading="lazy">
+       ${isCombo ? '<span class="combo-badge">🔥 SPECIAL COMBO</span>' : `<span class="diet-pill ${x[3]}">${x[3]==='veg'?'VEG':'NON-VEG'}</span>`}
+       ${premium?'<span class="premium-pill">★ SIGNATURE</span>':''}
      </div>
-     <div class="food-details">
-       <h3 class="food-title">${x[1]} ${premium?'<span class="premium-flag">★ SIGNATURE</span>':''}</h3>
-       <p class="food-desc">${x[5]}</p>
-     </div>
-     <div class="food-action">
-       <span class="food-price">${money(x[4])}</span>
-       ${ok&&shopIsOpen?`<button class="add-btn" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavail-badge">'+(shopIsOpen?'UNAVAIL':'CLOSED')+'</span>'}
+     <div class="food-card-body">
+       <div>
+         <h3 class="food-card-title">${x[1]}</h3>
+         <p class="food-card-desc">${x[5]}</p>
+       </div>
+       <div class="food-card-bottom">
+         <span class="food-card-price">${money(x[4])}</span>
+         ${ok&&shopIsOpen?`<button class="add-btn" data-add="${x[0]}" aria-label="Add ${x[1]}">+</button>`:'<span class="unavail-badge">'+(shopIsOpen?'UNAVAIL':'CLOSED')+'</span>'}
+       </div>
      </div>
    </article>`;
- }).join("")||'<div style="text-align:center;padding:30px;color:var(--muted)">No items found.</div>';
+ }).join("")||'<div style="grid-column:1/-1;text-align:center;padding:30px;color:var(--muted)">No items found in this section.</div>';
  
  listContainer.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{
    const id=+b.dataset.add;
@@ -475,35 +674,141 @@ function setOrderType(t){
  document.getElementById('btnDelivery').classList.toggle('active',t==='Delivery');
  document.getElementById('btnTakeaway').classList.toggle('active',t==='Takeaway');
  document.getElementById('deliveryFields').style.display=t==='Delivery'?'block':'none';
+ updateCart();
 }
 
-// Browser GPS Location Fetcher
+function selectPaymentMode(m){
+ const total = getCurrentGrandTotal();
+ if(m === 'COD' && total > 150){
+   alert("Orders above ₹150 require prepaid Online UPI payment to prevent kitchen food wastage.");
+   return;
+ }
+ currentPaymentMode = m;
+ document.getElementById('payOptUPI').classList.toggle('active', m==='UPI');
+ document.getElementById('payOptCOD').classList.toggle('active', m==='COD');
+}
+
+function calculateHaversineDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return +(R * c).toFixed(1);
+}
+
+function evaluateDeliverySlab(distKM, foodTotal) {
+  let riderTotal = 20, custShare = 10, ownerShare = 10, minOrder = 99, isLongDist = false;
+  if (distKM <= 2) {
+    riderTotal = 20; custShare = 10; ownerShare = 10; minOrder = 99;
+  } else if (distKM <= 3) {
+    riderTotal = 25; custShare = 13; ownerShare = 12; minOrder = 149;
+  } else if (distKM <= 5) {
+    riderTotal = 35; custShare = 18; ownerShare = 17; minOrder = 199;
+  } else if (distKM <= 7) {
+    riderTotal = 50; custShare = 25; ownerShare = 25; minOrder = 299;
+  } else if (distKM <= 8) {
+    riderTotal = 60; custShare = 30; ownerShare = 30; minOrder = 399;
+  } else {
+    isLongDist = true;
+    const extraKM = +(distKM - 8).toFixed(1);
+    custShare = +(60 + (extraKM * 3)).toFixed(0);
+    riderTotal = custShare;
+    ownerShare = 0;
+    minOrder = 399;
+  }
+  return { distKM, riderTotal, custShare, ownerShare, minOrder, isLongDist };
+}
+
 document.getElementById('btnGetLocation').onclick=()=>{
- if(!navigator.geolocation){alert("GPS not supported on your browser.");return;}
- document.getElementById('btnGetLocation').textContent="Locating...";
+ if(!navigator.geolocation){alert("GPS is not supported on this browser.");return;}
+ const btn = document.getElementById('btnGetLocation');
+ btn.textContent="Locating...";
  navigator.geolocation.getCurrentPosition(pos=>{
    const lat = pos.coords.latitude, lng = pos.coords.longitude;
    const mapUrl = `https://maps.google.com/?q=${lat},${lng}`;
    document.getElementById('custMapsLink').value = mapUrl;
-   document.getElementById('gpsStatus').style.display = "block";
-   document.getElementById('btnGetLocation').textContent="✓ Pin Captured";
+   
+   userDistanceKM = calculateHaversineDistance(KITCHEN_LAT, KITCHEN_LNG, lat, lng);
+   document.getElementById('calculatedDistance').value = userDistanceKM;
+   
+   const slab = evaluateDeliverySlab(userDistanceKM, 0);
+   userDeliveryCharge = slab.custShare;
+   kitchenSubsidy = slab.ownerShare;
+   
+   const gpsStatus = document.getElementById('gpsStatus');
+   gpsStatus.style.display = "block";
+   gpsStatus.textContent = `✓ Distance: ${userDistanceKM} KM | 50% Subsidized Delivery: ₹${userDeliveryCharge}`;
+   btn.textContent="✓ GPS Captured";
+   
+   const alertBox = document.getElementById('longDistanceAlert');
+   if(slab.isLongDist){
+     alertBox.style.display = "block";
+     alertBox.textContent = `⚠️ Long Distance Notice: Address is ${userDistanceKM} KM away. Full delivery charge (₹${userDeliveryCharge}) is customer-paid (₹0 kitchen subsidy).`;
+   } else {
+     alertBox.style.display = "none";
+   }
+   updateCart();
  }, err=>{
-   alert("Location access denied. Please type your complete address manually.");
-   document.getElementById('btnGetLocation').textContent="📍 Fetch GPS Pin";
+   alert("GPS access denied. You can manually enter address.");
+   btn.textContent="📍 Fetch GPS Pin";
  },{enableHighAccuracy:true,timeout:10000});
 };
 
-function updateCart(){
+function getCurrentGrandTotal(){
  const activeMenu = getActiveMenu();
- let count=0,total=0;
+ let subtotal = 0;
  cart.forEach((q,id)=>{
    const item = activeMenu.find(x=>x[0]===id);
-   if(item){ count+=q; total+=q*item[4]; }
+   if(item) subtotal += q * item[4];
+ });
+ const charge = (currentOrderType === 'Delivery' && subtotal > 0) ? (userDeliveryCharge || 10) : 0;
+ return subtotal + charge;
+}
+
+function updateCart(){
+ const activeMenu = getActiveMenu();
+ let count=0,foodSubtotal=0;
+ cart.forEach((q,id)=>{
+   const item = activeMenu.find(x=>x[0]===id);
+   if(item){ count+=q; foodSubtotal+=q*item[4]; }
  });
  document.getElementById("cartCount").textContent=count;
  document.getElementById("cartFab").classList.toggle("show",count>0);
- document.getElementById("cartTotal").textContent=money(total);
- document.getElementById("cartTotalPanel").textContent=money(total);
+ document.getElementById("cartTotal").textContent=money(foodSubtotal);
+ document.getElementById("cartSubtotalPanel").textContent=money(foodSubtotal);
+ 
+ const deliveryRow = document.getElementById('deliveryRow');
+ let grandTotal = foodSubtotal;
+ if(currentOrderType === 'Delivery' && count > 0){
+   deliveryRow.style.display = 'flex';
+   const charge = userDeliveryCharge || 10;
+   document.getElementById('cartDeliveryCharge').textContent = money(charge);
+   grandTotal += charge;
+ } else {
+   deliveryRow.style.display = 'none';
+ }
+ document.getElementById("cartGrandTotalPanel").textContent=money(grandTotal);
+
+ const codBtn = document.getElementById('payOptCOD');
+ const codNotice = document.getElementById('codLockedNotice');
+ const codSub = document.getElementById('codSubText');
+ 
+ if(grandTotal > 150){
+   codBtn.classList.add('disabled');
+   codSub.textContent = "Locked (>₹150)";
+   codNotice.style.display = 'block';
+   if(currentPaymentMode === 'COD'){
+     selectPaymentMode('UPI');
+   }
+ } else {
+   codBtn.classList.remove('disabled');
+   codSub.textContent = "Allowed under ₹150";
+   codNotice.style.display = 'none';
+ }
+
  const holder=document.getElementById("cartItems");
  holder.innerHTML=count?[...cart.entries()].map(([id,q])=>{
    const x=activeMenu.find(i=>i[0]===id);
@@ -516,6 +821,24 @@ function updateCart(){
  holder.querySelectorAll("[data-inc]").forEach(b=>b.onclick=()=>{const id=+b.dataset.inc;cart.set(id,(cart.get(id)||0)+1);updateCart()});
 }
 
+function calculateOrderInventory(itemsArray){
+  const totalRaw = {};
+  itemsArray.forEach(item => {
+    const recipe = recipeInventory[item.id] || {"Portion Unit": 1};
+    for(const [rawName, qty] of Object.entries(recipe)){
+      if(typeof qty === 'number'){
+        totalRaw[rawName] = (totalRaw[rawName] || 0) + (qty * item.qty);
+      } else {
+        const num = parseFloat(qty);
+        const unit = qty.replace(/[0-9.]/g,'').trim();
+        const key = `${rawName} (${unit})`;
+        totalRaw[key] = (totalRaw[key] || 0) + (num * item.qty);
+      }
+    }
+  });
+  return totalRaw;
+}
+
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
  document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
  b.classList.add("active");
@@ -526,7 +849,6 @@ const cartOver=document.getElementById("cartOverlay");
 document.getElementById("cartFab").onclick=()=>cartOver.classList.add("open");
 document.getElementById("closeCart").onclick=()=>cartOver.classList.remove("open");
 
-// Audio Synthesizers for Ding & Loud Owner Alarm
 let audioCtx;
 function getAudioContext(){if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();return audioCtx;}
 
@@ -564,7 +886,41 @@ function stopLoudAlarm(){
 }
 document.getElementById('stopAlarmBtn').onclick=stopLoudAlarm;
 
-// Customer Tracker Management
+const fullAlert = document.getElementById('fullScreenLiveAlert');
+const alertBadge = document.getElementById('alertBadge');
+const alertTitle = document.getElementById('alertTitle');
+const alertDesc = document.getElementById('alertDesc');
+const alertRing = document.getElementById('alertLogoRing');
+
+function triggerFullScreenAlert(status, order){
+  if(status === 'Preparing'){
+    alertBadge.className = "alert-badge badge-prep";
+    alertBadge.textContent = "👨‍🍳 KITCHEN IS PREPARING YOUR ORDER";
+    alertTitle.textContent = "COOKING FRESH & DELICIOUS!";
+    alertDesc.textContent = `Order #${order.orderId}: Our chefs are preparing your authentic bites with high hygiene standards.`;
+    alertRing.style.borderColor = "#d8ad55";
+    fullAlert.classList.add('open');
+  } else if(status === 'Ready' || status === 'Out for Delivery'){
+    alertBadge.className = "alert-badge badge-ready";
+    alertBadge.textContent = order.type === 'Takeaway' ? "🛍️ READY FOR PICKUP" : "🛵 OUT FOR DELIVERY";
+    alertTitle.textContent = "YOUR FOOD IS READY!";
+    alertTitle.style.color = "#4fd682";
+    alertDesc.textContent = order.type === 'Takeaway' 
+      ? `Order #${order.orderId} is packed piping hot! Please collect your order from the Craving Foodies counter.`
+      : `Order #${order.orderId} is dispatched fresh! Rider is heading towards your location.`;
+    alertRing.style.borderColor = "#4fd682";
+    playDingSound();
+    fullAlert.classList.add('open');
+  }
+}
+
+document.getElementById('dismissAlertBtn').onclick=()=>fullAlert.classList.remove('open');
+document.getElementById('viewSlipFromAlert').onclick=()=>{
+  fullAlert.classList.remove('open');
+  const orderData = JSON.parse(localStorage.getItem('cf_last_order_data')||'null');
+  if(orderData) showDigitalReceipt(orderData);
+};
+
 function updateTrackerUI(order){
  if(!order){ document.getElementById('statusTracker').classList.remove('open'); return; }
  document.getElementById('statusTracker').classList.add('open');
@@ -579,7 +935,6 @@ function updateTrackerUI(order){
  }else if(order.status === 'Ready' || order.status === 'Out for Delivery'){
    d2.className = 'step-dot done';
    d3.className = 'step-dot active';
-   playDingSound();
  }
 }
 
@@ -588,23 +943,39 @@ document.getElementById('dismissTrackerBtn').onclick=()=>{
 };
 
 document.getElementById('viewSlipBtn').onclick=()=>{
- const orderId = localStorage.getItem('cf_last_order_id');
  const orderData = JSON.parse(localStorage.getItem('cf_last_order_data')||'null');
  if(orderData) showDigitalReceipt(orderData);
 };
 
-// Generate Thermal 80mm Slip
 function generateSlipHTML(order){
- const activeMenu = getActiveMenu();
+ const upiPaymentUrl = `upi://pay?pa=${UPI_ID}&pn=Craving%20Foodies&am=${order.total}&cu=INR&tn=Order_${order.orderId}`;
+ const qrImgSrc = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiPaymentUrl)}`;
+ 
+ document.getElementById('receiptQrImg').src = qrImgSrc;
+ document.getElementById('directUpiBtn').href = upiPaymentUrl;
+ 
+ const isUPI = order.paymentMode === 'UPI';
+ const isVerified = order.paymentConfirmed === true;
+ 
+ document.getElementById('upiPayBox').style.display = isUPI && !isVerified ? 'block' : 'none';
+ document.getElementById('codNoticeBox').style.display = !isUPI ? 'block' : 'none';
+
+ const inventoryLines = order.rawInventory 
+   ? Object.entries(order.rawInventory).map(([raw, amt]) => `<div class="row" style="font-size:10.5px"><span>• ${raw}</span><b>${amt}</b></div>`).join('')
+   : '';
+
  return `
   <div class="thermal-receipt" id="printableSlip">
    <h3>*** CRAVING FOODIES ***</h3>
    <div style="text-align:center;font-size:10px">CRISPY AND CRUNCHY · KANPUR<br>PHONE: +91 88870 52718</div>
    <div class="dashed"></div>
    <div class="row"><b>ORDER: #${order.orderId}</b><span>${order.type.toUpperCase()}</span></div>
+   <div class="row"><span>PAYMENT STATUS:</span><b style="color:${isVerified?'#1a7f37':isUPI?'#b45309':'#b45309'}">${isVerified ? '✅ VERIFIED & RECEIVED' : order.paymentMode==='UPI' ? 'WAITING / UTR PENDING' : 'CASH ON DELIVERY'}</b></div>
+   ${order.utr?`<div class="row" style="color:#1a7f37"><span>UTR / REF NO:</span><b>${order.utr}</b></div>`:''}
    <div class="row"><span>DATE: ${new Date(order.timestamp).toLocaleDateString()}</span><span>${new Date(order.timestamp).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>
    <div class="row"><span>CUSTOMER: ${order.name}</span><span>${order.phone}</span></div>
    ${order.address?`<div>ADDR: ${order.address}</div>`:''}
+   ${order.distance?`<div>DISTANCE: ${order.distance} KM ${order.isLongDist?'(LONG RANGE)':''}</div>`:''}
    ${order.mapsLink?`<div style="font-size:9.5px;word-break:break-all">MAP: ${order.mapsLink}</div>`:''}
    <div class="dashed"></div>
    <div class="row" style="font-weight:700"><span>ITEM</span><span>QTY</span><span>AMT</span></div>
@@ -617,16 +988,32 @@ function generateSlipHTML(order){
      </div>
    `).join('')}
    <div class="dashed"></div>
-   <div class="row" style="font-size:14px;font-weight:700"><span>TOTAL AMOUNT:</span><span>₹${order.total}</span></div>
+   <div class="row"><span>FOOD SUBTOTAL:</span><span>₹${order.foodSubtotal||order.total}</span></div>
+   ${order.deliveryCharge?`<div class="row"><span>DELIVERY CHARGE (50% OFF):</span><span>₹${order.deliveryCharge}</span></div>`:''}
+   <div class="row" style="font-size:14px;font-weight:700;margin-top:4px"><span>TOTAL AMOUNT:</span><span>₹${order.total}</span></div>
    ${order.notes?`<div class="dashed"></div><div><b>KITCHEN NOTE:</b> ${order.notes}</div>`:''}
+   
+   ${inventoryLines ? `
+     <div class="dashed"></div>
+     <div style="font-weight:700;font-size:10.5px;margin-bottom:4px">RAW INGREDIENT INVENTORY USED:</div>
+     ${inventoryLines}
+   ` : ''}
+
    <div class="dashed"></div>
-   <div style="text-align:center;font-size:10.5px;margin-top:6px">THANK YOU! CRAVE AGAIN!</div>
+   <div style="font-size:9.5px;text-align:center;line-height:1.4">
+     <b>* 100% NON-REFUNDABLE POLICY *</b><br>
+     Food prepared fresh upon order. No cancellations, deductions, or bargains entertained. Consume within 45 mins.
+   </div>
+   <div class="dashed"></div>
+   <div style="text-align:center;font-size:10px">THANK YOU! CRAVE AGAIN!</div>
   </div>
  `;
 }
 
 function showDigitalReceipt(order){
  document.getElementById('receiptContent').innerHTML = generateSlipHTML(order);
+ document.getElementById('custUtrInput').value = order.utr || '';
+ document.getElementById('utrSuccessNotice').style.display = (order.utr || order.paymentConfirmed) ? 'block' : 'none';
  document.getElementById('receiptModal').classList.add('open');
  
  document.getElementById('printReceiptBtn').onclick=()=>{
@@ -639,14 +1026,13 @@ function showDigitalReceipt(order){
  };
  
  document.getElementById('shareReceiptBtn').onclick=()=>{
-   const text = encodeURIComponent(`*CRAVING FOODIES INVOICE*\nOrder: #${order.orderId}\nCustomer: ${order.name}\nTotal: ₹${order.total}\nTrack: https://kg2942995-png.github.io/-craving-foodies/`);
+   const text = encodeURIComponent(`*CRAVING FOODIES INVOICE*\nOrder: #${order.orderId}\nCustomer: ${order.name}\nTotal: ₹${order.total}\nStatus: ${order.paymentConfirmed?'Payment Verified':'Pending'}\nTrack: https://kg2942995-png.github.io/-craving-foodies/`);
    window.open(`https://wa.me/91${order.phone}?text=${text}`,'_blank');
  };
 }
 
 document.getElementById('closeReceipt').onclick=()=>document.getElementById('receiptModal').classList.remove('open');
 
-// Logo Secret Owner Trigger
 let tapCount=0,tapTimer;
 document.getElementById('secretOwnerTrigger').addEventListener('click',()=>{
  tapCount++;
@@ -686,7 +1072,6 @@ const app=initializeApp(firebaseConfig);
 const db=getDatabase(app);
 const auth=getAuth(app);
 
-// Client-side Direct Gallery Photo Compression Engine
 let currentBase64Img = "";
 const fileInput = document.getElementById('editDishFileInput');
 const previewImg = document.getElementById('editDishPreview');
@@ -728,6 +1113,29 @@ fileInput.onchange = async (e)=>{
   }
 };
 
+// Customer UTR Submission Handler
+document.getElementById('btnSubmitUtr').onclick=async()=>{
+  const utr = document.getElementById('custUtrInput').value.trim();
+  if(!utr || utr.length < 6){ alert("Please enter a valid 12-digit UPI Reference / UTR Number."); return; }
+  
+  const orderId = localStorage.getItem('cf_last_order_id');
+  if(!orderId){ alert("No active order found."); return; }
+
+  try{
+    await update(ref(db, 'cravingFoodies/activeOrders/' + orderId), { utr });
+    const localData = JSON.parse(localStorage.getItem('cf_last_order_data')||'{}');
+    localData.utr = utr;
+    localStorage.setItem('cf_last_order_data', JSON.stringify(localData));
+    
+    document.getElementById('utrSuccessNotice').style.display = "block";
+    
+    const msg = encodeURIComponent(`*PAYMENT VERIFIED (UTR SUBMITTED)*\nOrder: #${orderId}\nCustomer: ${localData.name}\nAmount: ₹${localData.total}\n12-Digit UTR: ${utr}`);
+    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+  }catch(err){
+    alert("Error updating UTR: " + err.message);
+  }
+};
+
 // Send Order Handler
 document.getElementById('sendOrder').onclick=async()=>{
   const activeMenu = getActiveMenu();
@@ -747,51 +1155,74 @@ document.getElementById('sendOrder').onclick=async()=>{
   
   const orderId = Math.floor(1000 + Math.random() * 9000);
   const itemsArray = [];
-  let total = 0;
+  let foodSubtotal = 0;
   
   cart.forEach((q,id)=>{
     const x = activeMenu.find(item=>item[0]===id);
     if(x){
       itemsArray.push({ id, name: x[1], price: x[4], qty: q, veg: x[3] });
-      total += (q * x[4]);
+      foodSubtotal += (q * x[4]);
     }
   });
+
+  let slab = evaluateDeliverySlab(userDistanceKM || 1.5, foodSubtotal);
+  let finalDeliveryCharge = currentOrderType === 'Delivery' ? slab.custShare : 0;
+  let finalGrandTotal = foodSubtotal + finalDeliveryCharge;
+
+  if(finalGrandTotal > 150 && currentPaymentMode === 'COD'){
+    alert("Orders above ₹150 strictly require online UPI payment to prevent kitchen food wastage. Please switch to Online UPI.");
+    selectPaymentMode('UPI');
+    return;
+  }
+
+  if(currentOrderType === 'Delivery' && foodSubtotal < slab.minOrder){
+    alert(`Minimum food order for ${slab.distKM} KM is ₹${slab.minOrder}. Please add ₹${slab.minOrder - foodSubtotal} more items.`);
+    return;
+  }
+
+  const rawInventory = calculateOrderInventory(itemsArray);
 
   const orderData = {
     orderId,
     name,
     phone,
     type: currentOrderType,
+    paymentMode: currentPaymentMode,
+    paymentConfirmed: false,
     address,
     mapsLink,
     notes,
     items: itemsArray,
-    total,
+    foodSubtotal,
+    deliveryCharge: finalDeliveryCharge,
+    distance: slab.distKM,
+    isLongDist: slab.isLongDist,
+    total: finalGrandTotal,
+    rawInventory,
     status: "Received",
     timestamp: Date.now()
   };
 
-  // Push to Firebase Realtime Database
   try{
     await set(ref(db, 'cravingFoodies/activeOrders/' + orderId), orderData);
   }catch(e){
     console.error("Firebase write error:", e);
   }
 
-  // Save Local State for Customer Tracker
   localStorage.setItem('cf_last_order_id', orderId);
   localStorage.setItem('cf_last_order_data', JSON.stringify(orderData));
   updateTrackerUI(orderData);
 
-  // Construct WhatsApp Kitchen Message
   let msg = [
     `*NEW ORDER: #${orderId}*`,
     `Order Type: *${currentOrderType.toUpperCase()}*`,
+    `Payment Mode: *${currentPaymentMode==='UPI'?'ONLINE UPI (PREPAID)':'CASH ON DELIVERY (COD)'}*`,
     `Customer: ${name} (${phone})`,
     ""
   ];
   if(currentOrderType === 'Delivery'){
     msg.push(`Delivery Address: ${address}`);
+    msg.push(`Distance: ${slab.distKM} KM ${slab.isLongDist?'(LONG RANGE)':''}`);
     if(mapsLink) msg.push(`GPS Location: ${mapsLink}`);
     msg.push("");
   }
@@ -800,18 +1231,35 @@ document.getElementById('sendOrder').onclick=async()=>{
     msg.push(`- ${i.qty}x ${i.name} — ₹${i.qty * i.price}`);
   });
   msg.push("");
-  msg.push(`*SUBTOTAL: ₹${total}*`);
-  if(notes) msg.push(`Note: ${notes}`);
-  msg.push("Please confirm and start preparation.");
+  msg.push(`Food Subtotal: ₹${foodSubtotal}`);
+  if(currentOrderType === 'Delivery'){
+    msg.push(`Delivery Charge: ₹${finalDeliveryCharge} (50% Off Applied)`);
+  }
+  msg.push(`*GRAND TOTAL PAYABLE: ₹${finalGrandTotal}*`);
+  
+  if(currentPaymentMode === 'UPI'){
+    msg.push(`*PAY VIA UPI ID:* ${UPI_ID}`);
+    msg.push(`UPI Payment Link: upi://pay?pa=${UPI_ID}&pn=Craving%20Foodies&am=${finalGrandTotal}&cu=INR`);
+  }
+  
+  msg.push("");
+  msg.push("📋 *KITCHEN INVENTORY REQUIRED:*");
+  for(const [raw, amt] of Object.entries(rawInventory)){
+    msg.push(`• ${raw}: ${amt}`);
+  }
+
+  if(notes) msg.push(`\nSpecial Cooking Note: ${notes}`);
+  msg.push("\n*POLICY NOTE:* 100% Non-refundable freshly cooked meal. Amount strictly non-negotiable.");
 
   window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg.join("\n")),"_blank");
 
   cart.clear();
   updateCart();
   cartOver.classList.remove('open');
+  showDigitalReceipt(orderData);
 };
 
-// Owner Orders Management
+// Owner Live Orders Section with 1-Click Manual Payment Confirmation
 function drawLiveOrders(orders){
   const holder = document.getElementById('liveOrdersContainer');
   const keys = Object.keys(orders);
@@ -821,24 +1269,46 @@ function drawLiveOrders(orders){
     return;
   }
   
-  // Trigger loud alarm if any order is unacknowledged "Received"
   const hasNew = keys.some(k => orders[k].status === 'Received');
   if(hasNew) startLoudAlarm();
 
   holder.innerHTML = keys.map(k=>{
     const o = orders[k];
+    const invLines = o.rawInventory 
+      ? Object.entries(o.rawInventory).map(([r,a])=>`<span>${r}: <b>${a}</b></span>`).join(' | ')
+      : '';
+    const isPaid = o.paymentConfirmed === true;
+
     return `
-      <div style="background:#18130d;border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px;font-size:12px">
+      <div style="background:#18130d;border:1px solid ${isPaid?'#4fd682':'var(--line)'};border-radius:8px;padding:12px;margin-bottom:10px;font-size:12px">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
           <strong style="color:var(--gold2)">#${o.orderId} · ${o.type.toUpperCase()}</strong>
           <span style="font-weight:700;color:${o.status==='Received'?'#f5d68d':o.status==='Preparing'?'#4fd682':'#70b5ff'}">${o.status}</span>
         </div>
         <div><b>${o.name}</b> (${o.phone}) · <b>₹${o.total}</b></div>
+        
+        <div style="font-size:11px;margin:4px 0;display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+          <span>Mode: <b>${o.paymentMode==='UPI'?'ONLINE UPI':'COD'}</b></span>
+          ${isPaid 
+            ? '<span style="background:#1a4d2e;color:#4fd682;padding:2px 6px;border-radius:3px;font-weight:800">✓ PAYMENT CONFIRMED</span>' 
+            : `<button class="outline-btn" style="padding:2px 8px;font-size:10px;color:#4fd682;border-color:#4fd682" onclick="confirmPaymentManually(${o.orderId})">💳 Confirm Payment Received</button>`}
+          ${o.utr?`<span style="color:#f7d78d">UTR: <b>${o.utr}</b></span>`:''}
+        </div>
+
         ${o.address?`<div style="color:var(--muted);font-size:11px">📍 ${o.address}</div>`:''}
+        ${o.distance?`<div style="color:#d8ad55;font-size:11px">🚗 Distance: ${o.distance} KM ${o.isLongDist?'(LONG DISTANCE)':''}</div>`:''}
         ${o.mapsLink?`<div><a href="${o.mapsLink}" target="_blank" style="color:#4fd682;font-size:10.5px;font-weight:700">Open in Google Maps ↗</a></div>`:''}
+        
         <div style="margin:6px 0;font-size:11px;color:#c0b49e">
           ${o.items.map(i=>`• ${i.qty}x ${i.name}`).join('<br>')}
         </div>
+
+        ${invLines ? `
+          <div style="background:#120e0a;border:1px dashed #443322;padding:6px;border-radius:4px;font-size:10px;color:#f7d78d;margin:6px 0">
+            <b>📦 RAW INVENTORY NEEDED:</b><br>${invLines}
+          </div>
+        ` : ''}
+
         ${o.notes?`<div style="font-size:10.5px;color:#ff9e94">Note: ${o.notes}</div>`:''}
         
         <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
@@ -852,6 +1322,15 @@ function drawLiveOrders(orders){
   }).join('');
 }
 
+window.confirmPaymentManually = async (id)=>{
+  try{
+    await update(ref(db, 'cravingFoodies/activeOrders/' + id), { paymentConfirmed: true });
+    alert(`Payment for order #${id} successfully marked as Confirmed!`);
+  }catch(err){
+    alert("Error confirming payment: " + err.message);
+  }
+};
+
 window.setOrderStatus = (id, st)=>{
   stopLoudAlarm();
   if(st === 'Completed'){
@@ -863,7 +1342,7 @@ window.setOrderStatus = (id, st)=>{
 
 window.showDigitalReceipt = showDigitalReceipt;
 
-// Draw Dishes Management for Owner
+// Draw Dishes & Combos Management for Owner
 function drawOwnerDishes(){
   const activeMenu = getActiveMenu();
   const holder = document.getElementById('availabilityControls');
@@ -872,10 +1351,10 @@ function drawOwnerDishes(){
       <div style="flex:1;min-width:0">
         <span style="font-weight:700">${x[1]}</span>
         <span style="color:var(--gold2)"> · ₹${x[4]}</span>
-        <b style="color:${x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[3].toUpperCase()})</b>
+        <b style="color:${x[2]==='combos'?'#e23744':x[3]==='veg'?'#4fd682':'#ff7b6b'}">(${x[2]==='combos'?'COMBO':x[3].toUpperCase()})</b>
       </div>
       <div style="display:flex;align-items:center;gap:10px">
-        <button type="button" class="outline-btn" style="padding:4px 8px;font-size:10.5px" data-edit="${x[0]}">📷 Upload Photo</button>
+        <button type="button" class="outline-btn" style="padding:4px 8px;font-size:10.5px" data-edit="${x[0]}">✏️ Edit</button>
         <label style="cursor:pointer;display:flex;align-items:center;gap:4px">
           <input type="checkbox" data-live="${x[0]}" ${isAvailable(x)?'checked':''}>
           <span style="font-size:10px;color:var(--muted)">On</span>
@@ -892,6 +1371,7 @@ function drawOwnerDishes(){
     document.getElementById('editDishId').value = id;
     document.getElementById('editDishName').value = x[1];
     document.getElementById('editDishPrice').value = x[4];
+    document.getElementById('editDishCategory').value = x[2] || 'starters';
     document.getElementById('editDishDesc').value = x[5];
     currentBase64Img = x[6];
     previewImg.src = x[6];
@@ -901,28 +1381,46 @@ function drawOwnerDishes(){
   });
 }
 
+// Add New Combo Modal Opener
+document.getElementById('btnOpenAddCombo').onclick=()=>{
+  const newId = Date.now(); // Unique ID for newly created combo
+  document.getElementById('editDishId').value = newId;
+  document.getElementById('editDishName').value = "Special Craving Combo";
+  document.getElementById('editDishPrice').value = 149;
+  document.getElementById('editDishCategory').value = "combos";
+  document.getElementById('editDishDesc').value = "Delicious combination of best-selling items.";
+  currentBase64Img = defaultPlaceholder;
+  previewImg.src = defaultPlaceholder;
+  fileInput.value = "";
+  editMsg.textContent = "";
+  document.getElementById('editDishModal').classList.add('open');
+};
+
 document.getElementById('closeEditDish').onclick=()=>document.getElementById('editDishModal').classList.remove('open');
 
 document.getElementById('saveDishDetails').onclick=async()=>{
   const id = document.getElementById('editDishId').value;
   const name = document.getElementById('editDishName').value.trim();
   const price = +document.getElementById('editDishPrice').value;
+  const category = document.getElementById('editDishCategory').value;
   const desc = document.getElementById('editDishDesc').value.trim();
   
-  if(!name || !price){ alert('Please fill in dish name and price.'); return; }
+  if(!name || !price){ alert('Please fill in item name and price.'); return; }
   
   editMsg.textContent = "Saving to live database...";
   try{
     await set(ref(db, 'cravingFoodies/itemOverrides/' + id), { 
       name, 
       price, 
+      category,
+      veg: "veg",
       img: currentBase64Img || defaultPlaceholder, 
       desc 
     });
     editMsg.textContent = "Saved and live updated!";
     setTimeout(()=>{ document.getElementById('editDishModal').classList.remove('open'); }, 1200);
   }catch(e){
-    alert('Error saving dish: ' + e.message);
+    alert('Error saving: ' + e.message);
   }
 };
 
@@ -949,18 +1447,35 @@ onValue(ref(db,'cravingFoodies/itemOverrides'),s=>{
   if(auth.currentUser) drawOwnerDishes();
 });
 
-// Live Active Orders Sync (For Owner Alarm & Customer Tracker)
+let previousStatus = null;
 onValue(ref(db,'cravingFoodies/activeOrders'),s=>{
   activeOrdersMap = s.val() || {};
   if(auth.currentUser) drawLiveOrders(activeOrdersMap);
   
   const myOrderId = localStorage.getItem('cf_last_order_id');
   if(myOrderId && activeOrdersMap[myOrderId]){
-    updateTrackerUI(activeOrdersMap[myOrderId]);
+    const curOrder = activeOrdersMap[myOrderId];
+    updateTrackerUI(curOrder);
+
+    // If owner confirmed payment manually, reflect it immediately on customer receipt
+    if(curOrder.paymentConfirmed){
+      const localData = JSON.parse(localStorage.getItem('cf_last_order_data')||'{}');
+      localData.paymentConfirmed = true;
+      localStorage.setItem('cf_last_order_data', JSON.stringify(localData));
+      const utrNotice = document.getElementById('utrSuccessNotice');
+      if(utrNotice) {
+        utrNotice.style.display = 'block';
+        utrNotice.textContent = "✓ Payment officially verified by Craving Foodies!";
+      }
+    }
+
+    if(previousStatus && previousStatus !== curOrder.status){
+      triggerFullScreenAlert(curOrder.status, curOrder);
+    }
+    previousStatus = curOrder.status;
   }
 });
 
-// Auth Handlers
 onAuthStateChanged(auth,u=>{
   document.getElementById('adminLogin').style.display=u?'none':'block';
   document.getElementById('adminControls').style.display=u?'block':'none';
