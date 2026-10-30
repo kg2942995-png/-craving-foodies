@@ -10,24 +10,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#080706;--gold:#d8ad55;--gold2:#f7d78d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.28);--green:#4fd682;--red:#ff6b6b;--swiggy:#fc8019;--zomato:#e23744}
+:root{--bg:#080706;--gold:#d8ad55;--gold2:#f7d78d;--cream:#fff7e8;--muted:#c4b9a6;--line:rgba(216,173,85,.3);--green:#4fd682;--red:#ff6b6b;--swiggy:#fc8019;--zomato:#e23744}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 
-/* 60fps Ultra Smooth Hardware Acceleration */
-.gpu-smooth{transform:translateZ(0);backface-visibility:hidden;perspective:1000px;will-change:transform}
+.gpu-smooth{transform:translateZ(0);will-change:transform}
 
+/* High-Visibility Rich Background Video Layer */
 #ambient{position:fixed;inset:0;z-index:-3;overflow:hidden;background:#080706}
-#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.82;filter:saturate(.95) brightness(.9);transform:translateZ(0)}
-#ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.55) 0%,rgba(8,7,6,.35) 40%,rgba(8,7,6,.82) 100%),radial-gradient(ellipse at 50% 20%,transparent 0%,rgba(0,0,0,.65) 100%)}
+#ambient video{position:absolute;width:100%;height:100%;object-fit:cover;opacity:.95;filter:saturate(1.08) contrast(1.05) brightness(1);transform:translateZ(0)}
+#ambient:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,7,6,.4) 0%,rgba(8,7,6,.2) 40%,rgba(8,7,6,.68) 100%)}
 
 .wrap{width:min(1100px,94%);margin:auto}
 
-/* Fixed Header: No Ellipsis, Full Name Visible */
-header{position:sticky;top:0;z-index:50;background:rgba(8,7,6,.97);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.85)}
+/* Fixed Header: No Ellipsis, Full Name Clearly Visible */
+header{position:sticky;top:0;z-index:50;background:rgba(8,7,6,.96);border-bottom:1px solid var(--line);box-shadow:0 4px 20px rgba(0,0,0,.85)}
 .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:8px}
 
 .brand{display:flex;align-items:center;gap:10px;user-select:none;cursor:pointer;flex:1;min-width:0}
@@ -58,13 +58,13 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .filter{border:1px solid var(--line);background:rgba(15,12,9,.85);color:#e8dcc8;border-radius:30px;padding:7px 12px;font-size:10.5px;font-weight:700;transition:all .15s ease}
 .filter.active,.filter:hover{background:var(--gold);color:#120c04;border-color:var(--gold);box-shadow:0 0 12px rgba(216,173,85,.35)}
 
-/* Super Smooth Mobile Grid */
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;max-width:980px;margin:0 auto;contain:content}
+/* Super Smooth 60fps Mobile Grid */
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;max-width:980px;margin:0 auto}
 @media(max-width:640px){
   .menu-grid{grid-template-columns:repeat(2,1fr);gap:8px}
   .navlinks a:not(.order-top){display:none}
 }
-.food-card{background:rgba(16,13,10,.88);border:1px solid var(--line);border-radius:9px;overflow:hidden;display:flex;flex-direction:column;contain:paint}
+.food-card{background:rgba(16,13,10,.88);border:1px solid var(--line);border-radius:9px;overflow:hidden;display:flex;flex-direction:column}
 .food-card.unavailable{opacity:.52;border-color:#7a2c26}
 
 .food-card-thumb{position:relative;width:100%;aspect-ratio:4/3;background:#15110d;overflow:hidden;cursor:zoom-in}
@@ -102,6 +102,10 @@ h1{font-family:"Cinzel",serif;font-size:clamp(26px,5vw,46px);letter-spacing:.08e
 .modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;padding:14px}
 .modal-overlay.open{display:flex}
 .box-modal{width:min(500px,100%);background:#110e0b;border:1.5px solid var(--gold);border-radius:10px;padding:18px;max-height:88vh;overflow-y:auto}
+
+/* Mobile Screen-Fit Photo Zoom Modal */
+.image-zoom-box{width:min(360px,92vw);background:#110e0b;border:1.5px solid var(--gold);border-radius:12px;padding:0;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.9);position:relative}
+.image-zoom-box img{width:100%;max-height:48vh;object-fit:cover;display:block}
 
 /* Thermal POS Slip */
 .thermal-receipt{background:#fff;color:#000;font-family:'Space Mono',monospace;padding:16px 12px;border-radius:4px;margin:12px 0;font-size:11.5px;line-height:1.35}
@@ -192,8 +196,9 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 
  <section class="section" id="menu" style="padding:12px 0 38px">
   <div class="wrap">
+   <!-- Clean Heading without 38 Dishes tag -->
    <div style="text-align:center;margin-bottom:14px">
-    <div class="eyebrow">THE CRAVING COLLECTION (38 DISHES)</div>
+    <div class="eyebrow">THE CRAVING COLLECTION</div>
     <h2 style="font-family:'Cinzel',serif;color:var(--gold2);font-size:clamp(19px,4vw,30px);margin:4px 0">OUR DELICIOUS MENU</h2>
     <p style="font-size:11.5px;color:var(--muted);margin:0">Tap on any dish photo to view full size.</p>
    </div>
@@ -300,14 +305,14 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
  </div>
 </div>
 
-<!-- Modal: Photo Zoom -->
+<!-- Modal: Mobile-Optimized Photo Zoom (Proper Screen-Fit) -->
 <div class="modal-overlay" id="imageModal">
- <div class="box-modal" style="padding:0;overflow:hidden">
-  <button class="close" id="closeZoom" style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.8);z-index:10">×</button>
-  <img id="modalImg" src="" style="width:100%;max-height:50vh;object-fit:cover;display:block" alt="Dish">
-  <div style="padding:14px">
-   <h3 id="modalTitle" style="margin:0 0 3px;color:var(--gold2);font-family:'Cinzel',serif;font-size:16px"></h3>
-   <p id="modalDesc" style="margin:0;font-size:11.5px;color:var(--muted);line-height:1.45"></p>
+ <div class="image-zoom-box">
+  <button class="close" id="closeZoom" style="position:absolute;top:8px;right:8px;background:rgba(0,0,0,.85);z-index:20;width:28px;height:28px">×</button>
+  <img id="modalImg" src="" alt="Dish">
+  <div style="padding:12px">
+   <h3 id="modalTitle" style="margin:0 0 4px;color:var(--gold2);font-family:'Cinzel',serif;font-size:15px"></h3>
+   <p id="modalDesc" style="margin:0;font-size:11px;color:var(--muted);line-height:1.4"></p>
   </div>
  </div>
 </div>
@@ -399,7 +404,7 @@ footer p{font-size:11px;color:var(--muted);line-height:1.55}
 
    <button class="gold-btn" id="btnOpenAddCombo" style="width:100%;margin:14px 0 6px;font-size:11.5px">➕ CREATE NEW COMBO / SPECIAL OFFER</button>
 
-   <h4 style="color:var(--gold2);font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:5px;margin:14px 0 8px">🍔 MENU &amp; OFFERS MANAGEMENT (38 ITEMS)</h4>
+   <h4 style="color:var(--gold2);font-size:12.5px;border-bottom:1px solid var(--line);padding-bottom:5px;margin:14px 0 8px">🍔 MENU &amp; OFFERS MANAGEMENT</h4>
    <div id="availabilityControls"></div>
    <button class="outline-btn" id="adminSignOut" style="margin-top:14px;width:100%">LOGOUT</button>
   </div>
@@ -465,7 +470,6 @@ let userDeliveryCharge = 0;
 
 const defaultPlaceholder = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2314100b'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23d8ad55' stroke-width='1.5' stroke-dasharray='4,3' opacity='0.4'/%3E%3Cpath d='M50 26 C43 26 37 32 37 39 C37 45 42 50 48 51 L48 74 L52 74 L52 51 C58 50 63 45 63 39 C63 32 57 26 50 26 Z M47 31 L49 31 L49 46 L47 46 Z M51 31 L53 31 L53 46 L51 46 Z' fill='%23d8ad55' opacity='0.85'/%3E%3C/svg%3E";
 
-// Total 38 Master Menu Items Intact
 const defaultMenu=[
 [101,"CF Ultimate Burger Combo","combos","veg",129,"Aloo Tikki Burger + Salted Fries + 250ml Cold Drink.",defaultPlaceholder],
 [102,"Cheese Maggi + Drink Combo","combos","veg",99,"Cheese Masala Maggi paired with a chilled soft drink.",defaultPlaceholder],
